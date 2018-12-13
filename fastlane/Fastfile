@@ -1,0 +1,10 @@
+default_platform(:ios)
+
+platform :ios do
+  lane :test do
+    scan(
+      fail_build: true,
+      scheme: 'PlayerCore'
+      )
+  end
+end

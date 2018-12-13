@@ -1,0 +1,19 @@
+cache:
+  bundler: true
+  directories:
+    - Carthage/Builds
+
+install:
+    # Installing all gems from bundler
+    - bundle install
+matrix: 
+  include:
+    - os: osx
+      language: objective-c
+      osx_image: xcode10
+      script: 
+        - bundle exec fastlane test
+        - bundle exec danger || true
+after_success:
+    # If master, should create a branch and a pull-request in SDK with updated PlayerCore
+    
