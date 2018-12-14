@@ -17,6 +17,7 @@ func reduce(state: VPAIDState, action: Action) -> VPAIDState {
         return VPAIDState(events: [], adClickthrough: creative.clickthrough)
     case is AdStopped,
          is AdRequest,
+         is VRMCore.AdRequest,
          is ShowContent,
          is SelectVideoAtIdx:
         return VPAIDState(events: [], adClickthrough: nil)

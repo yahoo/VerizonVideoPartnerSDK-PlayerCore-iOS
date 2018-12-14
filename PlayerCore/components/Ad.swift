@@ -36,6 +36,13 @@ func reduce(state: Ad, action: Action) -> Ad {
                   currentAd: state.currentAd,
                   currentType: action.type)
         
+    case let action as VRMCore.AdRequest:
+        return Ad(playedAds: state.playedAds,
+                  midrolls: state.midrolls,
+                  adCreative: .none,
+                  currentAd: state.currentAd,
+                  currentType: action.type)
+        
     case let action as ShowAd:
         var playedAds = state.playedAds
         playedAds.insert(action.id)
@@ -48,6 +55,15 @@ func reduce(state: Ad, action: Action) -> Ad {
     case let action as SkipAd:
         var playedAds = state.playedAds
         playedAds.insert(action.id)
+        return Ad(playedAds: playedAds,
+                  midrolls: state.midrolls,
+                  adCreative: state.adCreative,
+                  currentAd: state.currentAd,
+                  currentType: state.currentType)
+        
+    case let action as VRMCore.VRMResponseFetchFailed:
+        var playedAds = state.playedAds
+        playedAds.insert(action.requestID)
         return Ad(playedAds: playedAds,
                   midrolls: state.midrolls,
                   adCreative: state.adCreative,
