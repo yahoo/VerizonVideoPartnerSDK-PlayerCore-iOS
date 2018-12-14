@@ -34,6 +34,9 @@ public struct State {
     public let vpaidErrors: VPAIDErrors
     public let vrmRequestStatus: VRMRequestStatus
     public let vrmResponse: VRMResponse?
+    public let vrmGroupsQueue: VRMGroupsQueue
+    public let vrmCurrentGroup: VRMCurrentGroup
+    public let vrmTopPriorityItem: VRMTopPriorityItem
 }
 
 
@@ -103,7 +106,10 @@ extension State {
                                      javaScriptEvaluationErrors: [],
                                      isAdNotSupported: false),
             vrmRequestStatus: .initial,
-            vrmResponse: nil
+            vrmResponse: nil,
+            vrmGroupsQueue: .initial,
+            vrmCurrentGroup: .initial,
+            vrmTopPriorityItem: .initial
         )
     }
 }
@@ -142,6 +148,9 @@ public func reduce(state: State, action: Action) -> State {
         vpaid: reduce(state: state.vpaid, action: action),
         vpaidErrors: reduce(state: state.vpaidErrors, action: action),
         vrmRequestStatus: reduce(state: state.vrmRequestStatus, action: action),
-        vrmResponse: reduce(state: state.vrmResponse, action: action)
+        vrmResponse: reduce(state: state.vrmResponse, action: action),
+        vrmGroupsQueue: reduce(state: state.vrmGroupsQueue, action: action),
+        vrmCurrentGroup: reduce(state: state.vrmCurrentGroup, action: action),
+        vrmTopPriorityItem: reduce(state: state.vrmTopPriorityItem, action: action)
     )
 }

@@ -6,9 +6,11 @@ import Foundation
 public extension VRMCore {
     
     public struct Group: Equatable {
+        public let id: UUID
         public let items: [Item]
         
         public init(items: [Item]) {
+            self.id = UUID()
             self.items = items
         }
     }
