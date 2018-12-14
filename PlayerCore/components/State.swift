@@ -32,6 +32,8 @@ public struct State {
     public let userActions: UserActions
     public let vpaid: VPAIDState
     public let vpaidErrors: VPAIDErrors
+    public let vrmRequestStatus: VRMRequestStatus
+    public let vrmResponse: VRMResponse?
 }
 
 
@@ -99,7 +101,10 @@ extension State {
                               adClickthrough: nil),
             vpaidErrors: VPAIDErrors(abusedEvents: [],
                                      javaScriptEvaluationErrors: [],
-                                     isAdNotSupported: false))
+                                     isAdNotSupported: false),
+            vrmRequestStatus: .initial,
+            vrmResponse: nil
+        )
     }
 }
 
@@ -135,6 +140,8 @@ public func reduce(state: State, action: Action) -> State {
         contentFullScreen: reduce(state: state.contentFullScreen, action: action),
         userActions: reduce(state: state.userActions, action: action),
         vpaid: reduce(state: state.vpaid, action: action),
-        vpaidErrors: reduce(state: state.vpaidErrors, action: action)
+        vpaidErrors: reduce(state: state.vpaidErrors, action: action),
+        vrmRequestStatus: reduce(state: state.vrmRequestStatus, action: action),
+        vrmResponse: reduce(state: state.vrmResponse, action: action)
     )
 }

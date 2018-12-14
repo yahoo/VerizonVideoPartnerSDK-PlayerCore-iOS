@@ -5,6 +5,22 @@ import XCTest
 @testable import PlayerCore
 
 class AdComponentTestCase: XCTestCase {
+    
+    func testDismissAd() {
+        let id = UUID()
+        let initial = Ad(playedAds: [],
+                         midrolls: [],
+                         adCreative: .none,
+                         currentAd: .empty,
+                         currentType: .preroll)
+        
+        var sut = reduce(state: initial, action: skipAd(id: id))
+        XCTAssertEqual(sut.playedAds.count, 1)
+        
+        sut = reduce(state: initial, action: VRMCore.adResponseFetchFailed(requestID: id))
+        XCTAssertEqual(sut.playedAds.count, 1)
+    }
+    
     func testReduceOnShowAdForMp4() {
         let mp4Creative = AdCreative.mp4(with: testUrl)
         let initial = Ad(playedAds: [],
