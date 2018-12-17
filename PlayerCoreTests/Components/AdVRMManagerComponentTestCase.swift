@@ -81,10 +81,11 @@ class AdVRMManagerComponentTestCase: XCTestCase {
                                request: .init(id: UUID(),
                                               timeout: .beforeSoft,
                                               state: .progress))
-        sut = reduce(state: sut, action: ProcessGroups(transactionId: "txid", slot: "slot"))
+        sut = reduce(state: sut, action: ProcessGroups(transactionId: "txid", slot: "slot", cpm: "cpm"))
         guard case .finish(let request) = sut.request.state else { return XCTFail("Expecting `finish` state here!") }
         XCTAssertEqual(request.transactionID, "txid")
         XCTAssertEqual(request.slot, "slot")
+        XCTAssertEqual(sut.cpm, "cpm");
     }
     
     func testReduceOnVRMItemStart() {
