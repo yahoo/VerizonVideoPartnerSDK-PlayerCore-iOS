@@ -93,6 +93,7 @@ extension State {
             averageBitrate: AverageBitrate(content: 0, ad: 0),
             adTracker: AdFinishTracker(isFinished: false),
             adVRMManager: AdVRMManager(timeoutBarrier: Int(timeoutBarrier * 1000),
+                                       cpm: nil,
                                        requestsFired: 0,
                                        request: .initial()),
             mediaOptions: .empty,

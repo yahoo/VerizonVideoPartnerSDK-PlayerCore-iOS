@@ -3,17 +3,22 @@ cache:
   directories:
     - Carthage/Builds
 
+git:
+  depth: 1
+
 install:
-    # Installing all gems from bundler
-    - bundle install
-matrix: 
+  - bundle install
+
+matrix:
   include:
     - os: osx
       language: objective-c
       osx_image: xcode10
-      script: 
+      script:
         - bundle exec fastlane test
         - bundle exec danger || true
-after_success:
-    # If master, should create a branch and a pull-request in SDK with updated PlayerCore
-    
+
+notifications:
+  email: false
+  slack:  
+    secure: RRI6lCpqJCeQoaiN7vU0IL9QtExUODJfTfkzBM0II2KiHjJQlO+eDagVYIRPL2pT2dRhFjzWDUMcQKbg8FQ51OotobzvNs/zTdF7lzyU3CSR1iKZLWcmOUSs+fKEIYUXRwWYFqHvuxIhww/Aq6nBXMMMQYe1++HG0kqsI7O5zAUW9NgU1lBCkddgNAwJY8GWVuZpaMUc48AuxD2+nY5vHp66yeYucHibIyVV8V9mo+VVcDC22N84RSW5xoGcqjnJ3lpD28IHefSCkP0+zql+/SkYSWWH39l/HSyaO9nIPiU9f47WDu7K7aO1r4fhGIf5MiFEFb9amvOpN1TIqpu1pFMtNMAI7Fh/SCGxR3VgIDRqEVIkIong2oKIfhxeOshYGLjCFlMShnSXbLnw9Qo7lDKsjvhg/xPyc6ldW0iEgn2jM3mjKYrk1A4eqAxAjYuNXIjY0uPzfle9DfyGIwvppYiHyjv08L777XsZp88Q2AwTMJ6VcEiaGPLpc5CwYFVmIl/U/iQnPSmOLVllIUhTRy0LDfelaOAsR8RQ+7KD/eQ2rIGt7v2RFdl/MxikTOh8tWcUAmzuym6c0Gxci99rXViSiFmqnn7BG8xyAz+vm+Yvi3CTiljzOF4OlmtTVqyaW1od24CMalqgZb4Abp7JW5hA/kCkXrNP63pSb9RD6RU=
