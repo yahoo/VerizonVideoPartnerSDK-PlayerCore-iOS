@@ -11,8 +11,8 @@ public func adRequest(url: URL, id: UUID, type: AdType) -> Action {
     return AdRequest(url: url, id: id, type: type)
 }
 
-public func adProcessGroup(transactionId: String?, slot: String) -> Action {
-    return ProcessGroups(transactionId: transactionId, slot: slot)
+public func adProcessGroup(transactionId: String?, slot: String, cpm: CostPerMille?) -> Action {
+    return ProcessGroups(transactionId: transactionId, slot: slot, cpm: cpm)
 }
 
 public func adVRMItemStart(info: VRMMetaInfo, url: URL, requestDate: Date) -> Action {

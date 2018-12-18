@@ -8,10 +8,13 @@ public protocol AdVRMManagerResult {
     var slot: String { get }
 }
 
+public typealias CostPerMille = String
+
 public struct AdVRMManager {
     public let timeoutBarrier: Int
-    public var requestsFired: Int
+    public let cpm: CostPerMille?
     
+    public var requestsFired: Int
     public var request: VRMRequest
     public struct VRMRequest {
         public var id: UUID?
@@ -133,6 +136,10 @@ func reduce(state: AdVRMManager, action: Action) -> AdVRMManager {
         state.request = .initial()
         
     case (let action as ProcessGroups, .progress):
+        state = AdVRMManager(timeoutBarrier: state.timeoutBarrier,
+                             cpm: action.cpm,
+                             requestsFired: state.requestsFired,
+                             request: state.request)
         state.request.state = .finish(.init(transactionID: action.transactionId,
                                             slot: action.slot,
                                             startItems: [],

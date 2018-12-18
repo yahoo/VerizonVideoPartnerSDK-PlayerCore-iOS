@@ -4,4 +4,5 @@
 struct ProcessGroups: Action {
     let transactionId: String?
     let slot: String
+    let cpm: CostPerMille?
 }
