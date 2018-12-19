@@ -45,17 +45,20 @@ public struct VRMMetaInfo {
     public let ruleCompanyId: String?
     public let vendor: String
     public let name: String?
+    public let cpm: String?
     
     public init(engineType: String?,
                 ruleId: String?,
                 ruleCompanyId: String?,
                 vendor: String,
-                name: String?) {
+                name: String?,
+                cpm: String?) {
         self.engineType = engineType
         self.ruleId = ruleId
         self.ruleCompanyId = ruleCompanyId
         self.vendor = vendor
         self.name = name
+        self.cpm = cpm
     }
 }
 
