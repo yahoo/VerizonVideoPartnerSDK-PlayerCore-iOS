@@ -20,5 +20,4 @@ enum VRMMockGenerator {
     static func createUrlItem() -> VRMCore.Item {
         return .url(URL(string: "http://test.com")!, createMetaInfo())
     }
-    
 }

@@ -37,6 +37,7 @@ public struct State {
     public let vrmGroupsQueue: VRMGroupsQueue
     public let vrmCurrentGroup: VRMCurrentGroup
     public let vrmTopPriorityItem: VRMTopPriorityItem
+    public let vrmScheduledItems: ScheduledVRMItems
 }
 
 
@@ -110,7 +111,8 @@ extension State {
             vrmResponse: nil,
             vrmGroupsQueue: .initial,
             vrmCurrentGroup: .initial,
-            vrmTopPriorityItem: .initial
+            vrmTopPriorityItem: .initial,
+            vrmScheduledItems: .initial
         )
     }
 }
@@ -152,6 +154,7 @@ public func reduce(state: State, action: Action) -> State {
         vrmResponse: reduce(state: state.vrmResponse, action: action),
         vrmGroupsQueue: reduce(state: state.vrmGroupsQueue, action: action),
         vrmCurrentGroup: reduce(state: state.vrmCurrentGroup, action: action),
-        vrmTopPriorityItem: reduce(state: state.vrmTopPriorityItem, action: action)
+        vrmTopPriorityItem: reduce(state: state.vrmTopPriorityItem, action: action),
+        vrmScheduledItems: reduce(state: state.vrmScheduledItems, action: action)
     )
 }
