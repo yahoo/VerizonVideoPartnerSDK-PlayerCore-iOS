@@ -10,7 +10,8 @@ enum VRMMockGenerator {
                                      ruleId: "ruleId",
                                      ruleCompanyId: "ruleCompanyId",
                                      vendor: "vendor",
-                                     name: "name")
+                                     name: "name",
+                                     cpm: "cpm")
     }
     
     static func createVASTItem() -> VRMCore.Item {
