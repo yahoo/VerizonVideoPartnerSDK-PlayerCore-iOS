@@ -16,11 +16,11 @@ class AdVRMManagerComponentTestCase: XCTestCase {
                                     ruleId: nil,
                                     ruleCompanyId: nil,
                                     vendor: "vendor",
-                                    name: nil)
+                                    name: nil,
+                                    cpm: nil)
     
     func testReduceOnAdRequest() {
         var sut = AdVRMManager(timeoutBarrier: 3500,
-                               cpm: nil,
                                requestsFired: 0,
                                request: .initial())
         let id = UUID()
@@ -33,7 +33,6 @@ class AdVRMManagerComponentTestCase: XCTestCase {
     func testReduceOnSkipAd() {
         let id = UUID()
         var sut = AdVRMManager(timeoutBarrier: 250,
-                               cpm: nil,
                                requestsFired: 0,
                                request: .init(id: id,
                                               timeout: .afterHard,
@@ -48,7 +47,6 @@ class AdVRMManagerComponentTestCase: XCTestCase {
     func testReduceOnAdPlaybackFailed() {
         let id = UUID()
         var sut = AdVRMManager(timeoutBarrier: 250,
-                               cpm: nil,
                                requestsFired: 0,
                                request: .init(id: id,
                                               timeout: .afterHard,
@@ -63,7 +61,6 @@ class AdVRMManagerComponentTestCase: XCTestCase {
     func testReduceOnShowAd() {
         let id = UUID()
         var sut = AdVRMManager(timeoutBarrier: 3500,
-                               cpm: nil,
                                requestsFired: 0,
                                request: .init(id: id,
                                               timeout: .afterHard,
@@ -76,21 +73,18 @@ class AdVRMManagerComponentTestCase: XCTestCase {
     
     func testReduceOnProcessGroups() {
         var sut = AdVRMManager(timeoutBarrier: 3500,
-                               cpm: nil,
                                requestsFired: 0,
                                request: .init(id: UUID(),
                                               timeout: .beforeSoft,
                                               state: .progress))
-        sut = reduce(state: sut, action: ProcessGroups(transactionId: "txid", slot: "slot", cpm: "cpm"))
+        sut = reduce(state: sut, action: ProcessGroups(transactionId: "txid", slot: "slot"))
         guard case .finish(let request) = sut.request.state else { return XCTFail("Expecting `finish` state here!") }
         XCTAssertEqual(request.transactionID, "txid")
         XCTAssertEqual(request.slot, "slot")
-        XCTAssertEqual(sut.cpm, "cpm");
     }
     
     func testReduceOnVRMItemStart() {
         var sut = AdVRMManager(timeoutBarrier: 3500,
-                               cpm: nil,
                                requestsFired: 0,
                                request: .init(id: UUID(),
                                               timeout: .beforeSoft,
@@ -113,7 +107,6 @@ class AdVRMManagerComponentTestCase: XCTestCase {
     
     func testReduceOnVRMItemModel() {
         var sut = AdVRMManager(timeoutBarrier: 3500,
-                               cpm: nil,
                                requestsFired: 0,
                                request: .init(id: UUID(),
                                               timeout: .beforeSoft,
@@ -159,7 +152,6 @@ class AdVRMManagerComponentTestCase: XCTestCase {
     
     func testReduceOnVRMItemTimeout() {
         var sut = AdVRMManager(timeoutBarrier: 3500,
-                               cpm: nil,
                                requestsFired: 0,
                                request: .init(id: UUID(),
                                               timeout: .beforeSoft,
@@ -184,7 +176,6 @@ class AdVRMManagerComponentTestCase: XCTestCase {
     
     func testReduceInVRMItemOther() {
         var sut = AdVRMManager(timeoutBarrier: 3500,
-                               cpm: nil,
                                requestsFired: 0,
                                request: .init(id: UUID(),
                                               timeout: .beforeSoft,
@@ -209,7 +200,6 @@ class AdVRMManagerComponentTestCase: XCTestCase {
     
     func testReduceOnSoftTimeout() {
         var sut = AdVRMManager(timeoutBarrier: 3500,
-                               cpm: nil,
                                requestsFired: 0,
                                request: .initial())
         sut = reduce(state: sut, action: SoftTimeout())
@@ -218,7 +208,6 @@ class AdVRMManagerComponentTestCase: XCTestCase {
     
     func testReduceOnHardTimeout() {
         var sut = AdVRMManager(timeoutBarrier: 3500,
-                               cpm: nil,
                                requestsFired: 0,
                                request: .initial())
         sut = reduce(state: sut, action: HardTimeout())
@@ -226,7 +215,6 @@ class AdVRMManagerComponentTestCase: XCTestCase {
     }
     func testReduceOnAdStopped() {
         var sut = AdVRMManager(timeoutBarrier: 3500,
-                               cpm: nil,
                                requestsFired: 0,
                                request: .init(id: UUID(),
                                               timeout: .beforeSoft,
@@ -245,7 +233,6 @@ class AdVRMManagerComponentTestCase: XCTestCase {
     
     func testReduceOnAdMaxShowTimeout() {
         var sut = AdVRMManager(timeoutBarrier: 3500,
-                               cpm: nil,
                                requestsFired: 0,
                                request: .init(id: UUID(),                                              
                                               timeout: .beforeSoft,
