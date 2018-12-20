@@ -15,8 +15,8 @@ public extension VRMCore {
         }
     }
     
-    public enum Item: Equatable {
-        public struct MetaInfo: Equatable {
+    public enum Item: Equatable, Hashable {
+        public struct MetaInfo: Equatable, Hashable {
             public let id: UUID
             public let engineType: String?
             public let ruleId: String?
