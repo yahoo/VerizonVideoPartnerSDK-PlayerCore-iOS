@@ -4,14 +4,14 @@ import Foundation
 
 public extension VRMCore {
     public static func startItemParsing(originalItem: Item, vastXML: String, startDate: Date = Date()) -> Action {
-        guard case .vast = originalItem else { fatalError("can't start parsing of url item") }
-        
-        return StartItem.parsing(originalItem: originalItem, vastXML: vastXML, startDate: startDate)
+        return StartItemParsing(originalItem: originalItem, vastXML: vastXML, startDate: startDate)
     }
     
     public static func startItemFetch(originalItem: Item, url: URL,  startDate: Date = Date()) -> Action {
-        guard case .url = originalItem else { fatalError("can't start fetching of vast string item") }
-        
-        return StartItem.fetching(originalItem: originalItem, url: url, startDate: startDate)
+        return StartItemFetch(originalItem: originalItem, url: url, startDate: startDate)
+    }
+    
+    public static func failedItemFetch(originalItem: Item, fetchCandidate: VRMFetchItemQueue.FetchCandidate) -> Action {
+        return FetchingError(originalItem: originalItem, fetchCandidate: fetchCandidate)
     }
 }
