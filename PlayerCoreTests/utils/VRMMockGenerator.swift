@@ -14,11 +14,15 @@ enum VRMMockGenerator {
                                      cpm: "cpm")
     }
     
-    static func createVASTItem() -> VRMCore.Item {
-        return .vast("VAST String", createMetaInfo())
+    static func createVASTItem(id: VRMCore.ID<VRMCore.Item> = VRMCore.ID()) -> VRMCore.Item {
+        return VRMCore.Item(id: id,
+                            source: .vast("VAST String"),
+                            metaInfo: createMetaInfo())
     }
     
-    static func createUrlItem() -> VRMCore.Item {
-        return .url(URL(string: "http://test.com")!, createMetaInfo())
+    static func createUrlItem(id: VRMCore.ID<VRMCore.Item> = VRMCore.ID()) -> VRMCore.Item {
+        return VRMCore.Item(id: id,
+                            source: .url(URL(string: "http://test.com")!),
+                            metaInfo: createMetaInfo())
     }
 }

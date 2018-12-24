@@ -5,8 +5,20 @@ import Foundation
 
 extension VRMCore {
     
-    enum StartItem: Action {
-        case parsing( originalItem: Item, vastXML: String, startDate: Date)
-        case fetching( originalItem: Item, url: URL, startDate: Date)
+    struct StartItemParsing: Action {
+        let originalItem: Item
+        let vastXML: String
+        let startDate: Date
+    }
+    
+    struct StartItemFetch: Action {
+        let originalItem: Item
+        let url: URL
+        let startDate: Date
+    }
+    
+    struct FetchingError: Action {
+        let originalItem: Item
+        let fetchCandidate: VRMFetchItemQueue.FetchCandidate
     }
 }
