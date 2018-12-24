@@ -7,6 +7,14 @@ public extension VRMCore {
         return StartItemParsing(originalItem: originalItem, vastXML: vastXML, startDate: startDate)
     }
     
+    public static func completeItemParsing(originalItem: Item, vastModel: VRMCore.VASTModel, startDate: Date = Date()) -> Action {
+        return CompleteItemParsing(originalItem: originalItem, vastModel: vastModel, date: startDate )
+    }
+    
+    public static func failedItemParse(originalItem: Item, parseCandidate: VRMParseItemQueue.Candidate) -> Action {
+        return ParsingError(originalItem: originalItem, parseCandidate: parseCandidate)
+    }
+    
     public static func startItemFetch(originalItem: Item, url: URL,  startDate: Date = Date()) -> Action {
         return StartItemFetch(originalItem: originalItem, url: url, startDate: startDate)
     }

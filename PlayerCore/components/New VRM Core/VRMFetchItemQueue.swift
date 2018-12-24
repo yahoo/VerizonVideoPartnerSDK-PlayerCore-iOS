@@ -13,7 +13,7 @@ public struct VRMFetchItemQueue {
         public let url: URL
     }
     
-    public let candidates: Set<Candidate>
+    public var candidates: Set<Candidate>
 }
 
 func reduce(state: VRMFetchItemQueue, action: Action) -> VRMFetchItemQueue {
@@ -22,9 +22,9 @@ func reduce(state: VRMFetchItemQueue, action: Action) -> VRMFetchItemQueue {
         let candidate = VRMFetchItemQueue.Candidate(parentItem: fetchAction.originalItem,
                                                          id: VRMCore.ID(),
                                                          url: fetchAction.url)
-        var newSet = Set<VRMFetchItemQueue.Candidate>(state.candidates)
-        newSet.insert(candidate)
-        return VRMFetchItemQueue(candidates: newSet)
+        var newState = state
+        newState.candidates.insert(candidate)
+        return newState
     default:
         return state
     }

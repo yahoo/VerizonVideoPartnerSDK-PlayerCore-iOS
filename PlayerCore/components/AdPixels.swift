@@ -4,7 +4,7 @@
 
 import Foundation
 
-public struct AdPixels {
+public struct AdPixels: Equatable {
     public typealias URLs = [URL]
     public var impression: URLs
     public var error: URLs

@@ -39,13 +39,14 @@ public extension VRMCore {
             public let name: String?
             public let cpm: String?
             
-            public init(engineType: String?,
+            public init(id: ID<MetaInfo> = ID(),
+                        engineType: String?,
                         ruleId: String?,
                         ruleCompanyId: String?,
                         vendor: String,
                         name: String?,
                         cpm: String?) {
-                self.id = ID()
+                self.id = id
                 self.engineType = engineType
                 self.ruleId = ruleId
                 self.ruleCompanyId = ruleCompanyId
