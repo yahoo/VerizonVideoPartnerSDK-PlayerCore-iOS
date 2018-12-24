@@ -7,22 +7,22 @@ public struct VRMFetchItemQueue {
     
     static let initial = VRMFetchItemQueue(candidates: [])
     
-    public struct FetchCandidate: Hashable {
+    public struct Candidate: Hashable {
         public let parentItem: VRMCore.Item
-        public let id: VRMCore.ID<FetchCandidate>
+        public let id: VRMCore.ID<Candidate>
         public let url: URL
     }
     
-    public let candidates: Set<FetchCandidate>
+    public let candidates: Set<Candidate>
 }
 
 func reduce(state: VRMFetchItemQueue, action: Action) -> VRMFetchItemQueue {
     switch action {
     case let fetchAction as VRMCore.StartItemFetch:
-        let candidate = VRMFetchItemQueue.FetchCandidate(parentItem: fetchAction.originalItem,
+        let candidate = VRMFetchItemQueue.Candidate(parentItem: fetchAction.originalItem,
                                                          id: VRMCore.ID(),
                                                          url: fetchAction.url)
-        var newSet = Set<VRMFetchItemQueue.FetchCandidate>(state.candidates)
+        var newSet = Set<VRMFetchItemQueue.Candidate>(state.candidates)
         newSet.insert(candidate)
         return VRMFetchItemQueue(candidates: newSet)
     default:
