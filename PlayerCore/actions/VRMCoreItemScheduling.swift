@@ -19,6 +19,6 @@ extension VRMCore {
     
     struct FetchingError: Action {
         let originalItem: Item
-        let fetchCandidate: VRMFetchItemQueue.FetchCandidate
+        let fetchCandidate: VRMFetchItemQueue.Candidate
     }
 }

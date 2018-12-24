@@ -11,7 +11,7 @@ public extension VRMCore {
         return StartItemFetch(originalItem: originalItem, url: url, startDate: startDate)
     }
     
-    public static func failedItemFetch(originalItem: Item, fetchCandidate: VRMFetchItemQueue.FetchCandidate) -> Action {
+    public static func failedItemFetch(originalItem: Item, fetchCandidate: VRMFetchItemQueue.Candidate) -> Action {
         return FetchingError(originalItem: originalItem, fetchCandidate: fetchCandidate)
     }
 }
