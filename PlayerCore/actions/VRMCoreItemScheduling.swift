@@ -11,6 +11,17 @@ extension VRMCore {
         let startDate: Date
     }
     
+    struct CompleteItemParsing: Action {
+        let originalItem: Item
+        let vastModel: VASTModel
+        let date: Date
+    }
+    
+    struct ParsingError: Action {
+        let originalItem: Item
+        let parseCandidate: VRMParseItemQueue.Candidate
+    }
+    
     struct StartItemFetch: Action {
         let originalItem: Item
         let url: URL
