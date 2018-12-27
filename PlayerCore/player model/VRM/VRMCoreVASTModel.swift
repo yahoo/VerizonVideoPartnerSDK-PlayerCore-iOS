@@ -27,6 +27,14 @@ public extension VRMCore {
     }
 }
 
+public extension VRMCore.VASTModel.WrapperModel {
+    func merge(with pixels: AdPixels, and verifications: [Ad.VASTModel.AdVerification]) -> VRMCore.VASTModel.WrapperModel {
+        return VRMCore.VASTModel.WrapperModel(tagURL: tagURL,
+                                              adVerifications: self.adVerifications + verifications,
+                                              pixels: self.pixels.merge(with: pixels))
+    }
+}
+
 public extension Ad.VASTModel {
     public func merge(with pixels: AdPixels, and verifications: [Ad.VASTModel.AdVerification]) -> Ad.VASTModel {
         return PlayerCore.Ad.VASTModel(
