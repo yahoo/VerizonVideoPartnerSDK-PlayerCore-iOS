@@ -17,6 +17,7 @@ matrix:
       script:
         - bundle exec fastlane test
         - bundle exec danger || true
+        - bundle exec fastlane lint_current_podspec
 
 notifications:
   email: false
