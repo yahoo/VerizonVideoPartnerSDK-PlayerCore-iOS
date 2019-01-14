@@ -32,4 +32,13 @@ extension VRMCore {
         let originalItem: Item
         let fetchCandidate: VRMFetchItemQueue.Candidate
     }
+    
+    struct UnwrapItem: Action {
+        let url: URL
+        let item: Item
+    }
+    
+    struct TooManyIndirections: Action {
+        let item: Item
+    }
 }
