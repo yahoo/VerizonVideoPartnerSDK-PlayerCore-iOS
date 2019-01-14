@@ -1,4 +1,4 @@
-actions_path '../OneMobileSDK-build-scripts-ios/cocoapods'
+actions_path '../VerizonVideoPartnerSDK-build-scripts-ios/cocoapods'
 
 default_platform(:ios)
 
@@ -12,6 +12,6 @@ platform :ios do
   lane :lint_current_podspec do 
     lint_podspec(
       podspec_path: './podspec/PlayerCore.podspec',
-      sources_repo: 'https://github.com/VerizonAdPlatforms/OneMobileSDK-releases-iOS')
+      sources_repo: 'https://github.com/VerizonAdPlatforms/VerizonVideoPartnerSDK-releases-iOS')
   end  
 end

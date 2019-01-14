@@ -1,3 +1,3 @@
-[submodule "OneMobileSDK-build-scripts-ios"]
-	path = OneMobileSDK-build-scripts-ios
-	url = https://github.com/VerizonAdPlatforms/OneMobileSDK-build-scripts-ios.git
+[submodule "VerizonVideoPartnerSDK-build-scripts-ios"]
+	path = VerizonVideoPartnerSDK-build-scripts-ios
+	url = https://github.com/VerizonAdPlatforms/VerizonVideoPartnerSDK-build-scripts-ios.git
