@@ -22,4 +22,12 @@ public extension VRMCore {
     public static func failedItemFetch(originalItem: Item, fetchCandidate: VRMFetchItemQueue.Candidate) -> Action {
         return FetchingError(originalItem: originalItem, fetchCandidate: fetchCandidate)
     }
+    
+    public static func unwrapItem(item: Item, url: URL) -> Action {
+        return UnwrapItem(url: url, item: item)
+    }
+    
+    public static func tooManyIndirections(item: Item) -> Action {
+        return TooManyIndirections(item: item)
+    }
 }
