@@ -42,6 +42,8 @@ public struct State {
     public let vrmParseItemsQueue: VRMParseItemQueue
     public let vrmParsingResult: VRMParsingResult
     public let vrmProcessingResult: VRMProcessingResult
+    public let vrmProcessingTimeout: VRMProcessingTimeout
+    public let vrmMaxAdSearchTimeout: VRMMaxAdSearchTimeout
 }
 
 
@@ -119,7 +121,9 @@ extension State {
             vrmFetchItemsQueue: .initial,
             vrmParseItemsQueue: .initial,
             vrmParsingResult: .initial,
-            vrmProcessingResult: .initial
+            vrmProcessingResult: .initial,
+            vrmProcessingTimeout: .none,
+            vrmMaxAdSearchTimeout: .initial
         )
     }
 }
@@ -166,6 +170,8 @@ public func reduce(state: State, action: Action) -> State {
         vrmFetchItemsQueue: reduce(state: state.vrmFetchItemsQueue, action: action),
         vrmParseItemsQueue: reduce(state: state.vrmParseItemsQueue, action: action),
         vrmParsingResult: reduce(state: state.vrmParsingResult, action: action),
-        vrmProcessingResult: reduce(state: state.vrmProcessingResult, action: action)
+        vrmProcessingResult: reduce(state: state.vrmProcessingResult, action: action),
+        vrmProcessingTimeout: reduce(state: state.vrmProcessingTimeout, action: action),
+        vrmMaxAdSearchTimeout: reduce(state: state.vrmMaxAdSearchTimeout, action: action)
     )
 }
