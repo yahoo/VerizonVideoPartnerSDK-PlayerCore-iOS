@@ -30,4 +30,8 @@ public extension VRMCore {
     public static func tooManyIndirections(item: Item) -> Action {
         return TooManyIndirections(item: item)
     }
+    
+    public static func timeoutError(item: Item) -> Action {
+        return TimeoutError(item: item)
+    }
 }
