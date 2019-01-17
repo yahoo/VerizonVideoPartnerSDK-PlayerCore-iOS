@@ -41,4 +41,8 @@ extension VRMCore {
     struct TooManyIndirections: Action {
         let item: Item
     }
+    
+    struct TimeoutError: Action {
+        let item: Item
+    }
 }

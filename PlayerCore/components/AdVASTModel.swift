@@ -3,7 +3,7 @@
 
 import Foundation
 extension Ad {
-    public struct VASTModel: Equatable {
+    public struct VASTModel: Hashable {
         public let adVerifications: [AdVerification]
         public let mediaFiles: [MediaFile]
         public let clickthrough: URL?
@@ -11,7 +11,7 @@ extension Ad {
         public let pixels: AdPixels
         public let id: String?
         
-        public struct MediaFile: Equatable {
+        public struct MediaFile: Hashable {
             public let url: URL
             public let type: VideoType
             public let width: Int
@@ -34,7 +34,7 @@ extension Ad {
             }
             public enum VideoType { case mp4, vpaid }
         }
-        public struct AdVerification: Equatable {
+        public struct AdVerification: Hashable {
             public let vendorKey: String?
             public let javaScriptResource: URL
             public let verificationParameters: URL?

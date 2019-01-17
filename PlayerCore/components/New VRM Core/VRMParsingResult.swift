@@ -6,7 +6,7 @@ import Foundation
 public struct VRMParsingResult {
     static let initial = VRMParsingResult(parsedVASTs: [:])
     
-    public struct Result {
+    public struct Result: Hashable {
         public let id = VRMCore.ID<Result>()
         public let vastModel: VRMCore.VASTModel
     }

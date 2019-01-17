@@ -6,9 +6,9 @@ import Foundation
 public extension VRMCore {
     
     /// Currently we support only InLine ads.
-    public enum VASTModel: Equatable {
+    public enum VASTModel: Hashable {
         
-        public struct WrapperModel: Equatable {
+        public struct WrapperModel: Hashable {
             public let tagURL: URL
             public let adVerifications: [Ad.VASTModel.AdVerification]
             public let pixels: AdPixels
