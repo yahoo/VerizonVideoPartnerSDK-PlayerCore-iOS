@@ -214,8 +214,8 @@
 		E24103DD21C0442100036290 /* VRMResponseComponentTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24103DC21C0442100036290 /* VRMResponseComponentTest.swift */; };
 		E257A9B921C416EA0016D35A /* VRMCurrentGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = E257A9B821C416EA0016D35A /* VRMCurrentGroup.swift */; };
 		E257A9BB21C417010016D35A /* VRMGroupsQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = E257A9BA21C417010016D35A /* VRMGroupsQueue.swift */; };
-		E257A9BD21C7182B0016D35A /* VRMCoreStartGroupProcessing.swift in Sources */ = {isa = PBXBuildFile; fileRef = E257A9BC21C7182B0016D35A /* VRMCoreStartGroupProcessing.swift */; };
-		E257A9BF21C718970016D35A /* VRMCoreStartGroupActionCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E257A9BE21C718970016D35A /* VRMCoreStartGroupActionCreator.swift */; };
+		E257A9BD21C7182B0016D35A /* VRMCoreGroupProcessing.swift in Sources */ = {isa = PBXBuildFile; fileRef = E257A9BC21C7182B0016D35A /* VRMCoreGroupProcessing.swift */; };
+		E257A9BF21C718970016D35A /* VRMCoreGroupActionCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E257A9BE21C718970016D35A /* VRMCoreGroupActionCreator.swift */; };
 		E257A9C121C7BB670016D35A /* VRMCurrentGroupComponentTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E257A9C021C7BB670016D35A /* VRMCurrentGroupComponentTest.swift */; };
 		E257A9C321C7BD6A0016D35A /* VRMGroupsQueueComponentTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E257A9C221C7BD6A0016D35A /* VRMGroupsQueueComponentTest.swift */; };
 		E257A9C521C7C6740016D35A /* VRMTopPriorityItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E257A9C421C7C6740016D35A /* VRMTopPriorityItem.swift */; };
@@ -450,8 +450,8 @@
 		E24103DC21C0442100036290 /* VRMResponseComponentTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VRMResponseComponentTest.swift; sourceTree = "<group>"; };
 		E257A9B821C416EA0016D35A /* VRMCurrentGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = VRMCurrentGroup.swift; path = "components/New VRM Core/VRMCurrentGroup.swift"; sourceTree = "<group>"; };
 		E257A9BA21C417010016D35A /* VRMGroupsQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = VRMGroupsQueue.swift; path = components/VRMGroupsQueue.swift; sourceTree = "<group>"; };
-		E257A9BC21C7182B0016D35A /* VRMCoreStartGroupProcessing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = VRMCoreStartGroupProcessing.swift; path = "actions/New VRM Core/VRMCoreStartGroupProcessing.swift"; sourceTree = "<group>"; };
-		E257A9BE21C718970016D35A /* VRMCoreStartGroupActionCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = VRMCoreStartGroupActionCreator.swift; path = "action creators/New VRM Core/VRMCoreStartGroupActionCreator.swift"; sourceTree = "<group>"; };
+		E257A9BC21C7182B0016D35A /* VRMCoreGroupProcessing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = VRMCoreGroupProcessing.swift; path = "actions/New VRM Core/VRMCoreGroupProcessing.swift"; sourceTree = "<group>"; };
+		E257A9BE21C718970016D35A /* VRMCoreGroupActionCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = VRMCoreGroupActionCreator.swift; path = "action creators/New VRM Core/VRMCoreGroupActionCreator.swift"; sourceTree = "<group>"; };
 		E257A9C021C7BB670016D35A /* VRMCurrentGroupComponentTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VRMCurrentGroupComponentTest.swift; sourceTree = "<group>"; };
 		E257A9C221C7BD6A0016D35A /* VRMGroupsQueueComponentTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VRMGroupsQueueComponentTest.swift; sourceTree = "<group>"; };
 		E257A9C421C7C6740016D35A /* VRMTopPriorityItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = VRMTopPriorityItem.swift; path = "components/New VRM Core/VRMTopPriorityItem.swift"; sourceTree = "<group>"; };
@@ -749,7 +749,7 @@
 			children = (
 				E24103CE21BFFA2700036290 /* VRMCoreAdProcess.swift */,
 				E24103DA21C03F4900036290 /* VRMCoreAdResponseActionCreator.swift */,
-				E257A9BE21C718970016D35A /* VRMCoreStartGroupActionCreator.swift */,
+				E257A9BE21C718970016D35A /* VRMCoreGroupActionCreator.swift */,
 				E22B6ACD21EF606800D480A0 /* VRMCoreItemSchedulingActionCreator.swift */,
 				E22B6ACB21EF604600D480A0 /* VRMCoreResultSelectionActionCreator.swift */,
 				E22B6AE221F0BCC100D480A0 /* VRMTimeoutActionsCreator.swift */,
@@ -762,7 +762,7 @@
 			children = (
 				E24103CB21BFF9C700036290 /* VRMCoreAdRequestAction.swift */,
 				E24103D121BFFC4800036290 /* VRMCoreAdResponseAction.swift */,
-				E257A9BC21C7182B0016D35A /* VRMCoreStartGroupProcessing.swift */,
+				E257A9BC21C7182B0016D35A /* VRMCoreGroupProcessing.swift */,
 				E257A9F621C937640016D35A /* VRMCoreItemScheduling.swift */,
 				E22B6AC921EF5F4C00D480A0 /* VRMCoreResultSelection.swift */,
 				E22B6AE021F0BBD300D480A0 /* VRMTimeoutActions.swift */,
@@ -1019,7 +1019,7 @@
 				E22B6B1421F6279500D480A0 /* VRMTimeoutError.swift in Sources */,
 				06CD52CC213D905F00C5B783 /* CompletePlaybackSessionAction.swift in Sources */,
 				E24103D021BFFA2700036290 /* VRMCoreAdProcess.swift in Sources */,
-				E257A9BD21C7182B0016D35A /* VRMCoreStartGroupProcessing.swift in Sources */,
+				E257A9BD21C7182B0016D35A /* VRMCoreGroupProcessing.swift in Sources */,
 				06CD5304213D906B00C5B783 /* UpdateDimensions.swift in Sources */,
 				06CD52F8213D906B00C5B783 /* UpdateExternalPlaybackAction.swift in Sources */,
 				06CD5332213D908500C5B783 /* MaxShowTimeActionCreator.swift in Sources */,
@@ -1065,7 +1065,7 @@
 				06CD52FD213D906B00C5B783 /* PlaybackReady.swift in Sources */,
 				06CD52EC213D906B00C5B783 /* TimerAction.swift in Sources */,
 				06CD537C213D909C00C5B783 /* PlaybackSession.swift in Sources */,
-				E257A9BF21C718970016D35A /* VRMCoreStartGroupActionCreator.swift in Sources */,
+				E257A9BF21C718970016D35A /* VRMCoreGroupActionCreator.swift in Sources */,
 				06CD537E213D909C00C5B783 /* PlayerSession.swift in Sources */,
 				06CD5370213D909C00C5B783 /* StallingRecords.swift in Sources */,
 				E24103CC21BFF9C700036290 /* VRMCoreAdRequestAction.swift in Sources */,

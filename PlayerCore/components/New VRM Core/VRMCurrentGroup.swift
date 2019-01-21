@@ -12,6 +12,8 @@ func reduce(state: VRMCurrentGroup, action: Action) -> VRMCurrentGroup {
     switch action {
     case let currentGroupAction as VRMCore.StartGroupProcessing:
         return VRMCurrentGroup(currentGroup: currentGroupAction.group)
+    case is VRMCore.FinishCurrentGroupProcessing:
+        return VRMCurrentGroup(currentGroup: nil)
     default: return state
     }
 }

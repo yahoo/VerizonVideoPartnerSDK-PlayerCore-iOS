@@ -11,9 +11,13 @@ class VRMTopPriorityItemComponentTest: XCTestCase {
         let urlItem = VRMMockGenerator.createUrlItem()
         let group = VRMCore.Group(items: [vastItem, urlItem])
         let action = VRMCore.startGroupProcessing(group: group)
-        let sut = reduce(state: VRMTopPriorityItem.initial, action: action)
+        var sut = reduce(state: VRMTopPriorityItem.initial, action: action)
         
         XCTAssertEqual(sut.item, group.items.first)
+        
+        sut = reduce(state: sut, action: VRMCore.softTimeoutReached())
+        
+        XCTAssertNil(sut.item)
     }
     
 }

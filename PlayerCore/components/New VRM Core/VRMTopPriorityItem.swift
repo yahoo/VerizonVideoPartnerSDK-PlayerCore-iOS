@@ -12,6 +12,8 @@ func reduce(state: VRMTopPriorityItem, action: Action) -> VRMTopPriorityItem {
     switch action {
     case let startGroupAction as VRMCore.StartGroupProcessing:
         return VRMTopPriorityItem(item: startGroupAction.group.items.first)
+    case is VRMCore.SoftTimeout:
+        return VRMTopPriorityItem(item: nil)
     default:
         return state
     }

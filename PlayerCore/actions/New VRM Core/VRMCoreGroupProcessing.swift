@@ -7,4 +7,7 @@ extension VRMCore {
     struct StartGroupProcessing: Action {
         let group: Group
     }
+    
+    struct FinishCurrentGroupProcessing: Action {
+    }
 }
