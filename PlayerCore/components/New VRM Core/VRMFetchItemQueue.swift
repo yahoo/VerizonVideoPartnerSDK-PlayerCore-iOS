@@ -8,8 +8,8 @@ public struct VRMFetchItemQueue {
     static let initial = VRMFetchItemQueue(candidates: [])
     
     public struct Candidate: Hashable {
+        public let id = VRMCore.ID<Candidate>()
         public let parentItem: VRMCore.Item
-        public let id: VRMCore.ID<Candidate>
         public let url: URL
     }
     
@@ -20,8 +20,7 @@ func reduce(state: VRMFetchItemQueue, action: Action) -> VRMFetchItemQueue {
     switch action {
     case let fetchAction as VRMCore.StartItemFetch:
         let candidate = VRMFetchItemQueue.Candidate(parentItem: fetchAction.originalItem,
-                                                         id: VRMCore.ID(),
-                                                         url: fetchAction.url)
+                                                    url: fetchAction.url)
         var newState = state
         newState.candidates.insert(candidate)
         return newState

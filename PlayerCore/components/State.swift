@@ -44,6 +44,10 @@ public struct State {
     public let vrmProcessingResult: VRMProcessingResult
     public let vrmProcessingTimeout: VRMProcessingTimeout
     public let vrmMaxAdSearchTimeout: VRMMaxAdSearchTimeout
+    public let vrmFetchingError: VRMFetchingError
+    public let vrmParsingError: VRMParsingError
+    public let vrmTimeoutError: VRMTimeoutError
+    public let vrmRedirectError: VRMRedirectError
 }
 
 
@@ -123,7 +127,11 @@ extension State {
             vrmParsingResult: .initial,
             vrmProcessingResult: .initial,
             vrmProcessingTimeout: .none,
-            vrmMaxAdSearchTimeout: .initial
+            vrmMaxAdSearchTimeout: .initial,
+            vrmFetchingError: VRMFetchingError(erroredItems: []),
+            vrmParsingError: VRMParsingError(erroredItems: []),
+            vrmTimeoutError: VRMTimeoutError(erroredItems: []),
+            vrmRedirectError: VRMRedirectError(erroredItems: [])
         )
     }
 }
@@ -172,6 +180,10 @@ public func reduce(state: State, action: Action) -> State {
         vrmParsingResult: reduce(state: state.vrmParsingResult, action: action),
         vrmProcessingResult: reduce(state: state.vrmProcessingResult, action: action),
         vrmProcessingTimeout: reduce(state: state.vrmProcessingTimeout, action: action),
-        vrmMaxAdSearchTimeout: reduce(state: state.vrmMaxAdSearchTimeout, action: action)
+        vrmMaxAdSearchTimeout: reduce(state: state.vrmMaxAdSearchTimeout, action: action),
+        vrmFetchingError: reduce(state: state.vrmFetchingError, action: action),
+        vrmParsingError: reduce(state: state.vrmParsingError, action: action),
+        vrmTimeoutError: reduce(state: state.vrmTimeoutError, action: action),
+        vrmRedirectError: reduce(state: state.vrmRedirectError, action: action)
     )
 }

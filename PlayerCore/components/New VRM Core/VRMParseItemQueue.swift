@@ -7,8 +7,8 @@ public struct VRMParseItemQueue {
     static let initial = VRMParseItemQueue(candidates: [])
     
     public struct Candidate: Hashable {
+        public let id = VRMCore.ID<Candidate>()
         public let parentItem: VRMCore.Item
-        public let id: VRMCore.ID<Candidate>
         public let vastXML: String
     }
     
@@ -19,7 +19,6 @@ func reduce(state: VRMParseItemQueue, action: Action) -> VRMParseItemQueue {
     switch action {
     case let parseAction as VRMCore.StartItemParsing:
         let candidate = VRMParseItemQueue.Candidate(parentItem: parseAction.originalItem,
-                                                    id: VRMCore.ID(),
                                                     vastXML: parseAction.vastXML)
         var newState = state
         newState.candidates.insert(candidate)
