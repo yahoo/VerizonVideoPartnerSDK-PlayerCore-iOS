@@ -6,4 +6,8 @@ public extension VRMCore {
     public static func startGroupProcessing(group: Group) -> Action {
         return StartGroupProcessing(group: group)
     }
+    
+    public static func finishCurrentGroupProcessing() -> Action {
+        return FinishCurrentGroupProcessing()
+    }
 }

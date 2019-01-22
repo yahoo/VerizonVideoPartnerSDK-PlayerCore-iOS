@@ -6,10 +6,13 @@ import XCTest
 
 class VRMCurrentGroupComponentTest: XCTestCase {
 
-    func testDispatch() {
+    func testReducer() {
         let group = VRMCore.Group(items: [])
-        let sut = reduce(state: VRMCurrentGroup.initial, action: VRMCore.startGroupProcessing(group: group))
+        var sut = reduce(state: VRMCurrentGroup.initial, action: VRMCore.startGroupProcessing(group: group))
         XCTAssertEqual(group, sut.currentGroup)
+        
+        sut = reduce(state: sut, action: VRMCore.finishCurrentGroupProcessing())
+        XCTAssertNil(sut.currentGroup)
     }
     
 }
