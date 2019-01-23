@@ -6,22 +6,20 @@ import Foundation
 public struct VRMProcessingResult {
     static let initial = VRMProcessingResult(processedAds: [])
     
-    public struct Result: Hashable {
-        let item: VRMCore.Item
-        let inlineVAST: Ad.VASTModel
-    }
-    
-    public let processedAds: Set<Result>
+    public let processedAds: Set<VRMCore.Result>
 }
 
 func reduce(state: VRMProcessingResult, action: Action) -> VRMProcessingResult {
     
     switch action {
     case let selectResult as VRMCore.SelectInlineItem:
-     let result = VRMProcessingResult.Result(item: selectResult.originalItem,
-                                             inlineVAST: selectResult.inlineVAST)
-    
+        let result = VRMCore.Result(item: selectResult.item,
+                                    inlineVAST: selectResult.inlineVAST)
+        
         return VRMProcessingResult(processedAds: state.processedAds.union([result]))
+    case is VRMCore.StartGroupProcessing:
+        return VRMProcessingResult(processedAds: [])
+        
     default:
         return state
     }

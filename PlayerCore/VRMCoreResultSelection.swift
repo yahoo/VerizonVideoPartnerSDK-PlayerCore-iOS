@@ -4,7 +4,12 @@ import Foundation
 
 extension VRMCore {
     struct SelectInlineItem: Action {
-        let originalItem: Item
+        let item: Item
+        let inlineVAST: Ad.VASTModel
+    }
+    
+    struct SelectFinalResult: Action {
+        let item: Item
         let inlineVAST: Ad.VASTModel
     }
 }
