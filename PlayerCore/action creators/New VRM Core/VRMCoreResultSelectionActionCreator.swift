@@ -4,7 +4,11 @@
 import Foundation
 
 public extension VRMCore {
-    public static func selectInlineVAST(originalItem: Item, inlineVAST: Ad.VASTModel) -> Action {
-        return SelectInlineItem(originalItem: originalItem, inlineVAST: inlineVAST)
+    public static func selectInlineVAST(item: Item, inlineVAST: Ad.VASTModel) -> Action {
+        return SelectInlineItem(item: item, inlineVAST: inlineVAST)
+    }
+    
+    public static func selectFinalResult(item: Item, inlineVAST: Ad.VASTModel) -> Action {
+        return SelectFinalResult(item: item, inlineVAST: inlineVAST)
     }
 }

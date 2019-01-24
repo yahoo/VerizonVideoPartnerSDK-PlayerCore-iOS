@@ -224,6 +224,8 @@
 		E257A9F121C817EF0016D35A /* ScheduledVRMItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = E257A9F021C817EF0016D35A /* ScheduledVRMItems.swift */; };
 		E257A9F321C910750016D35A /* ScheduledVRMItemsComponentTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E257A9F221C910750016D35A /* ScheduledVRMItemsComponentTest.swift */; };
 		E257A9F721C937640016D35A /* VRMCoreItemScheduling.swift in Sources */ = {isa = PBXBuildFile; fileRef = E257A9F621C937640016D35A /* VRMCoreItemScheduling.swift */; };
+		E287B08821F77C6200FC49AA /* VRMFinalResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = E287B08721F77C6200FC49AA /* VRMFinalResult.swift */; };
+		E287B08A21F87EBD00FC49AA /* VMRCoreProcessingResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = E287B08921F87EBD00FC49AA /* VMRCoreProcessingResult.swift */; };
 		E2B0062221CD278100B72485 /* VRMFetchItemQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B0062121CD278100B72485 /* VRMFetchItemQueue.swift */; };
 		E2B0062421CD31A500B72485 /* VRMFetchItemQueueTestComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B0062321CD31A500B72485 /* VRMFetchItemQueueTestComponent.swift */; };
 /* End PBXBuildFile section */
@@ -460,6 +462,8 @@
 		E257A9F021C817EF0016D35A /* ScheduledVRMItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ScheduledVRMItems.swift; path = "components/New VRM Core/ScheduledVRMItems.swift"; sourceTree = "<group>"; };
 		E257A9F221C910750016D35A /* ScheduledVRMItemsComponentTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduledVRMItemsComponentTest.swift; sourceTree = "<group>"; };
 		E257A9F621C937640016D35A /* VRMCoreItemScheduling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = VRMCoreItemScheduling.swift; path = actions/VRMCoreItemScheduling.swift; sourceTree = "<group>"; };
+		E287B08721F77C6200FC49AA /* VRMFinalResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = VRMFinalResult.swift; path = "components/New VRM Core/VRMFinalResult.swift"; sourceTree = "<group>"; };
+		E287B08921F87EBD00FC49AA /* VMRCoreProcessingResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = VMRCoreProcessingResult.swift; path = "player model/VRM/VMRCoreProcessingResult.swift"; sourceTree = "<group>"; };
 		E2B0062121CD278100B72485 /* VRMFetchItemQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = VRMFetchItemQueue.swift; path = "components/New VRM Core/VRMFetchItemQueue.swift"; sourceTree = "<group>"; };
 		E2B0062321CD31A500B72485 /* VRMFetchItemQueueTestComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VRMFetchItemQueueTestComponent.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -789,6 +793,7 @@
 				E22B6B1121F6277000D480A0 /* VRMParsingError.swift */,
 				E22B6B1321F6279500D480A0 /* VRMTimeoutError.swift */,
 				E22B6B1521F627AE00D480A0 /* VRMRedirectError.swift */,
+				E287B08721F77C6200FC49AA /* VRMFinalResult.swift */,
 			);
 			name = "New VRM Core";
 			sourceTree = "<group>";
@@ -842,6 +847,7 @@
 			isa = PBXGroup;
 			children = (
 				E24103D621C03EC300036290 /* VRMCoreNamespace.swift */,
+				E287B08921F87EBD00FC49AA /* VMRCoreProcessingResult.swift */,
 				E24103D821C03EDE00036290 /* VRMResponseModel.swift */,
 				E22B6A8C21D15E4900D480A0 /* VRMCoreVASTModel.swift */,
 			);
@@ -966,6 +972,7 @@
 				06CD5307213D906B00C5B783 /* UpdateDurationAction.swift in Sources */,
 				06CD533D213D908500C5B783 /* PlayAd.swift in Sources */,
 				06CD5387213D909C00C5B783 /* UserActions.swift in Sources */,
+				E287B08A21F87EBD00FC49AA /* VMRCoreProcessingResult.swift in Sources */,
 				06CD52F3213D906B00C5B783 /* UpdateRateAction.swift in Sources */,
 				0641A40921663EB6004E7A0F /* PlaybackBuffering.swift in Sources */,
 				E257A9F121C817EF0016D35A /* ScheduledVRMItems.swift in Sources */,
@@ -1023,6 +1030,7 @@
 				06CD5304213D906B00C5B783 /* UpdateDimensions.swift in Sources */,
 				06CD52F8213D906B00C5B783 /* UpdateExternalPlaybackAction.swift in Sources */,
 				06CD5332213D908500C5B783 /* MaxShowTimeActionCreator.swift in Sources */,
+				E287B08821F77C6200FC49AA /* VRMFinalResult.swift in Sources */,
 				06CD5338213D908500C5B783 /* UpdateExternalPlayback.swift in Sources */,
 				06CD5382213D909C00C5B783 /* PictiureInPicture.swift in Sources */,
 				06CD5394213D90AF00C5B783 /* PlaybackModel.swift in Sources */,

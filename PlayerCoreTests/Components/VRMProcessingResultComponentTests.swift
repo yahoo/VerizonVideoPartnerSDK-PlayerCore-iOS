@@ -15,7 +15,7 @@ class VRMProcessingResultComponentTests: XCTestCase {
                                       id: nil)
         let urlItem = VRMMockGenerator.createUrlItem()
         var sut = reduce(state: VRMProcessingResult.initial,
-                         action: VRMCore.selectInlineVAST(originalItem: urlItem,
+                         action: VRMCore.selectInlineVAST(item: urlItem,
                                                           inlineVAST: inlineVAST))
         
         XCTAssertEqual(sut.processedAds.count, 1)
@@ -23,10 +23,15 @@ class VRMProcessingResultComponentTests: XCTestCase {
         
         let vastItem = VRMMockGenerator.createVASTItem()
         sut = reduce(state: sut,
-                     action: VRMCore.selectInlineVAST(originalItem: vastItem,
+                     action: VRMCore.selectInlineVAST(item: vastItem,
                                                       inlineVAST: inlineVAST))
         
         XCTAssertEqual(sut.processedAds.count, 2)
         XCTAssertTrue(sut.processedAds.contains(where: { $0.item == vastItem && $0.inlineVAST == inlineVAST }))
+        
+        sut = reduce(state: sut,
+                     action: VRMCore.startGroupProcessing(group: VRMCore.Group(items: [])))
+        
+        XCTAssertEqual(sut.processedAds.count, 0)
     }
 }
