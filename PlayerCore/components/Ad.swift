@@ -70,6 +70,15 @@ func reduce(state: Ad, action: Action) -> Ad {
                   currentAd: state.currentAd,
                   currentType: state.currentType)
         
+    case let action as VRMCore.NoGroupsToProcess:
+        var playedAds = state.playedAds
+        playedAds.insert(action.id)
+        return Ad(playedAds: playedAds,
+                  midrolls: state.midrolls,
+                  adCreative: state.adCreative,
+                  currentAd: state.currentAd,
+                  currentType: state.currentType)
+        
     case is ShowContent,
          is AdPlaybackFailed,
          is AdError,

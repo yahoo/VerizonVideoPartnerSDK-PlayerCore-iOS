@@ -7,6 +7,10 @@ public extension VRMCore {
         return StartGroupProcessing(group: group)
     }
     
+    public static func noGroupsToProcess(id: UUID) -> Action {
+        return NoGroupsToProcess(id: id)
+    }
+    
     public static func finishCurrentGroupProcessing() -> Action {
         return FinishCurrentGroupProcessing()
     }

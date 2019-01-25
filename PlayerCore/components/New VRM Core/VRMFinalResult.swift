@@ -15,7 +15,9 @@ func reduce(state: VRMFinalResult, action: Action) -> VRMFinalResult {
         return VRMFinalResult(result: VRMCore.Result(item: finalResult.item,
                                                      inlineVAST: finalResult.inlineVAST))
     case is AdPlaybackFailed,
-         is AdStartTimeout:
+         is AdStartTimeout,
+         is AdError,
+         is AdNotSupported:
         return VRMFinalResult(result: nil)
     default: return state
     }
