@@ -8,6 +8,10 @@ extension VRMCore {
         let group: Group
     }
     
+    struct NoGroupsToProcess: Action {
+        let id: UUID
+    }
+    
     struct FinishCurrentGroupProcessing: Action {
     }
 }
