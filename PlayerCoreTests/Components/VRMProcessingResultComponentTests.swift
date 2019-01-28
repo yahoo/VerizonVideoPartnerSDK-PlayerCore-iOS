@@ -8,7 +8,8 @@ class VRMProcessingResultComponentTests: XCTestCase {
     
     func testReducer() {
         let inlineVAST = Ad.VASTModel(adVerifications: [],
-                                      videos: [],
+                                      mp4MediaFiles: [],
+                                      vpaidMediaFiles: [],
                                       clickthrough: nil,
                                       adParameters: nil,
                                       pixels: AdPixels(),

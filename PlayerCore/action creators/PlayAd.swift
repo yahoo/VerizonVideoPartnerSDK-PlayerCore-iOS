@@ -5,7 +5,7 @@ import Foundation
 
 public func playAd(model: Ad.VASTModel, id: UUID, isOpenMeasurementEnabled: Bool) -> Action {
     let adCreative: AdCreative? = {
-        if case .mp4(let mediaFile)? = model.videos.first {
+        if let mediaFile = model.mp4MediaFiles.first {
             return AdCreative.mp4(
                 .init(
                     url: mediaFile.url,
@@ -15,7 +15,7 @@ public func playAd(model: Ad.VASTModel, id: UUID, isOpenMeasurementEnabled: Bool
                     scalable: mediaFile.scalable,
                     maintainAspectRatio: mediaFile.maintainAspectRatio))
         }
-        if case .vpaid(let mediaFile)? = model.videos.first {
+        if let mediaFile = model.vpaidMediaFiles.first {
             return AdCreative.vpaid(
                 .init(
                     url: mediaFile.url,
