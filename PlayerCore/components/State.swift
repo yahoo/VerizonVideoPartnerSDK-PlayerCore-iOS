@@ -7,6 +7,7 @@ public struct State {
     public let ad: Ad
     public let adKill: AdKill
     public let adMaxShowTime: TimerSession
+    public let mediaFile: MediaFile
     public let openMeasurement: OpenMeasurement
     public let serviceScript: OpenMeasurementServiceScript
     public let currentTime: CurrentTime
@@ -80,6 +81,7 @@ extension State {
             adMaxShowTime: .init(state: .stopped,
                                  startAdSession: nil,
                                  allowedDuration: Double(maxAdDuration)),
+            mediaFile: .init(type: .none),
             openMeasurement: OpenMeasurement.inactive,
             serviceScript: OpenMeasurementServiceScript.none,
             currentTime: CurrentTime(content: nil, ad: CMTime.zero),
@@ -147,6 +149,7 @@ public func reduce(state: State, action: Action) -> State {
         ad: reduce(state: state.ad, action: action),
         adKill: reduce(state: state.adKill, action: action),
         adMaxShowTime: reduce(state: state.adMaxShowTime, action: action),
+        mediaFile: reduce(state: state.mediaFile, action: action),
         openMeasurement: reduce(state: state.openMeasurement, action: action),
         serviceScript: reduce(state: state.serviceScript, action: action),
         currentTime: reduce(state: state.currentTime, action: action),
