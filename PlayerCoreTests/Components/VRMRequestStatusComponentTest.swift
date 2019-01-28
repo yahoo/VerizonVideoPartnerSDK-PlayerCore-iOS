@@ -13,9 +13,9 @@ class VRMRequestStatusComponentTest: XCTestCase {
         let sut = reduce(state: initial, action: VRMCore.adRequest(url: url, id: uuid, type: .preroll))
         
         XCTAssertEqual(sut.requestsFired, 1)
-        if case let .request(requestUrl, id) = sut.request {
-            XCTAssertEqual(id, uuid)
-            XCTAssertEqual(requestUrl, url)
+        if let request = sut.request {
+            XCTAssertEqual(request.id, uuid)
+            XCTAssertEqual(request.url, url)
         } else {
             XCTFail()
         }
