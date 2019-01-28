@@ -116,7 +116,7 @@ class AdVRMManagerComponentTestCase: XCTestCase {
         
         sut = reduce(state: sut, action: VRMItem.model(.init(adId: "adId",
                                                              info: emptyMetaInfo,
-                                                             model: .model(with: [.mp4(with: testUrl)]),
+                                                             model: .model(withVpaid: [], andMp4: [.video(with: testUrl)]),
                                                              requestDate: requestDate,
                                                              responseDate: responseDate)))
         if case .finish(let request) = sut.request.state {
@@ -134,7 +134,7 @@ class AdVRMManagerComponentTestCase: XCTestCase {
         sut.request.timeout = .afterHard
         sut = reduce(state: sut, action: VRMItem.model(.init(adId: "adId",
                                                              info: emptyMetaInfo,
-                                                             model: .model(with: [.mp4(with: testUrl)]), 
+                                                             model: .model(withVpaid: [], andMp4: [.video(with: testUrl)]),
                                                              requestDate: requestDate,
                                                              responseDate: responseDate)))
         if case .finish(let request) = sut.request.state {

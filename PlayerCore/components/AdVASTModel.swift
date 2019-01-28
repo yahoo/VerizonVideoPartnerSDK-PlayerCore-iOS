@@ -5,35 +5,46 @@ import Foundation
 extension Ad {
     public struct VASTModel: Hashable {
         public let adVerifications: [AdVerification]
-        public let mediaFiles: [MediaFile]
+        public let mp4MediaFiles: [MP4MediaFile]
+        public let vpaidMediaFiles: [VPAIDMediaFile]
         public let clickthrough: URL?
         public let adParameters: String?
         public let pixels: AdPixels
         public let id: String?
         
-        public struct MediaFile: Hashable {
+        public struct MP4MediaFile: Hashable {
             public let url: URL
-            public let type: VideoType
             public let width: Int
             public let height: Int
             public let scalable: Bool
             public let maintainAspectRatio: Bool
             
             public init(url: URL,
-                        type: VideoType,
                         width: Int,
                         height: Int,
                         scalable: Bool,
                         maintainAspectRatio: Bool) {
                 self.url = url
-                self.type = type
                 self.width = width
                 self.height = height
                 self.scalable = scalable
                 self.maintainAspectRatio = maintainAspectRatio
             }
-            public enum VideoType { case mp4, vpaid }
         }
+        public struct VPAIDMediaFile: Hashable {
+            public let url: URL
+            public let scalable: Bool
+            public let maintainAspectRatio: Bool
+            
+            public init(url: URL,
+                        scalable: Bool,
+                        maintainAspectRatio: Bool) {
+                self.url = url
+                self.scalable = scalable
+                self.maintainAspectRatio = maintainAspectRatio
+            }
+        }
+        
         public struct AdVerification: Hashable {
             public let vendorKey: String?
             public let javaScriptResource: URL
@@ -51,13 +62,15 @@ extension Ad {
             }
         }
         public init(adVerifications: [AdVerification],
-                    mediaFiles: [MediaFile],
+                    mp4MediaFiles: [MP4MediaFile],
+                    vpaidMediaFiles: [VPAIDMediaFile],
                     clickthrough: URL?,
                     adParameters: String?,
                     pixels: AdPixels,
                     id: String?) {
             self.adVerifications = adVerifications
-            self.mediaFiles = mediaFiles
+            self.mp4MediaFiles = mp4MediaFiles
+            self.vpaidMediaFiles = vpaidMediaFiles
             self.clickthrough = clickthrough
             self.adParameters = adParameters
             self.pixels = pixels
