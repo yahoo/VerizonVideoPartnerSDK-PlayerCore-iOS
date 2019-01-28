@@ -6,17 +6,31 @@ import XCTest
 
 class VRMTopPriorityItemComponentTest: XCTestCase {
 
+    var vastItem: VRMCore.Item!
+    var urlItem: VRMCore.Item!
+    var group: VRMCore.Group!
+    var action: Action!
+    var sut: VRMTopPriorityItem!
+    
+    override func setUp() {
+        super.setUp()
+        vastItem = VRMMockGenerator.createVASTItem()
+        urlItem = VRMMockGenerator.createUrlItem()
+        group = VRMCore.Group(items: [vastItem, urlItem])
+        action = VRMCore.startGroupProcessing(group: group)
+        sut = reduce(state: VRMTopPriorityItem.initial, action: action)
+    }
+    
     func testReducer() {
-        let vastItem = VRMMockGenerator.createVASTItem()
-        let urlItem = VRMMockGenerator.createUrlItem()
-        let group = VRMCore.Group(items: [vastItem, urlItem])
-        let action = VRMCore.startGroupProcessing(group: group)
-        var sut = reduce(state: VRMTopPriorityItem.initial, action: action)
-        
         XCTAssertEqual(sut.item, group.items.first)
         
         sut = reduce(state: sut, action: VRMCore.softTimeoutReached())
         
+        XCTAssertNil(sut.item)
+    }
+    
+    func adRequest() {
+        sut = reduce(state: sut, action: VRMCore.adRequest(url: URL(string:"url")!, id: UUID(), type: .midroll))
         XCTAssertNil(sut.item)
     }
     

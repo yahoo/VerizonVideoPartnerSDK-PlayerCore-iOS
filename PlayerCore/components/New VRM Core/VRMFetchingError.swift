@@ -11,6 +11,8 @@ func reduce(state: VRMFetchingError, action: Action) -> VRMFetchingError {
     switch action {
     case let fetchError as VRMCore.FetchingError:
         return VRMFetchingError(erroredItems: state.erroredItems.union([fetchError.originalItem]))
+    case is VRMCore.AdRequest:
+        return VRMFetchingError(erroredItems:[])
     default:
         return state
     }

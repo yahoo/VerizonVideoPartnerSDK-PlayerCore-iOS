@@ -11,6 +11,8 @@ func reduce(state: VRMRedirectError, action: Action) -> VRMRedirectError {
     switch action {
     case let redirectError as VRMCore.TooManyIndirections:
         return VRMRedirectError(erroredItems: state.erroredItems.union([redirectError.item]))
+    case is VRMCore.AdRequest:
+        return VRMRedirectError(erroredItems:[])
     default:
         return state
     }

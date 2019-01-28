@@ -24,6 +24,8 @@ func reduce(state: VRMFetchItemQueue, action: Action) -> VRMFetchItemQueue {
         var newState = state
         newState.candidates.insert(candidate)
         return newState
+    case is VRMCore.AdRequest:
+        return .initial
     default:
         return state
     }

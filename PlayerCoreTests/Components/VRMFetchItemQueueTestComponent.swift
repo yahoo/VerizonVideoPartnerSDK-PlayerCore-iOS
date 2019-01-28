@@ -20,5 +20,8 @@ class VRMFetchItemQueueTestComponent: XCTestCase {
         sut = reduce(state: sut, action: action2)
         XCTAssertEqual(sut.candidates.count, 2)
         XCTAssertNotNil(sut.candidates.first { $0.parentItem == urlItem && $0.url == url2 })
+        
+        sut = reduce(state: sut, action: VRMCore.adRequest(url: URL(string:"url")!, id: UUID(), type: .midroll))
+        XCTAssertTrue(sut.candidates.isEmpty)
     }
 }

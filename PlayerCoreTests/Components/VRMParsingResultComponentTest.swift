@@ -29,7 +29,7 @@ class VRMParsingResultComponentTest: XCTestCase {
                                                       verificationParameters: nil,
                                                       verificationNotExecuted: nil)
     
-    func testTwoItems() {
+    func testTwoItemsAndCleanOnNextAdRequest() {
         var sut = VRMParsingResult.initial
         let wrapper = VRMCore.VASTModel.WrapperModel(tagURL: tag1URL,
                                                      adVerifications: [adVerification1],
@@ -49,6 +49,9 @@ class VRMParsingResultComponentTest: XCTestCase {
                                                                      vastModel: .inline(adVAST)))
         XCTAssertEqual(sut.parsedVASTs[urlItem]?.vastModel, .wrapper(wrapper))
         XCTAssertEqual(sut.parsedVASTs[vastItem]?.vastModel, .inline(adVAST))
+        
+        sut = reduce(state: sut, action: VRMCore.adRequest(url: URL(string:"url")!, id: UUID(), type: .midroll))
+        XCTAssertTrue(sut.parsedVASTs.isEmpty)
     }
     
     func testSecondWrapperForSameItem() {

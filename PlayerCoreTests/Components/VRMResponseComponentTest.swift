@@ -8,11 +8,16 @@ class VRMResponseComponentTest: XCTestCase {
     func testReducer() {
         
         let initial: VRMResponse? = nil
-        let action = VRMCore.VRMResponseAction(transactionId: "transactionId",
+        let responseAction = VRMCore.VRMResponseAction(transactionId: "transactionId",
                                               slot: "slot",
                                               groups: [])
-        let sut = reduce(state: initial, action: action)
-        XCTAssertEqual(sut?.transactionId, "transactionId")
-        XCTAssertEqual(sut?.slot, "slot")
+        let requestAction = VRMCore.adRequest(url: URL(string:"url")!, id: UUID(), type: .midroll)
+        
+        let afterResponseAction = reduce(state: initial, action: responseAction)
+        XCTAssertEqual(afterResponseAction?.transactionId, "transactionId")
+        XCTAssertEqual(afterResponseAction?.slot, "slot")
+        
+        let afterRequstAction = reduce(state: initial, action: requestAction)
+        XCTAssertNil(afterRequstAction)
     }
 }

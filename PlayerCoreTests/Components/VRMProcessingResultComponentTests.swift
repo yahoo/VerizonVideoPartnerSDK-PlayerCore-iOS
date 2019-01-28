@@ -6,14 +6,15 @@ import XCTest
 
 class VRMProcessingResultComponentTests: XCTestCase {
     
+    let inlineVAST = Ad.VASTModel(adVerifications: [],
+                                  mp4MediaFiles: [],
+                                  vpaidMediaFiles: [],
+                                  clickthrough: nil,
+                                  adParameters: nil,
+                                  pixels: AdPixels(),
+                                  id: nil)
+    
     func testReducer() {
-        let inlineVAST = Ad.VASTModel(adVerifications: [],
-                                      mp4MediaFiles: [],
-                                      vpaidMediaFiles: [],
-                                      clickthrough: nil,
-                                      adParameters: nil,
-                                      pixels: AdPixels(),
-                                      id: nil)
         let urlItem = VRMMockGenerator.createUrlItem()
         var sut = reduce(state: VRMProcessingResult.initial,
                          action: VRMCore.selectInlineVAST(item: urlItem,
@@ -30,8 +31,23 @@ class VRMProcessingResultComponentTests: XCTestCase {
         XCTAssertEqual(sut.processedAds.count, 2)
         XCTAssertTrue(sut.processedAds.contains(where: { $0.item == vastItem && $0.inlineVAST == inlineVAST }))
         
+        
+        sut = reduce(state: sut, action: VRMCore.startGroupProcessing(group: VRMCore.Group(items: [])))
+        
+        XCTAssertEqual(sut.processedAds.count, 0)
+    }
+    
+    func testAdRequest() {
+        let url = URL(string:"http://url.com")!
+        let vastItem = VRMMockGenerator.createVASTItem()
+        var sut = reduce(state: VRMProcessingResult.initial,
+                         action: VRMCore.selectInlineVAST(item: vastItem,
+                                                          inlineVAST: inlineVAST))
+        
+        XCTAssertEqual(sut.processedAds.count, 1)
+        
         sut = reduce(state: sut,
-                     action: VRMCore.startGroupProcessing(group: VRMCore.Group(items: [])))
+                     action: VRMCore.adRequest(url: url, id: UUID(), type: .midroll))
         
         XCTAssertEqual(sut.processedAds.count, 0)
     }

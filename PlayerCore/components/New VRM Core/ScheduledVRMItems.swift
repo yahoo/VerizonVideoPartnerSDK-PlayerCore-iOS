@@ -28,6 +28,8 @@ func reduce(state: ScheduledVRMItems, action: Action) -> ScheduledVRMItems {
         let candidate = ScheduledVRMItems.Candidate(source: .url(unwrapAction.url))
         newState.items[unwrapAction.item]?.insert(candidate)
         return newState
+    case is VRMCore.AdRequest:
+        return .initial
     default:
         return state
     }
