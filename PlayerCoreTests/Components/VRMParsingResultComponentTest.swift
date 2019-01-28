@@ -36,7 +36,7 @@ class VRMParsingResultComponentTest: XCTestCase {
                                                      pixels: AdPixels(impression: [impression1]))
         
         let adVAST = Ad.VASTModel(adVerifications: [],
-                                  mediaFiles: [],
+                                  videos: [],
                                   clickthrough: nil,
                                   adParameters: nil,
                                   pixels: AdPixels(),
@@ -85,7 +85,7 @@ class VRMParsingResultComponentTest: XCTestCase {
         var sut = VRMParsingResult(parsedVASTs: [urlItem: initialResult])
         
         let adVAST = Ad.VASTModel(adVerifications: [adVerification3],
-                                  mediaFiles: [],
+                                  videos: [],
                                   clickthrough: nil,
                                   adParameters: nil,
                                   pixels: AdPixels(impression: [impression3]),

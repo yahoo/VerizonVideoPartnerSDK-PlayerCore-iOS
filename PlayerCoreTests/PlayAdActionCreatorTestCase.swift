@@ -6,7 +6,7 @@ import XCTest
 
 class PlayAdActionCreatorTestCase: XCTestCase {
     func testWithMp4MediaFile() {
-        let mediaFiles = [Ad.VASTModel.MediaFile.mp4(with: testUrl)]
+        let mediaFiles = [Ad.VASTModel.VideoType.mp4Ad(with: testUrl)]
         let model = Ad.VASTModel.model(with: mediaFiles)
         guard let action = PlayerCore.playAd(model: model,
                                              id: UUID(),
@@ -15,7 +15,7 @@ class PlayAdActionCreatorTestCase: XCTestCase {
     }
     
     func testWithVPAIDMediaFile() {
-        let mediaFiles = [Ad.VASTModel.MediaFile.vpaid(with: testUrl)]
+        let mediaFiles = [Ad.VASTModel.VideoType.vpaidAd(with: testUrl)]
         let model = Ad.VASTModel.model(with: mediaFiles)
         guard let action = PlayerCore.playAd(model: model,
                                              id: UUID(),
@@ -24,8 +24,8 @@ class PlayAdActionCreatorTestCase: XCTestCase {
     }
     
     func testWithMp4AndVPAIDMediafile() {
-        let mediaFiles = [Ad.VASTModel.MediaFile.mp4(with: testUrl),
-                          Ad.VASTModel.MediaFile.vpaid(with: testUrl)]
+        let mediaFiles = [Ad.VASTModel.VideoType.mp4Ad(with: testUrl),
+                          Ad.VASTModel.VideoType.vpaidAd(with: testUrl)]
         let model = Ad.VASTModel.model(with: mediaFiles)
         do {
             guard let action = PlayerCore.playAd(model: model,
@@ -42,30 +42,28 @@ class PlayAdActionCreatorTestCase: XCTestCase {
     }
 }
 
-extension Ad.VASTModel.MediaFile {
-    static func mp4(with url: URL) -> Ad.VASTModel.MediaFile {
-        return Ad.VASTModel.MediaFile(url: url,
-                         type: .mp4,
+extension Ad.VASTModel.VideoType {
+    static func mp4Ad(with url: URL) -> Ad.VASTModel.VideoType {
+        return .mp4(Ad.VASTModel.MediaFile(url: url,
                          width: 300,
                          height: 400,
                          scalable: false,
-                         maintainAspectRatio: true)
+                         maintainAspectRatio: true))
     }
-    static func vpaid(with url: URL) -> Ad.VASTModel.MediaFile {
-        return Ad.VASTModel.MediaFile(url: url,
-                         type: .vpaid,
+    static func vpaidAd(with url: URL) -> Ad.VASTModel.VideoType {
+        return .vpaid(Ad.VASTModel.MediaFile(url: url,
                          width: 300,
                          height: 400,
                          scalable: false,
-                         maintainAspectRatio: true)
+                         maintainAspectRatio: true))
     }
 }
 
 extension Ad.VASTModel {
-    static func model(with mediaFiles: [Ad.VASTModel.MediaFile]) -> Ad.VASTModel  {
+    static func model(with videos: [Ad.VASTModel.VideoType]) -> Ad.VASTModel  {
         return Ad.VASTModel(
             adVerifications: [],
-            mediaFiles: mediaFiles,
+            videos: videos,
             clickthrough: nil,
             adParameters: nil,
             pixels: AdPixels(impression: [],

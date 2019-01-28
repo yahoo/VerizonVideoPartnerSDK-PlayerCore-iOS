@@ -39,7 +39,7 @@ public extension Ad.VASTModel {
     public func merge(with pixels: AdPixels, and verifications: [Ad.VASTModel.AdVerification]) -> Ad.VASTModel {
         return PlayerCore.Ad.VASTModel(
             adVerifications: self.adVerifications + verifications,
-            mediaFiles: mediaFiles,
+            videos: videos,
             clickthrough: clickthrough,
             adParameters: adParameters,
             pixels: self.pixels.merge(with: pixels),
