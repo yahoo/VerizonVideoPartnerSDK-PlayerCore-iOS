@@ -6,7 +6,7 @@ import XCTest
 
 class ScheduledVRMItemsComponentTest: XCTestCase {
 
-    func testStartGroup() {
+    func testStartGroupAndCleanOnAdRequest() {
         let urlItem = VRMMockGenerator.createUrlItem()
         let vastItem = VRMMockGenerator.createVASTItem()
         let group = VRMCore.Group(items: [urlItem, vastItem])
@@ -24,6 +24,9 @@ class ScheduledVRMItemsComponentTest: XCTestCase {
         XCTAssertTrue(sut.items[otherUrlItem]?.contains(where: { $0.source == otherUrlItem.source }) == true)
         
         XCTAssertEqual(sut.items.count, 3)
+        
+        sut = reduce(state: sut, action: VRMCore.adRequest(url: URL(string:"url")!, id: UUID(), type: .midroll))
+        XCTAssertTrue(sut.items.isEmpty)
     }
     
     func testWrapperProcessing() {

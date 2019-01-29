@@ -11,6 +11,8 @@ func reduce(state: VRMTimeoutError, action: Action) -> VRMTimeoutError {
     switch action {
     case let timeoutError as VRMCore.TimeoutError:
         return VRMTimeoutError(erroredItems: state.erroredItems.union([timeoutError.item]))
+    case is VRMCore.AdRequest:
+        return VRMTimeoutError(erroredItems:[])
     default:
         return state
     }

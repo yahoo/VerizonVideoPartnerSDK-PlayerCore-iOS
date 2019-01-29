@@ -23,6 +23,8 @@ func reduce(state: VRMParseItemQueue, action: Action) -> VRMParseItemQueue {
         var newState = state
         newState.candidates.insert(candidate)
         return newState
+    case is VRMCore.AdRequest:
+        return .initial
     default:
         return state
     }

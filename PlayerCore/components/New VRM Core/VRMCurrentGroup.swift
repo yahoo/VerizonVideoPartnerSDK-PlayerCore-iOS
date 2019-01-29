@@ -14,6 +14,8 @@ func reduce(state: VRMCurrentGroup, action: Action) -> VRMCurrentGroup {
         return VRMCurrentGroup(currentGroup: currentGroupAction.group)
     case is VRMCore.FinishCurrentGroupProcessing:
         return VRMCurrentGroup(currentGroup: nil)
+    case is VRMCore.AdRequest:
+        return .initial
     default: return state
     }
 }

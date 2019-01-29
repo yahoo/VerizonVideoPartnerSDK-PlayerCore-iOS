@@ -11,6 +11,8 @@ func reduce(state: VRMParsingError, action: Action) -> VRMParsingError {
     switch action {
     case let parsingError as VRMCore.ParsingError:
         return VRMParsingError(erroredItems: state.erroredItems.union([parsingError.originalItem]))
+    case is VRMCore.AdRequest:
+        return VRMParsingError(erroredItems:[])
     default:
         return state
     }

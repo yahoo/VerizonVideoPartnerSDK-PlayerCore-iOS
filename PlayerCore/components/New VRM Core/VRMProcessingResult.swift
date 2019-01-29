@@ -17,9 +17,9 @@ func reduce(state: VRMProcessingResult, action: Action) -> VRMProcessingResult {
                                     inlineVAST: selectResult.inlineVAST)
         
         return VRMProcessingResult(processedAds: state.processedAds.union([result]))
-    case is VRMCore.StartGroupProcessing:
+    case is VRMCore.StartGroupProcessing,
+         is VRMCore.AdRequest:
         return VRMProcessingResult(processedAds: [])
-        
     default:
         return state
     }

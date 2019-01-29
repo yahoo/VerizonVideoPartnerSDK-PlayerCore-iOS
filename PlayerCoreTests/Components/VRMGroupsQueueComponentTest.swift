@@ -9,13 +9,16 @@ class VRMGroupsQueueComponentTest: XCTestCase {
     let firstGroup = VRMCore.Group(items: [])
     let secondGroup = VRMCore.Group(items: [])
     
-    func testSetResponse() {
+    func testResponseRequest() {
         let setResponseAction = VRMCore.adResponse(transactionId: "transactionId",
                                                    slot: "slot",
                                                    groups: [firstGroup, secondGroup])
-        let sut = reduce(state: VRMGroupsQueue.initial, action: setResponseAction)
+        var sut = reduce(state: VRMGroupsQueue.initial, action: setResponseAction)
         
         XCTAssertEqual(sut.groupsQueue, [firstGroup, secondGroup])
+        
+        sut = reduce(state: sut, action: VRMCore.adRequest(url: URL(string:"url")!, id: UUID(), type: .midroll))
+        XCTAssertTrue(sut.groupsQueue.isEmpty)
     }
     
     func testStartProcessingGroups() {

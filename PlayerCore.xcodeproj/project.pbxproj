@@ -228,6 +228,7 @@
 		E287B08A21F87EBD00FC49AA /* VMRCoreProcessingResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = E287B08921F87EBD00FC49AA /* VMRCoreProcessingResult.swift */; };
 		E2B0062221CD278100B72485 /* VRMFetchItemQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B0062121CD278100B72485 /* VRMFetchItemQueue.swift */; };
 		E2B0062421CD31A500B72485 /* VRMFetchItemQueueTestComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B0062321CD31A500B72485 /* VRMFetchItemQueueTestComponent.swift */; };
+		E2FE095121FF62E5005E91C0 /* VRMFinalResultComponentTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FE095021FF62E5005E91C0 /* VRMFinalResultComponentTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -466,6 +467,7 @@
 		E287B08921F87EBD00FC49AA /* VMRCoreProcessingResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = VMRCoreProcessingResult.swift; path = "player model/VRM/VMRCoreProcessingResult.swift"; sourceTree = "<group>"; };
 		E2B0062121CD278100B72485 /* VRMFetchItemQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = VRMFetchItemQueue.swift; path = "components/New VRM Core/VRMFetchItemQueue.swift"; sourceTree = "<group>"; };
 		E2B0062321CD31A500B72485 /* VRMFetchItemQueueTestComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VRMFetchItemQueueTestComponent.swift; sourceTree = "<group>"; };
+		E2FE095021FF62E5005E91C0 /* VRMFinalResultComponentTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VRMFinalResultComponentTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -839,6 +841,7 @@
 				E22B6A8221D1490B00D480A0 /* VRMParseItemQueueComponentTest.swift */,
 				E22B6ABB21D52A3E00D480A0 /* VRMParsingResultComponentTest.swift */,
 				E22B6AD121EF6E9000D480A0 /* VRMProcessingResultComponentTests.swift */,
+				E2FE095021FF62E5005E91C0 /* VRMFinalResultComponentTest.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -1162,6 +1165,7 @@
 				E257A9C721C7D2930016D35A /* VRMTopPriorityItemComponentTest.swift in Sources */,
 				E24103B421BEE4E000036290 /* VRMRequestStatusComponentTest.swift in Sources */,
 				06CD53E6213D917800C5B783 /* AdKillTest.swift in Sources */,
+				E2FE095121FF62E5005E91C0 /* VRMFinalResultComponentTest.swift in Sources */,
 				06BA6B602159201700948001 /* OpenMeasurementActionCreatorTestCase.swift in Sources */,
 				06CD5401213D917800C5B783 /* SeekingActionCreatorTestCase.swift in Sources */,
 				06CD53F3213D917800C5B783 /* MuteActionCreatorTestCase.swift in Sources */,

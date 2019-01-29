@@ -39,6 +39,8 @@ func reduce(state: VRMParsingResult, action: Action) -> VRMParsingResult {
         }
         
         return newState
+    case is VRMCore.AdRequest:
+        return .initial
     default:
         return state
     }
