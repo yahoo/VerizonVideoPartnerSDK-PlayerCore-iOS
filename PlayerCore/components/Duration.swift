@@ -26,6 +26,8 @@ func reduce(state: Duration, action: Action) -> Duration {
          is AdError,
          is AdSkipped,
          is VRMCore.NoGroupsToProcess,
+         is VRMCore.MaxSearchTimeout,
+         is VRMCore.VRMResponseFetchFailed,
          is AdNotSupported:
         return Duration(ad: nil, content: state.content)
         

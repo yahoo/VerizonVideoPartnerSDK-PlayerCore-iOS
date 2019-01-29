@@ -11,5 +11,6 @@ extension VRMCore {
     }
     
     struct MaxSearchTimeout: Action {
+        let requestID: UUID
     }
 }
