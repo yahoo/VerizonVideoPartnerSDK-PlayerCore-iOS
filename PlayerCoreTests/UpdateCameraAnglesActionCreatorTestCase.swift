@@ -19,10 +19,3 @@ class UpdateCameraAnglesActionCreatorTestCase: XCTestCase {
         XCTAssertEqual(result, expected)
     }
 }
-
-extension UpdateCameraAngles: Equatable {
-    public static func == (lhs: UpdateCameraAngles, rhs: UpdateCameraAngles) -> Bool {
-        return lhs.horizontal == rhs.horizontal
-            && lhs.vertical == rhs.vertical
-    }
-}
