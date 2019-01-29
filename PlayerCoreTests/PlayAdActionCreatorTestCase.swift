@@ -7,7 +7,7 @@ import XCTest
 class PlayAdActionCreatorTestCase: XCTestCase {
     func testWithMp4MediaFile() {
         let mediaFiles = [Ad.VASTModel.MP4MediaFile.video(with: testUrl)]
-        let model = Ad.VASTModel.model(withVpaid: [], andMp4: mediaFiles)
+        let model = Ad.VASTModel.model(withMp4: mediaFiles, andVpaid: [])
         guard let action = PlayerCore.playAd(model: model,
                                              id: UUID(),
                                              isOpenMeasurementEnabled: true) as? ShowAd else { return XCTFail() }
@@ -16,7 +16,7 @@ class PlayAdActionCreatorTestCase: XCTestCase {
     
     func testWithVPAIDMediaFile() {
         let mediaFiles = [Ad.VASTModel.VPAIDMediaFile.video(with: testUrl)]
-        let model = Ad.VASTModel.model(withVpaid: mediaFiles, andMp4: [])
+        let model = Ad.VASTModel.model(withMp4: [], andVpaid: mediaFiles)
         guard let action = PlayerCore.playAd(model: model,
                                              id: UUID(),
                                              isOpenMeasurementEnabled: true) as? ShowAd else { return XCTFail() }
@@ -26,7 +26,7 @@ class PlayAdActionCreatorTestCase: XCTestCase {
     func testWithMp4AndVPAIDMediafile() {
         let mp4MediaFiles = [Ad.VASTModel.MP4MediaFile.video(with: testUrl)]
         let vpaidMediaFiles = [Ad.VASTModel.VPAIDMediaFile.video(with: testUrl)]
-        let model = Ad.VASTModel.model(withVpaid: vpaidMediaFiles, andMp4: mp4MediaFiles)
+        let model = Ad.VASTModel.model(withMp4: mp4MediaFiles, andVpaid: vpaidMediaFiles)
         do {
             guard let action = PlayerCore.playAd(model: model,
                                                  id: UUID(),
@@ -60,8 +60,8 @@ extension Ad.VASTModel.VPAIDMediaFile {
 }
 
 extension Ad.VASTModel {
-    static func model(withVpaid vpaid: [Ad.VASTModel.VPAIDMediaFile],
-                      andMp4 mp4: [Ad.VASTModel.MP4MediaFile]) -> Ad.VASTModel  {
+    static func model(withMp4 mp4: [Ad.VASTModel.MP4MediaFile],
+                      andVpaid vpaid: [Ad.VASTModel.VPAIDMediaFile]) -> Ad.VASTModel  {
         return Ad.VASTModel(
             adVerifications: [],
             mp4MediaFiles: mp4,

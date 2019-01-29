@@ -1,16 +1,74 @@
-//  Copyright 2018, Oath Inc.
+//  Copyright 2019, Oath Inc.
 //  Licensed under the terms of the MIT License. See LICENSE.md file in project root for terms.
 
 import XCTest
-import CoreMedia
 @testable import PlayerCore
 
 class SelectMediaFileComponentTestCase: XCTestCase {
     
-    let initial = MediaFile(type: .none)
+    let initial = SelectedAdCreative(creative: .none)
     
-    func testReduceOnAttachToViewport() {
-        let sut = reduce(state: initial, action: SelectMediaFileByType(type: .mp4(Ad.VASTModel.MediaFile.mp4(with: URL(fileURLWithPath: "")))))
-        guard case .mp4 = sut.type else { XCTFail("Not equal")}
+    func testReduceOnSelectFinalResultWithMP4() {
+        let vastModel = Ad.VASTModel.model(withMp4: [Ad.VASTModel.MP4MediaFile(url: testUrl,
+                                                                                 width: 320,
+                                                                                 height: 240,
+                                                                                 scalable: false,
+                                                                                 maintainAspectRatio: true)],
+                                           andVpaid: [])
+        let sut = reduce(state: initial, action: VRMCore.SelectFinalResult(
+            item: VRMCore.Item.init(
+                source: .vast(""),
+                metaInfo: .init(engineType: "", ruleId: "", ruleCompanyId: "", vendor: "", name: "", cpm: "")),
+            inlineVAST: vastModel))
+        
+        guard case .mp4 = sut.creative else { return XCTFail("Not Equal") }
+    }
+    func testReduceOnSelectFinalResultWithVpaid() {
+        let vastModel = Ad.VASTModel.model(withMp4: [],
+                                           andVpaid: [Ad.VASTModel.VPAIDMediaFile(url: testUrl,
+                                                                                scalable: false,
+                                                                                maintainAspectRatio: true)])
+        let sut = reduce(state: initial, action: VRMCore.SelectFinalResult(
+            item: VRMCore.Item.init(
+                source: .vast(""),
+                metaInfo: .init(engineType: "", ruleId: "", ruleCompanyId: "", vendor: "", name: "", cpm: "")),
+            inlineVAST: vastModel))
+        
+        guard case .vpaid = sut.creative else { return XCTFail("Not equal")}
+    }
+    func testReduceOnSelectFinalResultWithMp4AndVpaid() {
+        let vastModel = Ad.VASTModel.model(withMp4: [Ad.VASTModel.MP4MediaFile(url: testUrl,
+                                                                               width: 320,
+                                                                               height: 240,
+                                                                               scalable: false,
+                                                                               maintainAspectRatio: true)],
+                                           andVpaid: [Ad.VASTModel.VPAIDMediaFile(url: testUrl,
+                                                                                  scalable: false,
+                                                                                  maintainAspectRatio: true)])
+        let sut = reduce(state: initial, action: VRMCore.SelectFinalResult(
+            item: VRMCore.Item.init(
+                source: .vast(""),
+                metaInfo: .init(engineType: "", ruleId: "", ruleCompanyId: "", vendor: "", name: "", cpm: "")),
+            inlineVAST: vastModel))
+        
+        guard case .mp4 = sut.creative else { return XCTFail("Not equal")}
+    }
+    func testReduceOnAdRequest() {
+        let vastModel = Ad.VASTModel.model(withMp4: [Ad.VASTModel.MP4MediaFile(url: testUrl,
+                                                                               width: 320,
+                                                                               height: 240,
+                                                                               scalable: false,
+                                                                               maintainAspectRatio: true)],
+                                           andVpaid: [Ad.VASTModel.VPAIDMediaFile(url: testUrl,
+                                                                                  scalable: false,
+                                                                                  maintainAspectRatio: true)])
+        var sut = reduce(state: initial, action: VRMCore.SelectFinalResult(
+            item: VRMCore.Item.init(
+                source: .vast(""),
+                metaInfo: .init(engineType: "", ruleId: "", ruleCompanyId: "", vendor: "", name: "", cpm: "")),
+            inlineVAST: vastModel))
+        sut = reduce(state: sut, action: VRMCore.AdRequest(url: testUrl, id: UUID(), type: .preroll))
+        
+        guard case .none = sut.creative else { return XCTFail("Not equal")}
     }
 }

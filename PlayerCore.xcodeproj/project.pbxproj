@@ -16,9 +16,7 @@
 		064FA4212153C84F005D990A /* OpenMeasurementAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064FA4202153C84F005D990A /* OpenMeasurementAction.swift */; };
 		064FA4232153C8C5005D990A /* OpenMeasurementActionCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064FA4222153C8C5005D990A /* OpenMeasurementActionCreator.swift */; };
 		0693BA7D21FF34B9004C09CB /* SelectMediaFileComponentTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0693BA7C21FF34B9004C09CB /* SelectMediaFileComponentTestCase.swift */; };
-		069CAF4321FB25CE007BA22B /* SelectMediafileAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 069CAF4221FB25CE007BA22B /* SelectMediafileAction.swift */; };
-		069CAF4521FB2604007BA22B /* Mediafiles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 069CAF4421FB2604007BA22B /* Mediafiles.swift */; };
-		069CAF4721FB43BA007BA22B /* SelectMediafile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 069CAF4621FB43BA007BA22B /* SelectMediafile.swift */; };
+		069CAF4521FB2604007BA22B /* SelectedAdCreative.swift in Sources */ = {isa = PBXBuildFile; fileRef = 069CAF4421FB2604007BA22B /* SelectedAdCreative.swift */; };
 		06BA6B602159201700948001 /* OpenMeasurementActionCreatorTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06BA6B5F2159201700948001 /* OpenMeasurementActionCreatorTestCase.swift */; };
 		06BA6B622159244700948001 /* OpenMeasurementComponentTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06BA6B612159244700948001 /* OpenMeasurementComponentTestCase.swift */; };
 		06BA6BD7215B901A00948001 /* OpenMeasurementServiceScript.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06BA6BD6215B901A00948001 /* OpenMeasurementServiceScript.swift */; };
@@ -255,9 +253,7 @@
 		064FA4202153C84F005D990A /* OpenMeasurementAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenMeasurementAction.swift; sourceTree = "<group>"; };
 		064FA4222153C8C5005D990A /* OpenMeasurementActionCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenMeasurementActionCreator.swift; sourceTree = "<group>"; };
 		0693BA7C21FF34B9004C09CB /* SelectMediaFileComponentTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectMediaFileComponentTestCase.swift; sourceTree = "<group>"; };
-		069CAF4221FB25CE007BA22B /* SelectMediafileAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectMediafileAction.swift; sourceTree = "<group>"; };
-		069CAF4421FB2604007BA22B /* Mediafiles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mediafiles.swift; sourceTree = "<group>"; };
-		069CAF4621FB43BA007BA22B /* SelectMediafile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectMediafile.swift; sourceTree = "<group>"; };
+		069CAF4421FB2604007BA22B /* SelectedAdCreative.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedAdCreative.swift; sourceTree = "<group>"; };
 		06BA6B5F2159201700948001 /* OpenMeasurementActionCreatorTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenMeasurementActionCreatorTestCase.swift; sourceTree = "<group>"; };
 		06BA6B612159244700948001 /* OpenMeasurementComponentTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenMeasurementComponentTestCase.swift; sourceTree = "<group>"; };
 		06BA6BD6215B901A00948001 /* OpenMeasurementServiceScript.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenMeasurementServiceScript.swift; sourceTree = "<group>"; };
@@ -572,7 +568,6 @@
 				064FA4202153C84F005D990A /* OpenMeasurementAction.swift */,
 				06BA6BDE215B983E00948001 /* OMScriptServiceAction.swift */,
 				06CD52D0213D906900C5B783 /* SeekToTimeAction.swift */,
-				069CAF4221FB25CE007BA22B /* SelectMediafileAction.swift */,
 				06CD52DE213D906A00C5B783 /* SelectVideoAtIndexAction.swift */,
 				06CD52E8213D906B00C5B783 /* ShowAdAction.swift */,
 				06CD52E9213D906B00C5B783 /* ShowContentAction.swift */,
@@ -620,7 +615,6 @@
 				06CD530F213D908100C5B783 /* Prev.swift */,
 				06CD5328213D908400C5B783 /* Replay.swift */,
 				06CD5313213D908100C5B783 /* Seek.swift */,
-				069CAF4621FB43BA007BA22B /* SelectMediafile.swift */,
 				06CD531C213D908200C5B783 /* SelectVideoAtIndex.swift */,
 				06CD5320213D908400C5B783 /* SkipAd.swift */,
 				06CD530C213D908100C5B783 /* TimerActionCreator.swift */,
@@ -673,7 +667,6 @@
 				06CD536C213D909B00C5B783 /* Duration.swift */,
 				06CD5358213D909800C5B783 /* InteractiveSeeking.swift */,
 				06CD5353213D909800C5B783 /* LoadedTimeRanges.swift */,
-				069CAF4421FB2604007BA22B /* Mediafiles.swift */,
 				06CD5362213D909900C5B783 /* MediaOptions.swift */,
 				06CD5359213D909800C5B783 /* Mute.swift */,
 				064FA41E2153C5DA005D990A /* OpenMeasurement.swift */,
@@ -687,6 +680,7 @@
 				06CD535C213D909800C5B783 /* PlayerSession.swift */,
 				06CD535F213D909800C5B783 /* Playlist.swift */,
 				06CD536B213D909B00C5B783 /* Rate.swift */,
+				069CAF4421FB2604007BA22B /* SelectedAdCreative.swift */,
 				06CD534E213D909800C5B783 /* StallingRecords.swift */,
 				06CD5367213D909900C5B783 /* State.swift */,
 				06CD534D213D909800C5B783 /* TimerSession.swift */,
@@ -1002,7 +996,7 @@
 				06CD534B213D908500C5B783 /* UpdateMediaOptions.swift in Sources */,
 				06CD5340213D908500C5B783 /* UpdateLoadedTimeRanges.swift in Sources */,
 				E24103D721C03EC300036290 /* VRMCoreNamespace.swift in Sources */,
-				069CAF4521FB2604007BA22B /* Mediafiles.swift in Sources */,
+				069CAF4521FB2604007BA22B /* SelectedAdCreative.swift in Sources */,
 				06CD52FB213D906B00C5B783 /* SelectVideoAtIndexAction.swift in Sources */,
 				06CD5301213D906B00C5B783 /* UpdateVPAIDAction.swift in Sources */,
 				064FA4212153C84F005D990A /* OpenMeasurementAction.swift in Sources */,
@@ -1081,11 +1075,9 @@
 				E22B6AE121F0BBD300D480A0 /* VRMTimeoutActions.swift in Sources */,
 				06CD52F1213D906B00C5B783 /* UpdateExternalPlaybackStatusAction.swift in Sources */,
 				E22B6ACA21EF5F4C00D480A0 /* VRMCoreResultSelection.swift in Sources */,
-				069CAF4721FB43BA007BA22B /* SelectMediafile.swift in Sources */,
 				06CD52ED213D906B00C5B783 /* SeekToTimeAction.swift in Sources */,
 				06CD5380213D909C00C5B783 /* Ad.swift in Sources */,
 				06CD5347213D908500C5B783 /* Nop.swift in Sources */,
-				069CAF4321FB25CE007BA22B /* SelectMediafileAction.swift in Sources */,
 				06CD52F7213D906B00C5B783 /* PictureInPictureToggleAction.swift in Sources */,
 				06CD5348213D908500C5B783 /* UpdateAverageBitrate.swift in Sources */,
 				06CD52FD213D906B00C5B783 /* PlaybackReady.swift in Sources */,

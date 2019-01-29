@@ -3,13 +3,15 @@
 import Foundation
 
 public enum AdCreative: Equatable {
-    case mp4(MP4), vpaid(VPAID), none
+    case mp4([MP4]), vpaid([VPAID]), none
     
     public struct MP4: Equatable {
         public let url: URL
         public let clickthrough: URL?
         public let pixels: AdPixels
         public let id: String?
+        public let width: Int
+        public let height: Int
         public let scalable: Bool
         public let maintainAspectRatio: Bool
         
@@ -17,12 +19,16 @@ public enum AdCreative: Equatable {
                     clickthrough: URL?,
                     pixels: AdPixels,
                     id: String?,
+                    width: Int,
+                    height: Int,
                     scalable: Bool,
                     maintainAspectRatio: Bool) {
             self.url = url
             self.clickthrough = clickthrough
             self.pixels = pixels
             self.id = id
+            self.width = width
+            self.height = height
             self.scalable = scalable
             self.maintainAspectRatio = maintainAspectRatio
         }

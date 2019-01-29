@@ -7,22 +7,24 @@ public func playAd(model: Ad.VASTModel, id: UUID, isOpenMeasurementEnabled: Bool
     let adCreative: AdCreative? = {
         if let mediaFile = model.mp4MediaFiles.first {
             return AdCreative.mp4(
-                .init(
+                [.init(
                     url: mediaFile.url,
                     clickthrough: model.clickthrough,
                     pixels: model.pixels,
                     id: model.id,
+                    width: mediaFile.width,
+                    height: mediaFile.height,
                     scalable: mediaFile.scalable,
-                    maintainAspectRatio: mediaFile.maintainAspectRatio))
+                    maintainAspectRatio: mediaFile.maintainAspectRatio)])
         }
         if let mediaFile = model.vpaidMediaFiles.first {
             return AdCreative.vpaid(
-                .init(
+                [.init(
                     url: mediaFile.url,
                     adParameters: model.adParameters,
                     clickthrough: model.clickthrough,
                     pixels: model.pixels,
-                    id: model.id))
+                    id: model.id)])
         }
         return nil
     }()
