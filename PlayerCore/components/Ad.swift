@@ -6,7 +6,7 @@ public struct Ad {
     public let playedAds: Set<UUID>
     public let midrolls: [Midroll]
     
-    public struct Midroll {
+    public struct Midroll: Hashable {
         public let cuePoint: Int
         public let url: URL
         public let id: UUID
@@ -101,21 +101,5 @@ func reduce(state: Ad, action: Action) -> Ad {
                   currentType: action.hasPrerollAds ? .preroll : .midroll)
         
     default: return state
-    }
-}
-
-extension Ad.Midroll: Equatable {
-    public static func ==(lhs: Ad.Midroll, rhs: Ad.Midroll) -> Bool {
-        return lhs.cuePoint == rhs.cuePoint
-            && lhs.url == rhs.url
-            && lhs.id == rhs.id
-    }
-    
-    public static func >(left: Ad.Midroll, right: Ad.Midroll) -> Bool {
-        return left.cuePoint > right.cuePoint
-    }
-    
-    public static func <(left: Ad.Midroll, right: Ad.Midroll) -> Bool {
-        return left.cuePoint < right.cuePoint
     }
 }
