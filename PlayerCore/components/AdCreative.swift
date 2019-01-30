@@ -2,10 +2,10 @@
 //  Licensed under the terms of the MIT License. See LICENSE.md file in project root for terms.
 import Foundation
 
-public enum AdCreative: Equatable {
+public enum AdCreative: Hashable {
     case mp4([MP4]), vpaid([VPAID]), none
     
-    public struct MP4: Equatable {
+    public struct MP4: Hashable {
         public let url: URL
         public let clickthrough: URL?
         public let pixels: AdPixels
@@ -33,7 +33,7 @@ public enum AdCreative: Equatable {
             self.maintainAspectRatio = maintainAspectRatio
         }
     }
-    public struct VPAID: Equatable {
+    public struct VPAID: Hashable {
         public let url: URL
         public let adParameters: String?
         public let clickthrough: URL?

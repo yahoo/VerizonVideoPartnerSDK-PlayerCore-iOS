@@ -63,7 +63,7 @@ func reduce(state: Rate, action: Action) -> Rate {
                     isAttachedToViewPort: state.isAttachedToViewPort,
                     currentKind: .content)
         
-    case (is ShowAd, .content):
+    case (is ShowMP4Ad, .content), (is ShowVPAIDAd, .content), (is ShowAd, .content):
         return Rate(contentRate: .init(player: false,
                                        stream: state.contentRate.stream),
                     adRate: .init(player: true,
