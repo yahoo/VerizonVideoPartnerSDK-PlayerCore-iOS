@@ -135,6 +135,7 @@ public struct Model {
                                                  softTimeout: 0.5,
                                                  hardTimeout: 2.5,
                                                  startTimeout: 3.5,
+                                                 maxSearchTime: 9.0,
                                                  maxDuration: 90,
                                                  maxVASTWrapperRedirectCount: 3)
         
@@ -142,6 +143,7 @@ public struct Model {
         public let softTimeout: Double
         public let hardTimeout: Double
         public let startTimeout: Double
+        public let maxSearchTime: Double
         public let maxDuration: Int
         public let maxVASTWrapperRedirectCount: Int
         
@@ -149,11 +151,13 @@ public struct Model {
                     softTimeout: Double,
                     hardTimeout: Double,
                     startTimeout: Double,
+                    maxSearchTime: Double,
                     maxDuration: Int,
                     maxVASTWrapperRedirectCount: Int) {
             self.prefetchingOffset = prefetchingOffset
             self.softTimeout = softTimeout
             self.hardTimeout = hardTimeout
+            self.maxSearchTime = maxSearchTime
             self.startTimeout = startTimeout
             self.maxDuration = maxDuration
             self.maxVASTWrapperRedirectCount = maxVASTWrapperRedirectCount
