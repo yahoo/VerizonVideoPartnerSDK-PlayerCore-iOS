@@ -30,7 +30,7 @@ class AdComponentTestCase: XCTestCase {
                          currentType: .preroll)
         let sut = reduce(state: initial, action: ShowAd(creative: mp4Creative, id: UUID(), adVerifications: [], isOpenMeasurementEnabled: true))
         guard case .mp4(let adCreative) = sut.adCreative else { return XCTFail("Failed to get mp4 creative") }
-        XCTAssertEqual(adCreative.url, testUrl)
+        XCTAssertEqual(adCreative.first?.url, testUrl)
         XCTAssertEqual(sut.playedAds.count, 1)
     }
     
@@ -43,7 +43,7 @@ class AdComponentTestCase: XCTestCase {
                          currentType: .midroll)
         let sut = reduce(state: initial, action: ShowAd(creative: vpaidCreative, id: UUID(), adVerifications: [], isOpenMeasurementEnabled: true))
         guard case .vpaid(let adCreative) = sut.adCreative else { return XCTFail("Failed to get vpaid creative") }
-        XCTAssertEqual(adCreative.url, testUrl)
+        XCTAssertEqual(adCreative.first?.url, testUrl)
         XCTAssertEqual(sut.playedAds.count, 2)
     }
     
@@ -94,7 +94,7 @@ class AdComponentTestCase: XCTestCase {
 
 extension AdCreative {
     static func mp4(with url: URL) -> AdCreative {
-        return AdCreative.mp4(AdCreative.MP4(url: url,
+        return AdCreative.mp4([AdCreative.MP4(url: url,
                                              clickthrough: url,
                                              pixels: AdPixels(impression: [],
                                                               error: [],
@@ -108,11 +108,13 @@ extension AdCreative {
                                                               pause: [],
                                                               resume: []),
                                              id: nil,
+                                             width: 320,
+                                             height: 240,
                                              scalable: false,
-                                             maintainAspectRatio: true))
+                                             maintainAspectRatio: true)])
     }
     static func vpaid(with url: URL) -> AdCreative {
-        return AdCreative.vpaid(AdCreative.VPAID(url: url,
+        return AdCreative.vpaid([AdCreative.VPAID(url: url,
                                                  adParameters: nil,
                                                  clickthrough: url,
                                                  pixels: AdPixels(impression: [],
@@ -126,6 +128,6 @@ extension AdCreative {
                                                                   complete: [],
                                                                   pause: [],
                                                                   resume: []),
-                                                 id: nil))
+                                                 id: nil)])
     }
 }

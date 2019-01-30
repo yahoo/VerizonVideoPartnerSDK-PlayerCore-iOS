@@ -15,6 +15,7 @@
 		064FA41F2153C5DA005D990A /* OpenMeasurement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064FA41E2153C5DA005D990A /* OpenMeasurement.swift */; };
 		064FA4212153C84F005D990A /* OpenMeasurementAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064FA4202153C84F005D990A /* OpenMeasurementAction.swift */; };
 		064FA4232153C8C5005D990A /* OpenMeasurementActionCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064FA4222153C8C5005D990A /* OpenMeasurementActionCreator.swift */; };
+		0693BA7D21FF34B9004C09CB /* AdCreativeComponentTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0693BA7C21FF34B9004C09CB /* AdCreativeComponentTestCase.swift */; };
 		06BA6B602159201700948001 /* OpenMeasurementActionCreatorTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06BA6B5F2159201700948001 /* OpenMeasurementActionCreatorTestCase.swift */; };
 		06BA6B622159244700948001 /* OpenMeasurementComponentTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06BA6B612159244700948001 /* OpenMeasurementComponentTestCase.swift */; };
 		06BA6BD7215B901A00948001 /* OpenMeasurementServiceScript.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06BA6BD6215B901A00948001 /* OpenMeasurementServiceScript.swift */; };
@@ -250,6 +251,7 @@
 		064FA41E2153C5DA005D990A /* OpenMeasurement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenMeasurement.swift; sourceTree = "<group>"; };
 		064FA4202153C84F005D990A /* OpenMeasurementAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenMeasurementAction.swift; sourceTree = "<group>"; };
 		064FA4222153C8C5005D990A /* OpenMeasurementActionCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenMeasurementActionCreator.swift; sourceTree = "<group>"; };
+		0693BA7C21FF34B9004C09CB /* AdCreativeComponentTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdCreativeComponentTestCase.swift; sourceTree = "<group>"; };
 		06BA6B5F2159201700948001 /* OpenMeasurementActionCreatorTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenMeasurementActionCreatorTestCase.swift; sourceTree = "<group>"; };
 		06BA6B612159244700948001 /* OpenMeasurementComponentTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenMeasurementComponentTestCase.swift; sourceTree = "<group>"; };
 		06BA6BD6215B901A00948001 /* OpenMeasurementServiceScript.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenMeasurementServiceScript.swift; sourceTree = "<group>"; };
@@ -599,10 +601,10 @@
 				06CD530B213D908100C5B783 /* EndPlayback.swift */,
 				06CD5310213D908100C5B783 /* MaxShowTimeActionCreator.swift */,
 				06CD5311213D908100C5B783 /* MutePlayer.swift */,
-				064FA4222153C8C5005D990A /* OpenMeasurementActionCreator.swift */,
-				06BA6BDC215B97F200948001 /* OMServiceScriptActionCreator.swift */,
 				06CD532A213D908500C5B783 /* Next.swift */,
 				06CD5325213D908400C5B783 /* Nop.swift */,
+				064FA4222153C8C5005D990A /* OpenMeasurementActionCreator.swift */,
+				06BA6BDC215B97F200948001 /* OMServiceScriptActionCreator.swift */,
 				06CD530E213D908100C5B783 /* Pause.swift */,
 				06CD531A213D908200C5B783 /* PictureInPictureStatusUpdate.swift */,
 				06CD5314213D908100C5B783 /* PictureInPictureToggle.swift */,
@@ -826,6 +828,7 @@
 				06CD53AC213D916D00C5B783 /* PlayerSessionComponentTestCase.swift */,
 				06CD53B8213D916E00C5B783 /* PlaylistComponentTestCase.swift */,
 				06CD53B2213D916D00C5B783 /* RateComponentTestCase.swift */,
+				0693BA7C21FF34B9004C09CB /* AdCreativeComponentTestCase.swift */,
 				06CD53C3213D917100C5B783 /* TimerComponentTest.swift */,
 				06CD53AE213D916D00C5B783 /* ViewportComponentTestCase.swift */,
 				06CD53DB213D917800C5B783 /* VPAIDActionCreatorTestCase.swift */,
@@ -1149,6 +1152,7 @@
 				06CD53E8213D917800C5B783 /* UpdateExternalPlaybackActionCreatorTestCase.swift in Sources */,
 				06CD53F5213D917800C5B783 /* UpdateExternalPlaybackStatusActionCreatorTestCase.swift in Sources */,
 				06CD53F0213D917800C5B783 /* InteractiveSeekingTestCaseComponent.swift in Sources */,
+				0693BA7D21FF34B9004C09CB /* AdCreativeComponentTestCase.swift in Sources */,
 				06CD53EC213D917800C5B783 /* PlaybackStatusComponentTestCase.swift in Sources */,
 				06CD5408213D917800C5B783 /* ClickThroughActionCreatorTestCase.swift in Sources */,
 				06CD53F8213D917800C5B783 /* ReplayActionCreatorTestCase.swift in Sources */,
