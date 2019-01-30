@@ -16,7 +16,7 @@ func reduce(state: AdFinishTracker, action: Action) -> AdFinishTracker {
         
     case is SkipAd, is VRMCore.VRMResponseFetchFailed,
          is AdSkipped, is AdStopped,
-         is AdStartTimeout, is AdMaxShowTimeout, is VRMCore.NoGroupsToProcess:
+         is AdStartTimeout, is AdMaxShowTimeout, is VRMCore.NoGroupsToProcess, is VRMCore.MaxSearchTimeout:
         return AdFinishTracker(isForceFinished: true, isSuccessfullyCompleted: false)
     case is ShowContent:
         return AdFinishTracker(isForceFinished: false, isSuccessfullyCompleted: true)

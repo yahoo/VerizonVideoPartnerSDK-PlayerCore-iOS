@@ -28,6 +28,17 @@ public struct Ad {
 }
 
 func reduce(state: Ad, action: Action) -> Ad {
+    
+    func markIDAsPlayed(id: UUID) -> Ad {
+        var playedAds = state.playedAds
+        playedAds.insert(id)
+        return Ad(playedAds: playedAds,
+                  midrolls: state.midrolls,
+                  adCreative: state.adCreative,
+                  currentAd: state.currentAd,
+                  currentType: state.currentType)
+    }
+    
     switch action {
     case let action as AdRequest:
         return Ad(playedAds: state.playedAds,
@@ -53,31 +64,16 @@ func reduce(state: Ad, action: Action) -> Ad {
                   currentType: state.currentType)
         
     case let action as SkipAd:
-        var playedAds = state.playedAds
-        playedAds.insert(action.id)
-        return Ad(playedAds: playedAds,
-                  midrolls: state.midrolls,
-                  adCreative: state.adCreative,
-                  currentAd: state.currentAd,
-                  currentType: state.currentType)
+        return markIDAsPlayed(id: action.id)
         
     case let action as VRMCore.VRMResponseFetchFailed:
-        var playedAds = state.playedAds
-        playedAds.insert(action.requestID)
-        return Ad(playedAds: playedAds,
-                  midrolls: state.midrolls,
-                  adCreative: state.adCreative,
-                  currentAd: state.currentAd,
-                  currentType: state.currentType)
+        return markIDAsPlayed(id: action.requestID)
         
     case let action as VRMCore.NoGroupsToProcess:
-        var playedAds = state.playedAds
-        playedAds.insert(action.id)
-        return Ad(playedAds: playedAds,
-                  midrolls: state.midrolls,
-                  adCreative: state.adCreative,
-                  currentAd: state.currentAd,
-                  currentType: state.currentType)
+        return markIDAsPlayed(id: action.id)
+        
+    case let action as VRMCore.MaxSearchTimeout:
+        return markIDAsPlayed(id: action.requestID)
         
     case is ShowContent,
          is AdPlaybackFailed,

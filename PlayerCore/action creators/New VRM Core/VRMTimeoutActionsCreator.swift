@@ -12,7 +12,7 @@ extension VRMCore {
         return HardTimeout()
     }
     
-    public static func maxSearchTimeoutReached() -> Action {
-        return MaxSearchTimeout()
+    public static func maxSearchTimeoutReached(requestID: UUID) -> Action {
+        return MaxSearchTimeout(requestID: requestID)
     }
 }

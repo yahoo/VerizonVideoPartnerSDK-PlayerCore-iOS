@@ -19,6 +19,12 @@ class AdComponentTestCase: XCTestCase {
         
         sut = reduce(state: initial, action: VRMCore.adResponseFetchFailed(requestID: id))
         XCTAssertEqual(sut.playedAds.count, 1)
+        
+        sut = reduce(state: initial, action: VRMCore.noGroupsToProcess(id: id))
+        XCTAssertEqual(sut.playedAds.count, 1)
+        
+        sut = reduce(state: initial, action: VRMCore.maxSearchTimeoutReached(requestID: id))
+        XCTAssertEqual(sut.playedAds.count, 1)
     }
     
     func testReduceOnShowAdForMp4() {
