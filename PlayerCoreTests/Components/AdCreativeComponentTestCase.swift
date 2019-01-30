@@ -4,9 +4,9 @@
 import XCTest
 @testable import PlayerCore
 
-class SelectMediaFileComponentTestCase: XCTestCase {
+class AdCreativeComponentTestCase: XCTestCase {
     
-    let initial = SelectedAdCreative(creative: .none)
+    let initial = AdCreative.none
     
     func testReduceOnSelectFinalResultWithMP4() {
         let vastModel = Ad.VASTModel.model(withMp4: [Ad.VASTModel.MP4MediaFile(url: testUrl,
@@ -21,7 +21,7 @@ class SelectMediaFileComponentTestCase: XCTestCase {
                 metaInfo: .init(engineType: "", ruleId: "", ruleCompanyId: "", vendor: "", name: "", cpm: "")),
             inlineVAST: vastModel))
         
-        guard case .mp4 = sut.creative else { return XCTFail("Not Equal") }
+        guard case .mp4 = sut else { return XCTFail("Not Equal") }
     }
     func testReduceOnSelectFinalResultWithVpaid() {
         let vastModel = Ad.VASTModel.model(withMp4: [],
@@ -34,7 +34,7 @@ class SelectMediaFileComponentTestCase: XCTestCase {
                 metaInfo: .init(engineType: "", ruleId: "", ruleCompanyId: "", vendor: "", name: "", cpm: "")),
             inlineVAST: vastModel))
         
-        guard case .vpaid = sut.creative else { return XCTFail("Not equal")}
+        guard case .vpaid = sut else { return XCTFail("Not equal")}
     }
     func testReduceOnSelectFinalResultWithMp4AndVpaid() {
         let vastModel = Ad.VASTModel.model(withMp4: [Ad.VASTModel.MP4MediaFile(url: testUrl,
@@ -51,7 +51,7 @@ class SelectMediaFileComponentTestCase: XCTestCase {
                 metaInfo: .init(engineType: "", ruleId: "", ruleCompanyId: "", vendor: "", name: "", cpm: "")),
             inlineVAST: vastModel))
         
-        guard case .mp4 = sut.creative else { return XCTFail("Not equal")}
+        guard case .mp4 = sut else { return XCTFail("Not equal")}
     }
     func testReduceOnAdRequest() {
         let vastModel = Ad.VASTModel.model(withMp4: [Ad.VASTModel.MP4MediaFile(url: testUrl,
@@ -69,6 +69,6 @@ class SelectMediaFileComponentTestCase: XCTestCase {
             inlineVAST: vastModel))
         sut = reduce(state: sut, action: VRMCore.AdRequest(url: testUrl, id: UUID(), type: .preroll))
         
-        guard case .none = sut.creative else { return XCTFail("Not equal")}
+        guard case .none = sut else { return XCTFail("Not equal")}
     }
 }

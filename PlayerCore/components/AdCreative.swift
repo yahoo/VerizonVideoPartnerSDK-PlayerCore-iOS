@@ -53,3 +53,39 @@ public enum AdCreative: Equatable {
         }
     }
 }
+
+func reduce(state: AdCreative, action: Action) -> AdCreative {
+    switch action {
+    case let action as VRMCore.SelectFinalResult:
+        let mp4AdCreatives: [AdCreative.MP4] = action.inlineVAST.mp4MediaFiles.compactMap {
+            return .init(
+                url: $0.url,
+                clickthrough: action.inlineVAST.clickthrough,
+                pixels: action.inlineVAST.pixels,
+                id: action.inlineVAST.id,
+                width: $0.width,
+                height: $0.height,
+                scalable: $0.scalable,
+                maintainAspectRatio: $0.maintainAspectRatio)
+        }
+        guard mp4AdCreatives.isEmpty else {
+            return .mp4(mp4AdCreatives)
+        }
+        let vpaidAdCreatives: [AdCreative.VPAID] = action.inlineVAST.vpaidMediaFiles.compactMap {
+            return .init(
+                url: $0.url,
+                adParameters: action.inlineVAST.adParameters,
+                clickthrough: action.inlineVAST.clickthrough,
+                pixels: action.inlineVAST.pixels,
+                id: action.inlineVAST.id)
+        }
+        guard vpaidAdCreatives.isEmpty else {
+            return .vpaid(vpaidAdCreatives)
+        }
+        return .none
+    case is VRMCore.AdRequest:
+        return .none
+    default: return state
+    }
+}
+

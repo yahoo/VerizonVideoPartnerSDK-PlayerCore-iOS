@@ -7,7 +7,7 @@ public struct State {
     public let ad: Ad
     public let adKill: AdKill
     public let adMaxShowTime: TimerSession
-    public let selectedAdCreative: SelectedAdCreative
+    public let selectedAdCreative: AdCreative
     public let openMeasurement: OpenMeasurement
     public let serviceScript: OpenMeasurementServiceScript
     public let currentTime: CurrentTime
@@ -81,7 +81,7 @@ extension State {
             adMaxShowTime: .init(state: .stopped,
                                  startAdSession: nil,
                                  allowedDuration: Double(maxAdDuration)),
-            selectedAdCreative: .init(creative: .none),
+            selectedAdCreative: .none,
             openMeasurement: OpenMeasurement.inactive,
             serviceScript: OpenMeasurementServiceScript.none,
             currentTime: CurrentTime(content: nil, ad: CMTime.zero),
