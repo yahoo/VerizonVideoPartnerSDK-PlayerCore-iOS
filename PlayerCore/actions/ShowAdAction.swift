@@ -7,7 +7,6 @@ struct ShowAd: Action {
     let creative: AdCreative
     let id: UUID
     let adVerifications: [Ad.VASTModel.AdVerification]
-    let isOpenMeasurementEnabled: Bool
 }
 
 struct ShowMP4Ad: Action {

@@ -19,8 +19,7 @@ class OpenMeasurementComponentTestCase: XCTestCase {
     func testDefaultBehavior() {
         sut = reduce(state: sut, action: ShowAd(creative: .mp4([AdCreative.mp4(with: testUrl)]),
                                                 id: UUID(),
-                                                adVerifications: adVerifications,
-                                                isOpenMeasurementEnabled: true))
+                                                adVerifications: adVerifications))
         XCTAssertEqual(sut, .loading(adVerifications))
         
         sut = reduce(state: sut, action: OpenMeasurementActivated(adEvents: .empty, videoEvents: .empty))
@@ -35,15 +34,13 @@ class OpenMeasurementComponentTestCase: XCTestCase {
     func testAdVerificationNotParsed() {
         sut = reduce(state: sut, action: ShowAd(creative: .mp4([AdCreative.mp4(with: testUrl)]),
                                                 id: UUID(),
-                                                adVerifications: [],
-                                                isOpenMeasurementEnabled: true))
+                                                adVerifications: []))
         XCTAssertEqual(sut, .inactive)
     }
     func testFailedMeasurement() {
         sut = reduce(state: sut, action: ShowAd(creative: .mp4([AdCreative.mp4(with: testUrl)]),
                                                 id: UUID(),
-                                                adVerifications: adVerifications,
-                                                isOpenMeasurementEnabled: true))
+                                                adVerifications: adVerifications))
         sut = reduce(state: sut, action: OpenMeasurementActivated(adEvents: .empty, videoEvents: .empty))
         XCTAssertTrue(sut.isActive)
         
@@ -52,16 +49,15 @@ class OpenMeasurementComponentTestCase: XCTestCase {
         
         sut = reduce(state: sut, action: ShowAd(creative: .mp4([AdCreative.mp4(with: testUrl)]),
                                                 id: UUID(),
-                                                adVerifications: adVerifications,
-                                                isOpenMeasurementEnabled: true))
+                                                adVerifications: adVerifications))
         sut = reduce(state: sut, action: OpenMeasurementConfigurationFailed(error: Failed()))
         XCTAssertTrue(sut.isFailed)
     }
     func testReduceWithDisabledOM() {
+        sut = .disabled
         sut = reduce(state: sut, action: ShowAd(creative: .mp4([AdCreative.mp4(with: testUrl)]),
                                                 id: UUID(),
-                                                adVerifications: adVerifications,
-                                                isOpenMeasurementEnabled: false))
+                                                adVerifications: adVerifications))
         XCTAssertEqual(sut, .disabled)
         
         sut = reduce(state: sut, action: ShowContent())

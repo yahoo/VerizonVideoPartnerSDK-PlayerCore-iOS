@@ -65,7 +65,7 @@ class AdVRMManagerComponentTestCase: XCTestCase {
                                request: .init(id: id,
                                               timeout: .afterHard,
                                               state: .finish(defaultFinish)))
-        sut = reduce(state: sut, action: ShowAd(creative: .mp4([AdCreative.mp4(with: testUrl)]), id: UUID(), adVerifications: [], isOpenMeasurementEnabled: true))
+        sut = reduce(state: sut, action: ShowAd(creative: .mp4([AdCreative.mp4(with: testUrl)]), id: UUID(), adVerifications: []))
         XCTAssertEqual(sut.request.id, id)
         XCTAssertEqual(sut.request.timeout, .afterHard)
         guard case .finish = sut.request.state else { return XCTFail("Expecting `ready` state here!") }

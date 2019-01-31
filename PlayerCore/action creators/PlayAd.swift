@@ -10,7 +10,7 @@ public func showVPAIDAd(creative: AdCreative.VPAID, id: UUID) -> Action {
     return ShowVPAIDAd(creative: creative, id: id)
 }
 
-public func playAd(model: Ad.VASTModel, id: UUID, isOpenMeasurementEnabled: Bool) -> Action {
+public func playAd(model: Ad.VASTModel, id: UUID) -> Action {
     let adCreative: AdCreative? = {
         if let mediaFile = model.mp4MediaFiles.first {
             return AdCreative.mp4(
@@ -38,6 +38,5 @@ public func playAd(model: Ad.VASTModel, id: UUID, isOpenMeasurementEnabled: Bool
     guard let creative = adCreative else { return SkipAd(id: id) }
     return ShowAd(creative: creative,
                   id: id,
-                  adVerifications: model.adVerifications,
-                  isOpenMeasurementEnabled: isOpenMeasurementEnabled)
+                  adVerifications: model.adVerifications)
 }
