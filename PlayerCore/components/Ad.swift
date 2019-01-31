@@ -21,7 +21,8 @@ public struct Ad {
             return true
         }
     }
-    public var adCreative: AdCreative
+    public let mp4AdCreative: AdCreative.MP4?
+    public let vpaidAdCreative: AdCreative.VPAID?
     
     public let currentAd: State
     public let currentType: AdType
@@ -34,7 +35,8 @@ func reduce(state: Ad, action: Action) -> Ad {
         playedAds.insert(id)
         return Ad(playedAds: playedAds,
                   midrolls: state.midrolls,
-                  adCreative: state.adCreative,
+                  mp4AdCreative: state.mp4AdCreative,
+                  vpaidAdCreative: state.vpaidAdCreative,
                   currentAd: state.currentAd,
                   currentType: state.currentType)
     }
@@ -43,23 +45,58 @@ func reduce(state: Ad, action: Action) -> Ad {
     case let action as AdRequest:
         return Ad(playedAds: state.playedAds,
                   midrolls: state.midrolls,
-                  adCreative: .none,
+                  mp4AdCreative: nil,
+                  vpaidAdCreative: nil,
                   currentAd: state.currentAd,
                   currentType: action.type)
         
     case let action as VRMCore.AdRequest:
         return Ad(playedAds: state.playedAds,
                   midrolls: state.midrolls,
-                  adCreative: .none,
+                  mp4AdCreative: nil,
+                  vpaidAdCreative: nil,
                   currentAd: state.currentAd,
                   currentType: action.type)
         
     case let action as ShowAd:
         var playedAds = state.playedAds
         playedAds.insert(action.id)
+        switch action.creative {
+        case .mp4(let creatives):
+            return Ad(playedAds: playedAds,
+                      midrolls: state.midrolls,
+                      mp4AdCreative: creatives.first,
+                      vpaidAdCreative: nil,
+                      currentAd: .play,
+                      currentType: state.currentType)
+        case .vpaid(let creatives):
+            return Ad(playedAds: playedAds,
+                      midrolls: state.midrolls,
+                      mp4AdCreative: nil,
+                      vpaidAdCreative: creatives.first,
+                      currentAd: .play,
+                      currentType: state.currentType)
+        case .none:
+            fatalError("AdCreative.none has to create SkipAd action")
+        }
+        
+    case let action as ShowMP4Ad:
+        var playedAds = state.playedAds
+        playedAds.insert(action.id)
         return Ad(playedAds: playedAds,
                   midrolls: state.midrolls,
-                  adCreative: action.creative,
+                  mp4AdCreative: action.creative,
+                  vpaidAdCreative: nil,
+                  currentAd: .play,
+                  currentType: state.currentType)
+        
+    case let action as ShowVPAIDAd:
+        var playedAds = state.playedAds
+        playedAds.insert(action.id)
+        return Ad(playedAds: playedAds,
+                  midrolls: state.midrolls,
+                  mp4AdCreative: nil,
+                  vpaidAdCreative: action.creative,
                   currentAd: .play,
                   currentType: state.currentType)
         
@@ -85,14 +122,16 @@ func reduce(state: Ad, action: Action) -> Ad {
          is AdNotSupported:
         return Ad(playedAds: state.playedAds,
                   midrolls: state.midrolls,
-                  adCreative: state.adCreative,
+                  mp4AdCreative: state.mp4AdCreative,
+                  vpaidAdCreative: state.vpaidAdCreative,
                   currentAd: .empty,
                   currentType: state.currentType)
         
     case let action as SelectVideoAtIdx:
         return Ad(playedAds: [],
                   midrolls: action.midrolls,
-                  adCreative: .none,
+                  mp4AdCreative: nil,
+                  vpaidAdCreative: nil,
                   currentAd: .empty,
                   currentType: action.hasPrerollAds ? .preroll : .midroll)
         
