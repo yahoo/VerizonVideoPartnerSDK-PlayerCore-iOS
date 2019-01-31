@@ -11,7 +11,7 @@ public struct AdFinishTracker {
 func reduce(state: AdFinishTracker, action: Action) -> AdFinishTracker {
     switch action {
     
-    case is ShowAd:
+    case is ShowMP4Ad, is ShowVPAIDAd, is ShowAd:
         return AdFinishTracker(isForceFinished: false, isSuccessfullyCompleted: false)
         
     case is SkipAd, is VRMCore.VRMResponseFetchFailed,

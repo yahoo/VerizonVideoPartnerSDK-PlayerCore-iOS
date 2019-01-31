@@ -3,6 +3,13 @@
 
 import Foundation
 
+public func showMP4Ad(creative: AdCreative.MP4, id: UUID) -> Action {
+    return ShowMP4Ad(creative: creative, id: id)
+}
+public func showVPAIDAd(creative: AdCreative.VPAID, id: UUID) -> Action {
+    return ShowVPAIDAd(creative: creative, id: id)
+}
+
 public func playAd(model: Ad.VASTModel, id: UUID, isOpenMeasurementEnabled: Bool) -> Action {
     let adCreative: AdCreative? = {
         if let mediaFile = model.mp4MediaFiles.first {
@@ -34,4 +41,3 @@ public func playAd(model: Ad.VASTModel, id: UUID, isOpenMeasurementEnabled: Bool
                   adVerifications: model.adVerifications,
                   isOpenMeasurementEnabled: isOpenMeasurementEnabled)
 }
-
