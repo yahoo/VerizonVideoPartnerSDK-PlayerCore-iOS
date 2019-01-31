@@ -6,14 +6,13 @@ import XCTest
 
 class VPAIDStateComponentTestCase: XCTestCase {
     let initial = VPAIDState(events: [], adClickthrough: nil)
-    let url = URL(string: "https://example.com")!
     
     func testOnShowAdAction() {
-        var sut = reduce(state: initial, action: ShowAd(creative: .vpaid(with: url), id: UUID(), adVerifications: [], isOpenMeasurementEnabled: true))
-        XCTAssertEqual(sut.adClickthrough, url)
+        var sut = reduce(state: initial, action: ShowAd(creative: .vpaid([AdCreative.vpaid(with: testUrl)]), id: UUID(), adVerifications: [], isOpenMeasurementEnabled: true))
+        XCTAssertEqual(sut.adClickthrough, testUrl)
         
-        sut = reduce(state: VPAIDState(events: [.AdSkipped], adClickthrough: nil), action: ShowAd(creative: .vpaid(with: url), id: UUID(), adVerifications: [], isOpenMeasurementEnabled: true))
-        XCTAssertEqual(sut.adClickthrough, url)
+        sut = reduce(state: VPAIDState(events: [.AdSkipped], adClickthrough: nil), action: ShowAd(creative: .vpaid([AdCreative.vpaid(with: testUrl)]), id: UUID(), adVerifications: [], isOpenMeasurementEnabled: true))
+        XCTAssertEqual(sut.adClickthrough, testUrl)
         XCTAssert(sut.events.isEmpty)
     }
     
@@ -103,9 +102,9 @@ class VPAIDStateComponentTestCase: XCTestCase {
         XCTAssertEqual(sut.adClickthrough, nil)
         XCTAssertEqual(sut.events, events)
         
-        sut = reduce(state: state, action: AdClickThru(url: url.absoluteString))
-        events.append(.AdClickThru(url.absoluteString))
-        XCTAssertEqual(sut.adClickthrough, url)
+        sut = reduce(state: state, action: AdClickThru(url: testUrl.absoluteString))
+        events.append(.AdClickThru(testUrl.absoluteString))
+        XCTAssertEqual(sut.adClickthrough, testUrl)
         XCTAssertEqual(sut.events, events)
         
         sut = reduce(state: state, action: AdError(error: NSError(domain: "", code: 901)))

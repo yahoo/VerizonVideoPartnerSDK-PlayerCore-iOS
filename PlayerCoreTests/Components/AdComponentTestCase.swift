@@ -10,7 +10,8 @@ class AdComponentTestCase: XCTestCase {
         let id = UUID()
         let initial = Ad(playedAds: [],
                          midrolls: [],
-                         adCreative: .none,
+                         mp4AdCreative: nil,
+                         vpaidAdCreative: nil,
                          currentAd: .empty,
                          currentType: .preroll)
         
@@ -28,112 +29,118 @@ class AdComponentTestCase: XCTestCase {
     }
     
     func testReduceOnShowAdForMp4() {
-        let mp4Creative = AdCreative.mp4(with: testUrl)
+        let mp4AdCreative = AdCreative.mp4(with: testUrl)
         let initial = Ad(playedAds: [],
                          midrolls: [],
-                         adCreative: .none,
+                         mp4AdCreative: nil,
+                         vpaidAdCreative: nil,
                          currentAd: .empty,
                          currentType: .preroll)
-        let sut = reduce(state: initial, action: ShowAd(creative: mp4Creative, id: UUID(), adVerifications: [], isOpenMeasurementEnabled: true))
-        guard case .mp4(let adCreative) = sut.adCreative else { return XCTFail("Failed to get mp4 creative") }
-        XCTAssertEqual(adCreative.first?.url, testUrl)
+        let sut = reduce(state: initial, action: ShowAd(creative: .mp4([mp4AdCreative]), id: UUID(), adVerifications: [], isOpenMeasurementEnabled: true))
+        XCTAssertNil(sut.vpaidAdCreative)
+        XCTAssertEqual(mp4AdCreative, sut.mp4AdCreative)
+        XCTAssertEqual(sut.currentAd, .play)
         XCTAssertEqual(sut.playedAds.count, 1)
     }
     
     func testReduceOnShowAdForVPAID() {
-        let vpaidCreative = AdCreative.vpaid(with: testUrl)
+        let vpaidAdCreative = AdCreative.vpaid(with: testUrl)
         let initial = Ad(playedAds: [UUID()],
                          midrolls: [],
-                         adCreative: .none,
+                         mp4AdCreative: nil,
+                         vpaidAdCreative: nil,
                          currentAd: .empty,
                          currentType: .midroll)
-        let sut = reduce(state: initial, action: ShowAd(creative: vpaidCreative, id: UUID(), adVerifications: [], isOpenMeasurementEnabled: true))
-        guard case .vpaid(let adCreative) = sut.adCreative else { return XCTFail("Failed to get vpaid creative") }
-        XCTAssertEqual(adCreative.first?.url, testUrl)
+        let sut = reduce(state: initial, action: ShowAd(creative: .vpaid([vpaidAdCreative]), id: UUID(), adVerifications: [], isOpenMeasurementEnabled: true))
+        XCTAssertNil(sut.mp4AdCreative)
+        XCTAssertEqual(vpaidAdCreative, sut.vpaidAdCreative)
+        XCTAssertEqual(sut.currentAd, .play)
         XCTAssertEqual(sut.playedAds.count, 2)
+    }
+    
+    func testReduceOnANewShowMP4Action() {
+        let mp4AdCreative = AdCreative.mp4(with: testUrl)
+        let initial = Ad(playedAds: [],
+                         midrolls: [],
+                         mp4AdCreative: nil,
+                         vpaidAdCreative: nil,
+                         currentAd: .empty,
+                         currentType: .preroll)
+        let sut = reduce(state: initial, action: ShowMP4Ad(creative: mp4AdCreative, id: UUID()))
+        XCTAssertNil(sut.vpaidAdCreative)
+        XCTAssertEqual(mp4AdCreative, sut.mp4AdCreative)
+        XCTAssertEqual(sut.currentAd, .play)
+        XCTAssertEqual(sut.playedAds.count, 1)
+    }
+    
+    func testReduceOnANewShowVPAIDAction() {
+        let vpaidAdCreative = AdCreative.vpaid(with: testUrl)
+        let initial = Ad(playedAds: [],
+                         midrolls: [],
+                         mp4AdCreative: nil,
+                         vpaidAdCreative: nil,
+                         currentAd: .empty,
+                         currentType: .preroll)
+        let sut = reduce(state: initial, action: ShowVPAIDAd(creative: vpaidAdCreative, id: UUID()))
+        XCTAssertNil(sut.mp4AdCreative)
+        XCTAssertEqual(vpaidAdCreative, sut.vpaidAdCreative)
+        XCTAssertEqual(sut.currentAd, .play)
+        XCTAssertEqual(sut.playedAds.count, 1)
     }
     
     func testReduceOnAdPlaybackFailed() {
         let initial = Ad(playedAds: [],
                          midrolls: [],
-                         adCreative: .mp4(with: URL(string: "http://test1.com")!),
+                         mp4AdCreative: AdCreative.mp4(with: testUrl),
+                         vpaidAdCreative: nil,
                          currentAd: .play,
                          currentType: .preroll)
         let sut = reduce(state: initial, action: AdPlaybackFailed(error: .init()))
-        guard case .empty = sut.currentAd else { return XCTFail("Current ad state isn't empty") }
-        guard case .mp4 = sut.adCreative else { return XCTFail("Ad creative became none") }
-    }
-    
-    func testReduceOnShowContent() {
-        let initial = Ad(playedAds: [],
-                         midrolls: [],
-                         adCreative: .none,
-                         currentAd: .empty,
-                         currentType: .preroll)
-        let sut = reduce(state: initial, action: ShowContent())
-        guard case .empty = sut.currentAd else { return XCTFail("Current ad state isn't empty") }
-        guard case .none = sut.adCreative else { return XCTFail("Ad creative isn't none") }
+        XCTAssertEqual(sut.currentAd, .empty)
+        XCTAssertNotNil(sut.mp4AdCreative)
     }
     
     func testReduceOnSelectVideoAtIdx() {
         let initial = Ad(playedAds: [],
                          midrolls: [],
-                         adCreative: .mp4(with: URL(string: "http://test1.com")!),
+                         mp4AdCreative: AdCreative.mp4(with: testUrl),
+                         vpaidAdCreative: nil,
                          currentAd: .play,
                          currentType: .midroll)
         let sut = reduce(state: initial, action: SelectVideoAtIdx(idx: 0, id: .init(), hasPrerollAds: true, midrolls: []))
-        guard case .empty = sut.currentAd else { return XCTFail("Current ad state isn't empty") }
-        guard case .none = sut.adCreative else { return XCTFail("Ad creative isn't none") }
+        XCTAssertEqual(sut.currentAd, .empty)
+        XCTAssertNil(sut.mp4AdCreative)
     }
     
     func testReduceDefaultCase() {
         let initial = Ad(playedAds: [],
                          midrolls: [],
-                         adCreative: .mp4(with: URL(string: "http://test1.com")!),
+                         mp4AdCreative: AdCreative.mp4(with: testUrl),
+                         vpaidAdCreative: nil,
                          currentAd: .play,
                          currentType: .preroll)
         let sut = reduce(state: initial, action: Play(time: Date()))
-        guard case .play = sut.currentAd else { return XCTFail("Current ad state isn't play") }
-        guard case .mp4 = sut.adCreative else { return XCTFail("Ad creative isn't mp4") }
+        XCTAssertEqual(sut.currentAd, .play)
+        XCTAssertNotNil(sut.mp4AdCreative)
     }
 }
 
 extension AdCreative {
-    static func mp4(with url: URL) -> AdCreative {
-        return AdCreative.mp4([AdCreative.MP4(url: url,
-                                             clickthrough: url,
-                                             pixels: AdPixels(impression: [],
-                                                              error: [],
-                                                              clickTracking: [],
-                                                              creativeView: [],
-                                                              start: [],
-                                                              firstQuartile: [],
-                                                              midpoint: [],
-                                                              thirdQuartile: [],
-                                                              complete: [],
-                                                              pause: [],
-                                                              resume: []),
-                                             id: nil,
-                                             width: 320,
-                                             height: 240,
-                                             scalable: false,
-                                             maintainAspectRatio: true)])
+    static func mp4(with url: URL) -> AdCreative.MP4 {
+        return AdCreative.MP4(url: url,
+                              clickthrough: url,
+                              pixels: AdPixels(),
+                              id: nil,
+                              width: 320,
+                              height: 240,
+                              scalable: false,
+                              maintainAspectRatio: true)
     }
-    static func vpaid(with url: URL) -> AdCreative {
-        return AdCreative.vpaid([AdCreative.VPAID(url: url,
-                                                 adParameters: nil,
-                                                 clickthrough: url,
-                                                 pixels: AdPixels(impression: [],
-                                                                  error: [],
-                                                                  clickTracking: [],
-                                                                  creativeView: [],
-                                                                  start: [],
-                                                                  firstQuartile: [],
-                                                                  midpoint: [],
-                                                                  thirdQuartile: [],
-                                                                  complete: [],
-                                                                  pause: [],
-                                                                  resume: []),
-                                                 id: nil)])
+    static func vpaid(with url: URL) -> AdCreative.VPAID {
+        return AdCreative.VPAID(url: url,
+                                adParameters: nil,
+                                clickthrough: url,
+                                pixels: AdPixels(),
+                                id: nil)
     }
 }

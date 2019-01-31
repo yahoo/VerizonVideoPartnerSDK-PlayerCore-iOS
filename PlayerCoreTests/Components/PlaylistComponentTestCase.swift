@@ -19,7 +19,7 @@ class PlaylistComponentTestCase: XCTestCase {
         sut = reduce(state: initial, action: SelectVideoAtIdx(idx: 1, id: .init(), hasPrerollAds: false, midrolls: []))
         XCTAssertEqual(sut.currentIndex, 1)
         
-        sut = reduce(state: sut, action: ShowAd(creative: .mp4(with: testUrl), id: UUID(), adVerifications: [], isOpenMeasurementEnabled: true))
+        sut = reduce(state: sut, action: ShowAd(creative: .mp4([AdCreative.mp4(with: testUrl)]), id: UUID(), adVerifications: [], isOpenMeasurementEnabled: true))
         XCTAssertEqual(sut.currentIndex, 1)
     }
 }

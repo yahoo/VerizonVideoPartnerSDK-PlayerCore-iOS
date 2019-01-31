@@ -47,7 +47,7 @@ class LoadedTimeRangesComponentTestCase: XCTestCase {
     
     func testShowAd() {
         let sut = reduce(state: initial,
-                         action: ShowAd(creative: .mp4(with: testUrl), id: UUID(), adVerifications: [], isOpenMeasurementEnabled: true))
+                         action: ShowAd(creative: .mp4([AdCreative.mp4(with: testUrl)]), id: UUID(), adVerifications: [], isOpenMeasurementEnabled: true))
         XCTAssertEqual(sut.ad.count, 0)
         XCTAssertEqual(sut.content.count, 1)
         XCTAssertEqual(sut.content[0].start, (0, 0) |> toCMTime)

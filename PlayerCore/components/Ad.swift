@@ -12,7 +12,7 @@ public struct Ad {
         public let id: UUID
     }
     
-    public enum State {
+    public enum State: Hashable {
         case empty
         case play
         
