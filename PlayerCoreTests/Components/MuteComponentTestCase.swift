@@ -36,8 +36,10 @@ class SoundComponentTestCase: XCTestCase {
     
     func testReduceOnShowAd() {
         let initial = Mute(player: false, vpaid: true)
-        let action = ShowAd(creative: AdCreative.vpaid(with: URL(string: "https://example.com")!),
-                            id: UUID(), adVerifications: [], isOpenMeasurementEnabled: true)
+        let action = ShowAd(creative: .vpaid([AdCreative.vpaid(with: testUrl)]),
+                            id: UUID(),
+                            adVerifications: [],
+                            isOpenMeasurementEnabled: true)
         let sut = reduce(state: initial, action: action)
         XCTAssertEqual(sut.player, false)
         XCTAssertEqual(sut.vpaid, false)

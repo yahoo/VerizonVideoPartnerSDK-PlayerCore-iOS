@@ -8,7 +8,7 @@ class AdFinishTrackerComponentTestCase: XCTestCase {
     func testReduceOnShowAd() {
         let initial = AdFinishTracker(isForceFinished: true, isSuccessfullyCompleted: true)
         let sut = reduce(state: initial,
-                         action: ShowAd(creative: .mp4(with: URL(string: "https://test.com")!),
+                         action: ShowAd(creative: .mp4([AdCreative.mp4(with: testUrl)]),
                                         id: UUID(), adVerifications: [], isOpenMeasurementEnabled: true))
         XCTAssertFalse(sut.isForceFinished)
         XCTAssertFalse(sut.isSuccessfullyCompleted)
