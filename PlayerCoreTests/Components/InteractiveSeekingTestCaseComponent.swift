@@ -26,8 +26,7 @@ class InteractiveSeekingTestCaseComponent: XCTestCase {
     func testReduceOnShowAd() {
         let sut = reduce(state: initial, action: ShowAd(creative: .mp4([AdCreative.mp4(with: testUrl)]),
                                                         id: UUID(),
-                                                        adVerifications: [],
-                                                        isOpenMeasurementEnabled: true))
+                                                        adVerifications: []))
         XCTAssertEqual(sut.isSeekingInProgress, false)
     }
     

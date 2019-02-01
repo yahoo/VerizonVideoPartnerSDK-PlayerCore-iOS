@@ -9,8 +9,7 @@ class PlayAdActionCreatorTestCase: XCTestCase {
         let mediaFiles = [Ad.VASTModel.MP4MediaFile.video(with: testUrl)]
         let model = Ad.VASTModel.model(withMp4: mediaFiles, andVpaid: [])
         guard let action = PlayerCore.playAd(model: model,
-                                             id: UUID(),
-                                             isOpenMeasurementEnabled: true) as? ShowAd else { return XCTFail() }
+                                             id: UUID()) as? ShowAd else { return XCTFail() }
         guard case .mp4(_) = action.creative else { return XCTFail() }
     }
     
@@ -18,8 +17,7 @@ class PlayAdActionCreatorTestCase: XCTestCase {
         let mediaFiles = [Ad.VASTModel.VPAIDMediaFile.video(with: testUrl)]
         let model = Ad.VASTModel.model(withMp4: [], andVpaid: mediaFiles)
         guard let action = PlayerCore.playAd(model: model,
-                                             id: UUID(),
-                                             isOpenMeasurementEnabled: true) as? ShowAd else { return XCTFail() }
+                                             id: UUID()) as? ShowAd else { return XCTFail() }
         guard case .vpaid(_) = action.creative else { return XCTFail() }
     }
     
@@ -29,14 +27,12 @@ class PlayAdActionCreatorTestCase: XCTestCase {
         let model = Ad.VASTModel.model(withMp4: mp4MediaFiles, andVpaid: vpaidMediaFiles)
         do {
             guard let action = PlayerCore.playAd(model: model,
-                                                 id: UUID(),
-                                                 isOpenMeasurementEnabled: true) as? ShowAd else { return XCTFail() }
+                                                 id: UUID()) as? ShowAd else { return XCTFail() }
             guard case .mp4(_) = action.creative else { return XCTFail() }
         }
         do {
             guard let action = PlayerCore.playAd(model: model,
-                                                 id: UUID(),
-                                                 isOpenMeasurementEnabled: true) as? ShowAd else { return XCTFail() }
+                                                 id: UUID()) as? ShowAd else { return XCTFail() }
             guard case .mp4(_) = action.creative else { return XCTFail() }
         }
     }

@@ -36,7 +36,7 @@ class AdComponentTestCase: XCTestCase {
                          vpaidAdCreative: nil,
                          currentAd: .empty,
                          currentType: .preroll)
-        let sut = reduce(state: initial, action: ShowAd(creative: .mp4([mp4AdCreative]), id: UUID(), adVerifications: [], isOpenMeasurementEnabled: true))
+        let sut = reduce(state: initial, action: ShowAd(creative: .mp4([mp4AdCreative]), id: UUID(), adVerifications: []))
         XCTAssertNil(sut.vpaidAdCreative)
         XCTAssertEqual(mp4AdCreative, sut.mp4AdCreative)
         XCTAssertEqual(sut.currentAd, .play)
@@ -51,7 +51,7 @@ class AdComponentTestCase: XCTestCase {
                          vpaidAdCreative: nil,
                          currentAd: .empty,
                          currentType: .midroll)
-        let sut = reduce(state: initial, action: ShowAd(creative: .vpaid([vpaidAdCreative]), id: UUID(), adVerifications: [], isOpenMeasurementEnabled: true))
+        let sut = reduce(state: initial, action: ShowAd(creative: .vpaid([vpaidAdCreative]), id: UUID(), adVerifications: []))
         XCTAssertNil(sut.mp4AdCreative)
         XCTAssertEqual(vpaidAdCreative, sut.vpaidAdCreative)
         XCTAssertEqual(sut.currentAd, .play)

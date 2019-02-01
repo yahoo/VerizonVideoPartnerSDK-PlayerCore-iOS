@@ -83,6 +83,8 @@ func reduce(state: AdCreative, action: Action) -> AdCreative {
             return .vpaid(vpaidAdCreatives)
         }
         return .none
+    case let action as ShowAd:
+        return action.creative
     case is VRMCore.AdRequest:
         return .none
     default: return state

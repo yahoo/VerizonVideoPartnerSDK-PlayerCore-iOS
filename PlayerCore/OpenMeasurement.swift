@@ -27,9 +27,6 @@ public enum OpenMeasurement {
 func reduce(state: OpenMeasurement, action: Action) -> OpenMeasurement {
     switch action {
     case let action as ShowAd where state != .disabled:
-        guard action.isOpenMeasurementEnabled else {
-            return .disabled
-        }
         guard action.adVerifications.isEmpty == false else {
             return .inactive
         }

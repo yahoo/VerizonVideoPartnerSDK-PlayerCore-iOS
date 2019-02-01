@@ -64,7 +64,8 @@ extension State {
                 hasPrerollAds: Bool,
                 midrolls: [Midroll],
                 timeoutBarrier: Double,
-                maxAdDuration: Int) {
+                maxAdDuration: Int,
+                isOpenMeasurementEnabled: Bool) {
         self = State(
             playlist: Playlist(currentIndex: 0),
             rate: Rate(contentRate: Rate.Value(player: isPlaybackInitiated, stream: false),
@@ -83,7 +84,7 @@ extension State {
                                  startAdSession: nil,
                                  allowedDuration: Double(maxAdDuration)),
             selectedAdCreative: .none,
-            openMeasurement: OpenMeasurement.inactive,
+            openMeasurement: isOpenMeasurementEnabled ? .inactive : .disabled,
             serviceScript: OpenMeasurementServiceScript.none,
             currentTime: CurrentTime(content: nil, ad: CMTime.zero),
             loadedTimeRanges: LoadedTimeRanges(content: [] as [CMTimeRange], ad: [] as [CMTimeRange]),
