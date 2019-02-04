@@ -25,4 +25,14 @@ enum VRMMockGenerator {
                             source: .url(URL(string: "http://test.com")!),
                             metaInfo: createMetaInfo())
     }
+    
+    static func createVASTAdModel() -> Ad.VASTModel {
+        return Ad.VASTModel(adVerifications: [],
+                            mp4MediaFiles: [],
+                            vpaidMediaFiles: [],
+                            clickthrough: nil,
+                            adParameters: nil,
+                            pixels: .init(),
+                            id: nil)
+    }
 }
