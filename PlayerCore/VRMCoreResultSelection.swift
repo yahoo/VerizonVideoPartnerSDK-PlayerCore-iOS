@@ -6,6 +6,7 @@ extension VRMCore {
     struct SelectInlineItem: Action {
         let item: Item
         let inlineVAST: Ad.VASTModel
+        let date: Date
     }
     
     struct SelectFinalResult: Action {

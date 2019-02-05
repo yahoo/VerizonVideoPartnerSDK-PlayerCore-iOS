@@ -49,7 +49,7 @@ class VRMFetchItemQueueTestComponent: XCTestCase {
     func testCleanQueueOnHardTimeout() {
         let fullQueue = VRMFetchItemQueue(candidates: candidates)
         let sut = reduce(state: fullQueue,
-                         action: VRMCore.hardTimeoutReached())
+                         action: VRMCore.hardTimeoutReached(items: []))
         XCTAssertTrue(sut.candidates.isEmpty)
     }
     
