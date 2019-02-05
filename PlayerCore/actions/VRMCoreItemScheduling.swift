@@ -19,7 +19,6 @@ extension VRMCore {
     
     struct ParsingError: Action {
         let originalItem: Item
-        let parseCandidate: VRMParseItemQueue.Candidate
     }
     
     struct StartItemFetch: Action {
@@ -30,7 +29,6 @@ extension VRMCore {
     
     struct FetchingError: Action {
         let originalItem: Item
-        let fetchCandidate: VRMFetchItemQueue.Candidate
     }
     
     struct UnwrapItem: Action {

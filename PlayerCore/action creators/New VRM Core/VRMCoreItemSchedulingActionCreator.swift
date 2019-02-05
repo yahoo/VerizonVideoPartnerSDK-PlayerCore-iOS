@@ -11,16 +11,16 @@ public extension VRMCore {
         return CompleteItemParsing(originalItem: originalItem, vastModel: vastModel, date: startDate )
     }
     
-    public static func failedItemParse(originalItem: Item, parseCandidate: VRMParseItemQueue.Candidate) -> Action {
-        return ParsingError(originalItem: originalItem, parseCandidate: parseCandidate)
+    public static func failedItemParse(originalItem: Item) -> Action {
+        return ParsingError(originalItem: originalItem)
     }
     
     public static func startItemFetch(originalItem: Item, url: URL,  startDate: Date = Date()) -> Action {
         return StartItemFetch(originalItem: originalItem, url: url, startDate: startDate)
     }
     
-    public static func failedItemFetch(originalItem: Item, fetchCandidate: VRMFetchItemQueue.Candidate) -> Action {
-        return FetchingError(originalItem: originalItem, fetchCandidate: fetchCandidate)
+    public static func failedItemFetch(originalItem: Item) -> Action {
+        return FetchingError(originalItem: originalItem)
     }
     
     public static func unwrapItem(item: Item, url: URL) -> Action {
