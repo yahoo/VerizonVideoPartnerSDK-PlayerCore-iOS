@@ -14,11 +14,11 @@ extension VRMCore {
     struct CompleteItemParsing: Action {
         let originalItem: Item
         let vastModel: VASTModel
-        let date: Date
     }
     
     struct ParsingError: Action {
         let originalItem: Item
+        let finishDate: Date
     }
     
     struct StartItemFetch: Action {
@@ -29,6 +29,7 @@ extension VRMCore {
     
     struct FetchingError: Action {
         let originalItem: Item
+        let finishDate: Date
     }
     
     struct UnwrapItem: Action {
@@ -38,9 +39,6 @@ extension VRMCore {
     
     struct TooManyIndirections: Action {
         let item: Item
-    }
-    
-    struct TimeoutError: Action {
-        let item: Item
+        let finishDate: Date
     }
 }

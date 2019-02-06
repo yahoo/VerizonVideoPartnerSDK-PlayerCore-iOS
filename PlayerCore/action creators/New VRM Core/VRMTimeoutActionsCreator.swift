@@ -8,8 +8,8 @@ extension VRMCore {
         return SoftTimeout()
     }
     
-    public static func hardTimeoutReached() -> Action {
-        return HardTimeout()
+    public static func hardTimeoutReached(items: [VRMCore.Item], date: Date = Date()) -> Action {
+        return HardTimeout(items: items, date: date)
     }
     
     public static func maxSearchTimeoutReached(requestID: UUID) -> Action {

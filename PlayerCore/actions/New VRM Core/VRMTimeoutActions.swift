@@ -8,6 +8,8 @@ extension VRMCore {
     }
     
     struct HardTimeout: Action {
+        let items: [VRMCore.Item]
+        let date: Date
     }
     
     struct MaxSearchTimeout: Action {
