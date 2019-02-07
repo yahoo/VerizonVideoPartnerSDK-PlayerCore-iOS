@@ -6,6 +6,7 @@ public enum AdCreative: Hashable {
     case mp4([MP4]), vpaid([VPAID]), none
     
     public struct MP4: Hashable {
+        public let internalID: UUID
         public let url: URL
         public let clickthrough: URL?
         public let pixels: AdPixels
@@ -15,14 +16,16 @@ public enum AdCreative: Hashable {
         public let scalable: Bool
         public let maintainAspectRatio: Bool
         
-        public init(url: URL,
-                    clickthrough: URL?,
-                    pixels: AdPixels,
-                    id: String?,
-                    width: Int,
-                    height: Int,
-                    scalable: Bool,
-                    maintainAspectRatio: Bool) {
+        public init( internalID: UUID = UUID(),
+                     url: URL,
+                     clickthrough: URL?,
+                     pixels: AdPixels,
+                     id: String?,
+                     width: Int,
+                     height: Int,
+                     scalable: Bool,
+                     maintainAspectRatio: Bool) {
+            self.internalID = internalID
             self.url = url
             self.clickthrough = clickthrough
             self.pixels = pixels
@@ -34,17 +37,20 @@ public enum AdCreative: Hashable {
         }
     }
     public struct VPAID: Hashable {
+        public let internalID: UUID
         public let url: URL
         public let adParameters: String?
         public let clickthrough: URL?
         public let pixels: AdPixels
         public let id: String?
         
-        public init(url: URL,
+        public init(internalID: UUID = UUID(),
+                    url: URL,
                     adParameters: String?,
                     clickthrough: URL?,
                     pixels: AdPixels,
                     id: String?) {
+            self.internalID = internalID
             self.url = url
             self.adParameters = adParameters
             self.clickthrough = clickthrough
