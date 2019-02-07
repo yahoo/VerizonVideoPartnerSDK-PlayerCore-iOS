@@ -1,6 +1,7 @@
 //  Copyright 2018, Oath Inc.
 //  Licensed under the terms of the MIT License. See LICENSE.md file in project root for terms.
 public struct State {
+    public let timeoutBarrier: Double
     public let playlist: Playlist
     public let rate: Rate
     public let duration: Duration
@@ -68,6 +69,7 @@ extension State {
                 maxAdDuration: Int,
                 isOpenMeasurementEnabled: Bool) {
         self = State(
+            timeoutBarrier: timeoutBarrier,
             playlist: Playlist(currentIndex: 0),
             rate: Rate(contentRate: Rate.Value(player: isPlaybackInitiated, stream: false),
                        adRate: Rate.Value(player: false, stream: false),
@@ -147,6 +149,7 @@ extension State {
 
 public func reduce(state: State, action: Action) -> State {
     return State(
+        timeoutBarrier: state.timeoutBarrier,
         playlist: reduce(state: state.playlist, action: action),
         rate: reduce(state: state.rate, action: action),
         duration: reduce(state: state.duration, action: action),
