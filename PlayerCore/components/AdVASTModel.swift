@@ -7,6 +7,7 @@ extension Ad {
         public let adVerifications: [AdVerification]
         public let mp4MediaFiles: [MP4MediaFile]
         public let vpaidMediaFiles: [VPAIDMediaFile]
+        public let skipOffset: SkipOffset
         public let clickthrough: URL?
         public let adParameters: String?
         public let pixels: AdPixels
@@ -45,6 +46,12 @@ extension Ad {
             }
         }
         
+        public enum SkipOffset: Hashable {
+            case none
+            case time(Double)
+            case percentage(Int)
+        }
+        
         public struct AdVerification: Hashable {
             public let vendorKey: String?
             public let javaScriptResource: URL
@@ -64,6 +71,7 @@ extension Ad {
         public init(adVerifications: [AdVerification],
                     mp4MediaFiles: [MP4MediaFile],
                     vpaidMediaFiles: [VPAIDMediaFile],
+                    skipOffset: SkipOffset,
                     clickthrough: URL?,
                     adParameters: String?,
                     pixels: AdPixels,
@@ -71,6 +79,7 @@ extension Ad {
             self.adVerifications = adVerifications
             self.mp4MediaFiles = mp4MediaFiles
             self.vpaidMediaFiles = vpaidMediaFiles
+            self.skipOffset = skipOffset
             self.clickthrough = clickthrough
             self.adParameters = adParameters
             self.pixels = pixels

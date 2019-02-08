@@ -62,6 +62,7 @@ extension Ad.VASTModel {
             adVerifications: [],
             mp4MediaFiles: mp4,
             vpaidMediaFiles: vpaid,
+            skipOffset: .none,
             clickthrough: nil,
             adParameters: nil,
             pixels: AdPixels(impression: [],
