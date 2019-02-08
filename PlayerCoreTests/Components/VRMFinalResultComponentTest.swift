@@ -17,24 +17,37 @@ class VRMFinalResultComponentTest: XCTestCase {
                                      adParameters: nil,
                                      pixels: AdPixels(),
                                      id: nil)
-        let sut = reduce(state: VRMFinalResult.initial, action: VRMCore.selectFinalResult(item: vastItem,
-                                                                                          inlineVAST: vastModel))
-        XCTAssertEqual(sut.result?.inlineVAST, vastModel)
+        
+        let result = VRMCore.Result(item: vastItem, inlineVAST: vastModel)
+        let sut = reduce(state: VRMFinalResult.initial,
+                         action: VRMCore.selectFinalResult(item: vastItem,
+                                                           inlineVAST: vastModel))
+        XCTAssertEqual(sut.successResult?.inlineVAST, vastModel)
         
         var emptySut = reduce(state: sut, action: AdError(error: CustomError()))
-        XCTAssertNil(emptySut.result)
+        XCTAssertNil(emptySut.successResult)
+        XCTAssertNotNil(emptySut.failedResult)
+        XCTAssertEqual(emptySut, .failed(result: result))
         
         emptySut = reduce(state: sut, action: AdPlaybackFailed(error: CustomError() as NSError))
-        XCTAssertNil(emptySut.result)
+        XCTAssertNil(emptySut.successResult)
+        XCTAssertNotNil(emptySut.failedResult)
+        XCTAssertEqual(emptySut, .failed(result: result))
         
         emptySut = reduce(state: sut, action: AdStartTimeout())
-        XCTAssertNil(emptySut.result)
+        XCTAssertNil(emptySut.successResult)
+        XCTAssertNotNil(emptySut.failedResult)
+        XCTAssertEqual(emptySut, .failed(result: result))
         
         emptySut = reduce(state: sut, action: AdNotSupported())
-        XCTAssertNil(emptySut.result)
+        XCTAssertNil(emptySut.successResult)
+        XCTAssertNotNil(emptySut.failedResult)
+        XCTAssertEqual(emptySut, .failed(result: result))
         
         emptySut = reduce(state: sut, action: VRMCore.adRequest(url: URL(string:"url")!, id: UUID(), type: .midroll))
-        XCTAssertNil(emptySut.result)
+        XCTAssertNil(emptySut.successResult)
+        XCTAssertNil(emptySut.failedResult)
+        XCTAssertEqual(emptySut, .empty)
     }
 
 }
