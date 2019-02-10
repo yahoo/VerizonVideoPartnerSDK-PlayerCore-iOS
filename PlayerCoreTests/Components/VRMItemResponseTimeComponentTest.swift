@@ -76,10 +76,12 @@ class VRMItemResponseTimeComponentTest: XCTestCase {
         let failedParseAction =  VRMCore.failedItemParse(originalItem: item, finishDate: finishedAt)
         let failedFetchAction = VRMCore.failedItemFetch(originalItem: item, finishDate: finishedAt)
         let indirectionsAction = VRMCore.tooManyIndirections(item: item, finishDate: finishedAt)
+        let otherErrorAction = VRMCore.otherError(item: item, finishDate: finishedAt)
         
         [failedParseAction,
          failedFetchAction,
-         indirectionsAction
+         indirectionsAction,
+         otherErrorAction
         ].forEach { action in
             let sut = reduce(state: initial, action: action)
             let resultRange = sut.timeRangeContainer[item]

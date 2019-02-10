@@ -30,4 +30,8 @@ public extension VRMCore {
     public static func tooManyIndirections(item: Item, finishDate: Date = Date()) -> Action {
         return TooManyIndirections(item: item, finishDate: finishDate)
     }
+    
+    public static func otherError(item: Item, finishDate: Date = Date()) -> Action {
+        return OtherError(item: item, finishDate: finishDate)
+    }
 }

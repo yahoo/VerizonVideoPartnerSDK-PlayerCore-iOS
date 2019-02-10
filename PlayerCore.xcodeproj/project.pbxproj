@@ -203,6 +203,7 @@
 		E22B6B1221F6277000D480A0 /* VRMParsingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22B6B1121F6277000D480A0 /* VRMParsingError.swift */; };
 		E22B6B1421F6279500D480A0 /* VRMTimeoutError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22B6B1321F6279500D480A0 /* VRMTimeoutError.swift */; };
 		E22B6B1621F627AE00D480A0 /* VRMRedirectError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22B6B1521F627AE00D480A0 /* VRMRedirectError.swift */; };
+		E23218DE2210BE12008DA177 /* VRMOtherError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E23218DD2210BE12008DA177 /* VRMOtherError.swift */; };
 		E24103AF21BED85C00036290 /* VRMRequestStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24103AE21BED85C00036290 /* VRMRequestStatus.swift */; };
 		E24103B421BEE4E000036290 /* VRMRequestStatusComponentTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24103B321BEE4E000036290 /* VRMRequestStatusComponentTest.swift */; };
 		E24103CC21BFF9C700036290 /* VRMCoreAdRequestAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24103CB21BFF9C700036290 /* VRMCoreAdRequestAction.swift */; };
@@ -445,6 +446,7 @@
 		E22B6B1121F6277000D480A0 /* VRMParsingError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = VRMParsingError.swift; path = "components/New VRM Core/VRMParsingError.swift"; sourceTree = "<group>"; };
 		E22B6B1321F6279500D480A0 /* VRMTimeoutError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = VRMTimeoutError.swift; path = "components/New VRM Core/VRMTimeoutError.swift"; sourceTree = "<group>"; };
 		E22B6B1521F627AE00D480A0 /* VRMRedirectError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = VRMRedirectError.swift; path = "components/New VRM Core/VRMRedirectError.swift"; sourceTree = "<group>"; };
+		E23218DD2210BE12008DA177 /* VRMOtherError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = VRMOtherError.swift; path = "components/New VRM Core/VRMOtherError.swift"; sourceTree = "<group>"; };
 		E24103AE21BED85C00036290 /* VRMRequestStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = VRMRequestStatus.swift; path = "components/New VRM Core/VRMRequestStatus.swift"; sourceTree = "<group>"; };
 		E24103B321BEE4E000036290 /* VRMRequestStatusComponentTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VRMRequestStatusComponentTest.swift; sourceTree = "<group>"; };
 		E24103CB21BFF9C700036290 /* VRMCoreAdRequestAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VRMCoreAdRequestAction.swift; path = "actions/New VRM Core/VRMCoreAdRequestAction.swift"; sourceTree = "<group>"; };
@@ -801,6 +803,7 @@
 				E22B6B1121F6277000D480A0 /* VRMParsingError.swift */,
 				E22B6B1321F6279500D480A0 /* VRMTimeoutError.swift */,
 				E22B6B1521F627AE00D480A0 /* VRMRedirectError.swift */,
+				E23218DD2210BE12008DA177 /* VRMOtherError.swift */,
 				E287B08721F77C6200FC49AA /* VRMFinalResult.swift */,
 				E2C1AEF922099F8400812A5A /* VRMItemResponseTime.swift */,
 			);
@@ -1055,6 +1058,7 @@
 				06CD5345213D908500C5B783 /* AdProcess.swift in Sources */,
 				06CD533B213D908500C5B783 /* UpdateCameraAngles.swift in Sources */,
 				06CD52FC213D906B00C5B783 /* UpdateCurrentTimeAction.swift in Sources */,
+				E23218DE2210BE12008DA177 /* VRMOtherError.swift in Sources */,
 				06CD5398213D90C200C5B783 /* Thumbnails.swift in Sources */,
 				06CD5333213D908500C5B783 /* MutePlayer.swift in Sources */,
 				06CD5341213D908500C5B783 /* UpdateExternalPlaybackStatus.swift in Sources */,

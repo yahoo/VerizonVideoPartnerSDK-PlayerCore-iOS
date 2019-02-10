@@ -41,4 +41,9 @@ extension VRMCore {
         let item: Item
         let finishDate: Date
     }
+    
+    struct OtherError: Action {
+        let item: Item
+        let finishDate: Date
+    }
 }
