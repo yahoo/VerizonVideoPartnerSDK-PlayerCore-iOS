@@ -13,6 +13,7 @@ class VRMFinalResultComponentTest: XCTestCase {
         let vastModel = Ad.VASTModel(adVerifications: [],
                                      mp4MediaFiles: [],
                                      vpaidMediaFiles: [],
+                                     skipOffset: .none,
                                      clickthrough: nil,
                                      adParameters: nil,
                                      pixels: AdPixels(),
