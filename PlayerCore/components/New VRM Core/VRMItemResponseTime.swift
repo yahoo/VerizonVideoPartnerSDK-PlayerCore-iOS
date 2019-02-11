@@ -58,6 +58,11 @@ func reduce(state: VRMItemResponseTime, action: Action) -> VRMItemResponseTime {
                                 with: selectInlineVAST.date,
                                 in: state.timeRangeContainer)
         
+    case let otherError as VRMCore.OtherError:
+        return updateFinishTime(for: otherError.item,
+                                with: otherError.finishDate,
+                                in: state.timeRangeContainer)
+        
     case let startFetching as VRMCore.StartItemFetch:
         return updateStartTime(for: startFetching.originalItem,
                                with: startFetching.startDate)
