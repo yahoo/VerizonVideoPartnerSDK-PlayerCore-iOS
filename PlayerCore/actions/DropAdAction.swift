@@ -3,6 +3,6 @@
 
 import Foundation
 
-struct SkipAd: Action {
+struct DropAd: Action {
     let id: UUID
 }

@@ -121,7 +121,7 @@ func reduce(state: AdVRMManager, action: Action) -> AdVRMManager {
         state.request.state = .failed(.init(transactionID: finish.transactionID,
                                           slot: finish.slot))
         
-    case (is SkipAd, .finish(let finish)):
+    case (is DropAd, .finish(let finish)):
         state.request.state = .skipped(.init(transactionID: finish.transactionID,
                                              slot: finish.slot,
                                              startItems: finish.startItems,

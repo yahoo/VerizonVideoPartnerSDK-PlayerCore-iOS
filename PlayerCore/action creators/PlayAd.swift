@@ -35,7 +35,7 @@ public func playAd(model: Ad.VASTModel, id: UUID) -> Action {
         }
         return nil
     }()
-    guard let creative = adCreative else { return SkipAd(id: id) }
+    guard let creative = adCreative else { return DropAd(id: id) }
     return ShowAd(creative: creative,
                   id: id,
                   adVerifications: model.adVerifications)

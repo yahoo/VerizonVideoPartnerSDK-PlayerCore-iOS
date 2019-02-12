@@ -37,7 +37,7 @@ class AdVRMManagerComponentTestCase: XCTestCase {
                                request: .init(id: id,
                                               timeout: .afterHard,
                                               state: .finish(defaultFinish)))
-        sut = reduce(state: sut, action: SkipAd(id: UUID()))
+        sut = reduce(state: sut, action: DropAd(id: UUID()))
         XCTAssertEqual(sut.request.id, id)
         XCTAssertEqual(sut.request.timeout, .afterHard)
         guard case .skipped = sut.request.state else { return XCTFail("Expecting `skipped` state here!") }

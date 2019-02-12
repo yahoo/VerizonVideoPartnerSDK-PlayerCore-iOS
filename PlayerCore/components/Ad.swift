@@ -100,7 +100,7 @@ func reduce(state: Ad, action: Action) -> Ad {
                   currentAd: .play,
                   currentType: state.currentType)
         
-    case let action as SkipAd:
+    case let action as DropAd:
         return markIDAsPlayed(id: action.id)
         
     case let action as VRMCore.VRMResponseFetchFailed:
