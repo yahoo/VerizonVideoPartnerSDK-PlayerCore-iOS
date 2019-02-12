@@ -3,7 +3,7 @@
 
 import Foundation
 
-public func skipAd(id: UUID) -> Action {
-    return SkipAd(id: id)
+public func dropAd(id: UUID) -> Action {
+    return DropAd(id: id)
 }
 

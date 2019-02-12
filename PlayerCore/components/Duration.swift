@@ -18,7 +18,7 @@ func reduce(state: Duration, action: Action) -> Duration {
     case let action as UpdateContentDuration:
         return Duration(ad: state.ad, content: action.newDuration)
         
-    case is SkipAd,
+    case is DropAd,
          is ShowContent,
          is AdStopped,
          is AdStartTimeout,

@@ -26,7 +26,7 @@ class DurationComponentTestCase: XCTestCase {
         XCTAssertEqual(sut.ad, nil)
         XCTAssertEqual(sut.content, CMTime.zero)
         
-        sut = reduce(state: sut, action: SkipAd(id: UUID()))
+        sut = reduce(state: sut, action: DropAd(id: UUID()))
         XCTAssertEqual(sut.ad, nil)
         XCTAssertEqual(sut.content, CMTime.zero)
         

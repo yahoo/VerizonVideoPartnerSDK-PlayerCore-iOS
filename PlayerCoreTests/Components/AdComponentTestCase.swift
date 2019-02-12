@@ -15,7 +15,7 @@ class AdComponentTestCase: XCTestCase {
                          currentAd: .empty,
                          currentType: .preroll)
         
-        var sut = reduce(state: initial, action: skipAd(id: id))
+        var sut = reduce(state: initial, action: dropAd(id: id))
         XCTAssertEqual(sut.playedAds.count, 1)
         
         sut = reduce(state: initial, action: VRMCore.adResponseFetchFailed(requestID: id))

@@ -72,7 +72,7 @@ class VPAIDErrorsReducerTest: XCTestCase {
         var state = initialState
         
         let actionsWhichClearState: [Action] = [
-            SkipAd(id: UUID()),
+            DropAd(id: UUID()),
             AdStopped(),
             ShowContent(),
             SelectVideoAtIdx(idx: 1, id: UUID(), hasPrerollAds: true, midrolls: [])

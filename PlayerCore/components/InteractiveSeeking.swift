@@ -10,7 +10,7 @@ func reduce(state: InteractiveSeeking, action: Action) -> InteractiveSeeking {
     case is StopInteractiveSeeking: return InteractiveSeeking(isSeekingInProgress: false)
     case is SelectVideoAtIdx: return InteractiveSeeking(isSeekingInProgress: false)
     case is ShowMP4Ad, is ShowVPAIDAd, is ShowAd: return InteractiveSeeking(isSeekingInProgress: false)
-    case is ShowContent, is SkipAd: return InteractiveSeeking(isSeekingInProgress: false)
+    case is ShowContent, is DropAd: return InteractiveSeeking(isSeekingInProgress: false)
     default: return state
     }
 }
