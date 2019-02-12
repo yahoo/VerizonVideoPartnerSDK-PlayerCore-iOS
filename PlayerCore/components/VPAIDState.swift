@@ -21,6 +21,7 @@ func reduce(state: VPAIDState, action: Action) -> VPAIDState {
          is AdRequest,
          is VRMCore.AdRequest,
          is ShowContent,
+         is SkipAd,
          is SelectVideoAtIdx:
         return VPAIDState(events: [], adClickthrough: nil)
     case is AdLoaded:

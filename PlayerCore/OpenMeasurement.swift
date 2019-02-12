@@ -41,6 +41,7 @@ func reduce(state: OpenMeasurement, action: Action) -> OpenMeasurement {
     case is DropAd,
          is AdError,
          is ShowContent,
+         is SkipAd,
          is AdPlaybackFailed,
          is SelectVideoAtIdx,
          is AdStartTimeout,

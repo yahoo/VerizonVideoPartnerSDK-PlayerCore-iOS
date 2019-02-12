@@ -20,6 +20,7 @@ func reduce(state: Duration, action: Action) -> Duration {
         
     case is DropAd,
          is ShowContent,
+         is SkipAd,
          is AdStopped,
          is AdStartTimeout,
          is AdMaxShowTimeout,

@@ -6,26 +6,29 @@ import XCTest
 
 class AdFinishTrackerComponentTestCase: XCTestCase {
     func testReduceOnShowAd() {
-        let initial = AdFinishTracker(isForceFinished: true, isSuccessfullyCompleted: true)
+        let initial = AdFinishTracker.unknown
         let sut = reduce(state: initial,
                          action: ShowAd(creative: .mp4([AdCreative.mp4(with: testUrl)]),
                                         id: UUID(), adVerifications: []))
-        XCTAssertFalse(sut.isForceFinished)
-        XCTAssertFalse(sut.isSuccessfullyCompleted)
+        XCTAssertEqual(sut, .unknown)
     }
     
     func testReducerOnMaxShowTime() {
-        let initial = AdFinishTracker(isForceFinished: false, isSuccessfullyCompleted: false)
+        let initial = AdFinishTracker.unknown
         let sut = reduce(state: initial, action: AdMaxShowTimeout())
-        XCTAssertTrue(sut.isForceFinished)
-        XCTAssertFalse(sut.isSuccessfullyCompleted)
+        XCTAssertEqual(sut, .forceFinished)
     }
     
     func testReduceOnShowContent() {
-        let initial = AdFinishTracker(isForceFinished: false, isSuccessfullyCompleted: false)
+        let initial = AdFinishTracker.unknown
         let sut = reduce(state: initial,
                          action: ShowContent())
-        XCTAssertFalse(sut.isForceFinished)
-        XCTAssertTrue(sut.isSuccessfullyCompleted)
+        XCTAssertEqual(sut, .successfullyCompleted)
+    }
+    func testReduceOnSkipAd() {
+        let initial = AdFinishTracker.unknown
+        let sut = reduce(state: initial,
+                         action: SkipAd())
+        XCTAssertEqual(sut, .skipped)
     }
 }
