@@ -13,7 +13,7 @@ public enum AdFinishTracker {
 func reduce(state: AdFinishTracker, action: Action) -> AdFinishTracker {
     switch action {
     
-    case is ShowMP4Ad, is ShowVPAIDAd, is ShowAd:
+    case is AdRequest:
         return .unknown
     case is DropAd, is VRMCore.VRMResponseFetchFailed,
          is AdSkipped, is AdStopped,
