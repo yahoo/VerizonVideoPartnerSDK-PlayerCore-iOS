@@ -3,24 +3,27 @@
 
 import Foundation
 
-public struct AdFinishTracker {
-    public let isForceFinished: Bool
-    public let isSuccessfullyCompleted: Bool
+public enum AdFinishTracker {
+    case forceFinished
+    case successfullyCompleted
+    case skipped
+    case unknown
 }
 
 func reduce(state: AdFinishTracker, action: Action) -> AdFinishTracker {
     switch action {
     
     case is ShowMP4Ad, is ShowVPAIDAd, is ShowAd:
-        return AdFinishTracker(isForceFinished: false, isSuccessfullyCompleted: false)
-        
+        return .unknown
     case is DropAd, is VRMCore.VRMResponseFetchFailed,
          is AdSkipped, is AdStopped,
-         is AdStartTimeout, is AdMaxShowTimeout, is VRMCore.NoGroupsToProcess, is VRMCore.MaxSearchTimeout:
-        return AdFinishTracker(isForceFinished: true, isSuccessfullyCompleted: false)
+         is AdStartTimeout, is AdMaxShowTimeout,
+         is VRMCore.NoGroupsToProcess, is VRMCore.MaxSearchTimeout:
+        return .forceFinished
     case is ShowContent:
-        return AdFinishTracker(isForceFinished: false, isSuccessfullyCompleted: true)
-        
+        return .successfullyCompleted
+    case is SkipAd:
+        return .skipped
     default: return state
     }    
 }

@@ -113,6 +113,7 @@ func reduce(state: Ad, action: Action) -> Ad {
         return markIDAsPlayed(id: action.requestID)
         
     case is ShowContent,
+         is SkipAd,
          is AdPlaybackFailed,
          is AdError,
          is AdStartTimeout,

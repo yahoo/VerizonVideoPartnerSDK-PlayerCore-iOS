@@ -233,5 +233,12 @@ class RateComponentTestCase: XCTestCase {
         XCTAssertEqual(sut.isAttachedToViewPort, true)
         XCTAssertEqual(sut.currentKind, .ad)
         
+        sut = reduce(state: sut, action: SkipAd())
+        XCTAssertEqual(sut.contentRate.player, true)
+        XCTAssertEqual(sut.contentRate.stream, false)
+        XCTAssertEqual(sut.adRate.player, false)
+        XCTAssertEqual(sut.adRate.stream, false)
+        XCTAssertEqual(sut.isAttachedToViewPort, true)
+        XCTAssertEqual(sut.currentKind, .content)
     }
 }

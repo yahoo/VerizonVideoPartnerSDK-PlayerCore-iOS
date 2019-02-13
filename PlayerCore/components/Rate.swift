@@ -169,6 +169,7 @@ func reduce(state: Rate, action: Action) -> Rate {
          (is AdStartTimeout, .ad),
          (is AdMaxShowTimeout, .ad),
          (is AdNotSupported, .ad),
+         (is SkipAd, .ad),
          (is AdError, .ad):
         return Rate(contentRate: .init(player: true,
                                        stream: state.contentRate.stream),

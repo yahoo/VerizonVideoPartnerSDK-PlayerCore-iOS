@@ -48,7 +48,7 @@ extension Ad {
         
         public enum SkipOffset: Hashable {
             case none
-            case time(Double)
+            case time(Int)
             case percentage(Int)
         }
         
