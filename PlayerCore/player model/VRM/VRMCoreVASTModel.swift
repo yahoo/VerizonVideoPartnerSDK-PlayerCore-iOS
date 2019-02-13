@@ -70,7 +70,8 @@ public extension AdPixels {
             acceptInvitationLinear: acceptInvitationLinear + pixels.acceptInvitationLinear,
             close: close + pixels.close,
             closeLinear: closeLinear + pixels.closeLinear,
-            collapse: collapse + pixels.collapse
+            collapse: collapse + pixels.collapse,
+            progress: progress + pixels.progress
         )
     }
 }
