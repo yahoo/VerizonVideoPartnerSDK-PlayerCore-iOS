@@ -71,10 +71,12 @@ public struct AdPixels: Hashable {
     public struct Progress: Hashable {
         public let url: URL
         public let offset: Ad.VASTModel.VASTOffset
+        let id: UUID
         
         public init(url: URL, offset: Ad.VASTModel.VASTOffset) {
             self.url = url
             self.offset = offset
+            self.id = UUID()
         }
     }
 }
