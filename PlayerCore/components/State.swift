@@ -53,6 +53,7 @@ public struct State {
     public let vrmOtherError: VRMOtherError
     public let vrmFinalResult: VRMFinalResult
     public let vrmItemResponseTime: VRMItemResponseTime
+    public let vrmProcessingTime: VRMProcessingTime
 }
 
 
@@ -143,7 +144,8 @@ extension State {
             vrmRedirectError: VRMRedirectError(erroredItems: []),
             vrmOtherError: VRMOtherError(erroredItems: []),
             vrmFinalResult: .initial,
-            vrmItemResponseTime: .initial
+            vrmItemResponseTime: .initial,
+            vrmProcessingTime: .initial
         )
     }
 }
@@ -201,6 +203,7 @@ public func reduce(state: State, action: Action) -> State {
         vrmRedirectError: reduce(state: state.vrmRedirectError, action: action),
         vrmOtherError: reduce(state: state.vrmOtherError, action: action),
         vrmFinalResult: reduce(state: state.vrmFinalResult, action: action),
-        vrmItemResponseTime: reduce(state: state.vrmItemResponseTime, action: action)
+        vrmItemResponseTime: reduce(state: state.vrmItemResponseTime, action: action),
+        vrmProcessingTime: reduce(state: state.vrmProcessingTime, action: action)
     )
 }

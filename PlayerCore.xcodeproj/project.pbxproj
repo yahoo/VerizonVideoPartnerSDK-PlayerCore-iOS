@@ -234,6 +234,8 @@
 		E2B0062421CD31A500B72485 /* VRMFetchItemQueueTestComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B0062321CD31A500B72485 /* VRMFetchItemQueueTestComponent.swift */; };
 		E2C1AEFA22099F8400812A5A /* VRMItemResponseTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C1AEF922099F8400812A5A /* VRMItemResponseTime.swift */; };
 		E2C1AF062209B37600812A5A /* VRMItemResponseTimeComponentTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C1AF052209B37600812A5A /* VRMItemResponseTimeComponentTest.swift */; };
+		E2E5760B221B05650068C394 /* VRMProcessingTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E5760A221B05650068C394 /* VRMProcessingTime.swift */; };
+		E2E5760D221B0B190068C394 /* VRMProcessingTimeComponentTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E5760C221B0B190068C394 /* VRMProcessingTimeComponentTest.swift */; };
 		E2FE095121FF62E5005E91C0 /* VRMFinalResultComponentTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FE095021FF62E5005E91C0 /* VRMFinalResultComponentTest.swift */; };
 /* End PBXBuildFile section */
 
@@ -479,6 +481,8 @@
 		E2B0062321CD31A500B72485 /* VRMFetchItemQueueTestComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VRMFetchItemQueueTestComponent.swift; sourceTree = "<group>"; };
 		E2C1AEF922099F8400812A5A /* VRMItemResponseTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = VRMItemResponseTime.swift; path = "components/New VRM Core/VRMItemResponseTime.swift"; sourceTree = "<group>"; };
 		E2C1AF052209B37600812A5A /* VRMItemResponseTimeComponentTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VRMItemResponseTimeComponentTest.swift; sourceTree = "<group>"; };
+		E2E5760A221B05650068C394 /* VRMProcessingTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = VRMProcessingTime.swift; path = "components/New VRM Core/VRMProcessingTime.swift"; sourceTree = "<group>"; };
+		E2E5760C221B0B190068C394 /* VRMProcessingTimeComponentTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VRMProcessingTimeComponentTest.swift; sourceTree = "<group>"; };
 		E2FE095021FF62E5005E91C0 /* VRMFinalResultComponentTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VRMFinalResultComponentTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -812,6 +816,7 @@
 				E23218DD2210BE12008DA177 /* VRMOtherError.swift */,
 				E287B08721F77C6200FC49AA /* VRMFinalResult.swift */,
 				E2C1AEF922099F8400812A5A /* VRMItemResponseTime.swift */,
+				E2E5760A221B05650068C394 /* VRMProcessingTime.swift */,
 			);
 			name = "New VRM Core";
 			sourceTree = "<group>";
@@ -860,6 +865,7 @@
 				E22B6AD121EF6E9000D480A0 /* VRMProcessingResultComponentTests.swift */,
 				E2FE095021FF62E5005E91C0 /* VRMFinalResultComponentTest.swift */,
 				E2C1AF052209B37600812A5A /* VRMItemResponseTimeComponentTest.swift */,
+				E2E5760C221B0B190068C394 /* VRMProcessingTimeComponentTest.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -1136,6 +1142,7 @@
 				06EC86B32213334B00CB4A8E /* SkipAdAction.swift in Sources */,
 				06CD5378213D909C00C5B783 /* AdClickthrough.swift in Sources */,
 				06CD532C213D908500C5B783 /* ContentFullScreenToggle.swift in Sources */,
+				E2E5760B221B05650068C394 /* VRMProcessingTime.swift in Sources */,
 				06CD5420213D988400C5B783 /* Pause.swift in Sources */,
 				06CD52CE213D905F00C5B783 /* AdClickThroughAction.swift in Sources */,
 				06CD5375213D909C00C5B783 /* LoadedTimeRanges.swift in Sources */,
@@ -1190,6 +1197,7 @@
 				06CD53E6213D917800C5B783 /* AdKillTest.swift in Sources */,
 				E2FE095121FF62E5005E91C0 /* VRMFinalResultComponentTest.swift in Sources */,
 				E2C1AF062209B37600812A5A /* VRMItemResponseTimeComponentTest.swift in Sources */,
+				E2E5760D221B0B190068C394 /* VRMProcessingTimeComponentTest.swift in Sources */,
 				06BA6B602159201700948001 /* OpenMeasurementActionCreatorTestCase.swift in Sources */,
 				06CD5401213D917800C5B783 /* SeekingActionCreatorTestCase.swift in Sources */,
 				06CD53F3213D917800C5B783 /* MuteActionCreatorTestCase.swift in Sources */,
