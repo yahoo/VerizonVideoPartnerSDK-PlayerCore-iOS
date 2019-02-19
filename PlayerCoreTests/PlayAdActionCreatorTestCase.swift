@@ -65,6 +65,7 @@ extension Ad.VASTModel {
             skipOffset: .none,
             clickthrough: nil,
             adParameters: nil,
+            adProgress: [],
             pixels: AdPixels(impression: [],
                              error: [],
                              clickTracking: [],

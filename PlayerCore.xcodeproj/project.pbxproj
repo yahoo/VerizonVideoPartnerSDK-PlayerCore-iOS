@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		063C8342221C32A90052C1DC /* AdProgressComponentTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 063C8341221C32A90052C1DC /* AdProgressComponentTestCase.swift */; };
+		063C8344221C32EE0052C1DC /* AdVASTProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 063C8343221C32EE0052C1DC /* AdVASTProgress.swift */; };
 		0641A40921663EB6004E7A0F /* PlaybackBuffering.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0641A40821663EB6004E7A0F /* PlaybackBuffering.swift */; };
 		0641A40B21663F1E004E7A0F /* PlaybackBufferingAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0641A40A21663F1E004E7A0F /* PlaybackBufferingAction.swift */; };
 		0641A40D216640FC004E7A0F /* UpdatePlaybackBuffering.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0641A40C216640FC004E7A0F /* UpdatePlaybackBuffering.swift */; };
@@ -250,6 +252,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		063C8341221C32A90052C1DC /* AdProgressComponentTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdProgressComponentTestCase.swift; sourceTree = "<group>"; };
+		063C8343221C32EE0052C1DC /* AdVASTProgress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AdVASTProgress.swift; path = components/AdVASTProgress.swift; sourceTree = "<group>"; };
 		0641A40821663EB6004E7A0F /* PlaybackBuffering.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaybackBuffering.swift; sourceTree = "<group>"; };
 		0641A40A21663F1E004E7A0F /* PlaybackBufferingAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaybackBufferingAction.swift; sourceTree = "<group>"; };
 		0641A40C216640FC004E7A0F /* UpdatePlaybackBuffering.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatePlaybackBuffering.swift; sourceTree = "<group>"; };
@@ -671,6 +675,7 @@
 				06CD5357213D909800C5B783 /* AdInfoHolder.swift */,
 				06CD5354213D909800C5B783 /* AdKill.swift */,
 				06CD5369213D909900C5B783 /* AdPixels.swift */,
+				063C8343221C32EE0052C1DC /* AdVASTProgress.swift */,
 				06CD5352213D909800C5B783 /* AdVASTModel.swift */,
 				06CD535D213D909800C5B783 /* AdVRMManager.swift */,
 				06CD536D213D909B00C5B783 /* AdVRMManager_Hashable.swift */,
@@ -824,48 +829,49 @@
 		E24103B221BEE1ED00036290 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				06CD53B6213D916E00C5B783 /* AdClickthroughComponentTestCase.swift */,
+				06CD53CE213D917500C5B783 /* AdComponentTestCase.swift */,
+				0693BA7C21FF34B9004C09CB /* AdCreativeComponentTestCase.swift */,
+				06CD53BD213D916F00C5B783 /* AdFinishTrackerComponentTestCase.swift */,
+				06CD53B5213D916E00C5B783 /* AdKillTest.swift */,
+				063C8341221C32A90052C1DC /* AdProgressComponentTestCase.swift */,
 				06CD53C1213D917000C5B783 /* AdVRMManagerComponentTestCase.swift */,
 				06CD53CA213D917400C5B783 /* AirPlayComponentTestCase.swift */,
 				06CD53B0213D916D00C5B783 /* AverageBitrateComponentTestCase.swift */,
 				06CD53BC213D916F00C5B783 /* CurrentTimeComponentTestCase.swift */,
 				06CD53D1213D917500C5B783 /* DurationComponentTestCase.swift */,
-				06CD53B5213D916E00C5B783 /* AdKillTest.swift */,
-				06CD53B6213D916E00C5B783 /* AdClickthroughComponentTestCase.swift */,
-				06CD53CE213D917500C5B783 /* AdComponentTestCase.swift */,
-				06CD53BD213D916F00C5B783 /* AdFinishTrackerComponentTestCase.swift */,
 				06CD53BF213D917000C5B783 /* InteractiveSeekingTestCaseComponent.swift */,
 				06CD53C9213D917400C5B783 /* LoadedTimeRangesComponentTestCase.swift */,
 				06CD53CF213D917500C5B783 /* MediaOptionsComponentTestCase.swift */,
 				06CD53D6213D917600C5B783 /* MuteComponentTestCase.swift */,
-				06BA6B612159244700948001 /* OpenMeasurementComponentTestCase.swift */,
 				06BA6BDA215B96E400948001 /* OMServiceScriptComponentTestCase.swift */,
+				06BA6B612159244700948001 /* OpenMeasurementComponentTestCase.swift */,
 				06CD53B4213D916E00C5B783 /* PictureInPictureComponentTestCase.swift */,
+				0641A4132166524F004E7A0F /* PlaybackBufferingComponentTestCase.swift */,
 				06CD53CC213D917500C5B783 /* PlaybackDurationComponentTestCase.swift */,
 				06CD53AD213D916D00C5B783 /* PlaybackSessionComponentTestCase.swift */,
 				06CD53BB213D916F00C5B783 /* PlaybackStatusComponentTestCase.swift */,
-				0641A4132166524F004E7A0F /* PlaybackBufferingComponentTestCase.swift */,
 				06CD53AC213D916D00C5B783 /* PlayerSessionComponentTestCase.swift */,
 				06CD53B8213D916E00C5B783 /* PlaylistComponentTestCase.swift */,
 				06CD53B2213D916D00C5B783 /* RateComponentTestCase.swift */,
-				0693BA7C21FF34B9004C09CB /* AdCreativeComponentTestCase.swift */,
+				E257A9F221C910750016D35A /* ScheduledVRMItemsComponentTest.swift */,
 				06CD53C3213D917100C5B783 /* TimerComponentTest.swift */,
 				06CD53AE213D916D00C5B783 /* ViewportComponentTestCase.swift */,
 				06CD53DB213D917800C5B783 /* VPAIDActionCreatorTestCase.swift */,
 				06CD53AB213D916C00C5B783 /* VPAIDErrorsReducerTestCase.swift */,
 				06CD53C8213D917400C5B783 /* VPAIDStateComponentTestCase.swift */,
-				E24103B321BEE4E000036290 /* VRMRequestStatusComponentTest.swift */,
-				E24103DC21C0442100036290 /* VRMResponseComponentTest.swift */,
 				E257A9C021C7BB670016D35A /* VRMCurrentGroupComponentTest.swift */,
-				E257A9C221C7BD6A0016D35A /* VRMGroupsQueueComponentTest.swift */,
-				E257A9C621C7D2930016D35A /* VRMTopPriorityItemComponentTest.swift */,
-				E257A9F221C910750016D35A /* ScheduledVRMItemsComponentTest.swift */,
 				E2B0062321CD31A500B72485 /* VRMFetchItemQueueTestComponent.swift */,
+				E2FE095021FF62E5005E91C0 /* VRMFinalResultComponentTest.swift */,
+				E257A9C221C7BD6A0016D35A /* VRMGroupsQueueComponentTest.swift */,
+				E2C1AF052209B37600812A5A /* VRMItemResponseTimeComponentTest.swift */,
 				E22B6A8221D1490B00D480A0 /* VRMParseItemQueueComponentTest.swift */,
 				E22B6ABB21D52A3E00D480A0 /* VRMParsingResultComponentTest.swift */,
 				E22B6AD121EF6E9000D480A0 /* VRMProcessingResultComponentTests.swift */,
-				E2FE095021FF62E5005E91C0 /* VRMFinalResultComponentTest.swift */,
-				E2C1AF052209B37600812A5A /* VRMItemResponseTimeComponentTest.swift */,
 				E2E5760C221B0B190068C394 /* VRMProcessingTimeComponentTest.swift */,
+				E24103B321BEE4E000036290 /* VRMRequestStatusComponentTest.swift */,
+				E24103DC21C0442100036290 /* VRMResponseComponentTest.swift */,
+				E257A9C621C7D2930016D35A /* VRMTopPriorityItemComponentTest.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -1064,6 +1070,7 @@
 				06CD5394213D90AF00C5B783 /* PlaybackModel.swift in Sources */,
 				E2C1AEFA22099F8400812A5A /* VRMItemResponseTime.swift in Sources */,
 				06CD538F213D909C00C5B783 /* AdVRMManager_Hashable.swift in Sources */,
+				063C8344221C32EE0052C1DC /* AdVASTProgress.swift in Sources */,
 				06CD5337213D908500C5B783 /* AdStartTimeoutActionCreator.swift in Sources */,
 				064FA41F2153C5DA005D990A /* OpenMeasurement.swift in Sources */,
 				E22B6B0E21F5E6A800D480A0 /* VRMFetchingError.swift in Sources */,
@@ -1173,6 +1180,7 @@
 				06CD53F2213D917800C5B783 /* AdVRMManagerComponentTestCase.swift in Sources */,
 				E22B6A8321D1490B00D480A0 /* VRMParseItemQueueComponentTest.swift in Sources */,
 				06CD53E3213D917800C5B783 /* RateComponentTestCase.swift in Sources */,
+				063C8342221C32A90052C1DC /* AdProgressComponentTestCase.swift in Sources */,
 				06CD53E7213D917800C5B783 /* AdClickthroughComponentTestCase.swift in Sources */,
 				06CD5404213D917800C5B783 /* PlayActionCreatorTestCase.swift in Sources */,
 				06CD53E8213D917800C5B783 /* UpdateExternalPlaybackActionCreatorTestCase.swift in Sources */,

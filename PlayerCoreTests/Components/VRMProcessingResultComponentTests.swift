@@ -12,6 +12,7 @@ class VRMProcessingResultComponentTests: XCTestCase {
                                   skipOffset: .none, 
                                   clickthrough: nil,
                                   adParameters: nil,
+                                  adProgress: [],
                                   pixels: AdPixels(),
                                   id: nil)
     

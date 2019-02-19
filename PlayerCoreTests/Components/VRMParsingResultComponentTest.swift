@@ -41,6 +41,7 @@ class VRMParsingResultComponentTest: XCTestCase {
                                   skipOffset: .none,
                                   clickthrough: nil,
                                   adParameters: nil,
+                                  adProgress: [],
                                   pixels: AdPixels(),
                                   id: "")
         
@@ -95,6 +96,7 @@ class VRMParsingResultComponentTest: XCTestCase {
                                   skipOffset: .none,
                                   clickthrough: nil,
                                   adParameters: nil,
+                                  adProgress: [],
                                   pixels: AdPixels(impression: [impression3]),
                                   id: "")
         sut = reduce(state: sut, action: VRMCore.completeItemParsing(originalItem: urlItem,
