@@ -55,6 +55,13 @@ class VRMProcessingTimeComponentTest: XCTestCase {
         XCTAssertEqual(initialDate, startAt)
     }
     
+    func testMaxAdSearchTime() {
+        let initial = VRMProcessingTime.inProgress(startAt: Date())
+        
+        let sut = reduce(state: initial, action: VRMCore.maxSearchTimeoutReached(requestID: UUID()))
+        guard case .empty = sut else { XCTFail("on maxSearchTimeoutReached sut should be .empty, actual \(sut)"); return }
+    }
+    
     func testFailedProcessing() {
         let initial = VRMProcessingTime.inProgress(startAt: Date())
         

@@ -20,7 +20,9 @@ func reduce(state: VRMProcessingTime, action: Action) -> VRMProcessingTime {
         guard case let .inProgress(stateAt) = state else { return state }
         return .finished(startAt: stateAt, finishAt: Date())
         
-    case is VRMCore.NoGroupsToProcess, is VRMCore.VRMResponseFetchFailed:
+    case is VRMCore.NoGroupsToProcess,
+         is VRMCore.VRMResponseFetchFailed,
+         is VRMCore.MaxSearchTimeout:
         return .empty
         
     default: return state
