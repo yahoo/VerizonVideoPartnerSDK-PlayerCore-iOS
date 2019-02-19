@@ -238,6 +238,8 @@
 		E2C1AF062209B37600812A5A /* VRMItemResponseTimeComponentTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C1AF052209B37600812A5A /* VRMItemResponseTimeComponentTest.swift */; };
 		E2E5760B221B05650068C394 /* VRMProcessingTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E5760A221B05650068C394 /* VRMProcessingTime.swift */; };
 		E2E5760D221B0B190068C394 /* VRMProcessingTimeComponentTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E5760C221B0B190068C394 /* VRMProcessingTimeComponentTest.swift */; };
+		E2E5760F221C2F5D0068C394 /* MP4AdBufferingTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E5760E221C2F5D0068C394 /* MP4AdBufferingTime.swift */; };
+		E2E57611221C4D740068C394 /* MP4AdBufferingTimeComponentTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E57610221C4D740068C394 /* MP4AdBufferingTimeComponentTest.swift */; };
 		E2FE095121FF62E5005E91C0 /* VRMFinalResultComponentTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FE095021FF62E5005E91C0 /* VRMFinalResultComponentTest.swift */; };
 /* End PBXBuildFile section */
 
@@ -487,6 +489,8 @@
 		E2C1AF052209B37600812A5A /* VRMItemResponseTimeComponentTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VRMItemResponseTimeComponentTest.swift; sourceTree = "<group>"; };
 		E2E5760A221B05650068C394 /* VRMProcessingTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = VRMProcessingTime.swift; path = "components/New VRM Core/VRMProcessingTime.swift"; sourceTree = "<group>"; };
 		E2E5760C221B0B190068C394 /* VRMProcessingTimeComponentTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VRMProcessingTimeComponentTest.swift; sourceTree = "<group>"; };
+		E2E5760E221C2F5D0068C394 /* MP4AdBufferingTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MP4AdBufferingTime.swift; path = components/MP4AdBufferingTime.swift; sourceTree = "<group>"; };
+		E2E57610221C4D740068C394 /* MP4AdBufferingTimeComponentTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MP4AdBufferingTimeComponentTest.swift; sourceTree = "<group>"; };
 		E2FE095021FF62E5005E91C0 /* VRMFinalResultComponentTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VRMFinalResultComponentTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -706,6 +710,7 @@
 				06CD5366213D909900C5B783 /* Viewport.swift */,
 				06CD5350213D909800C5B783 /* VPAIDErrors.swift */,
 				06CD5368213D909900C5B783 /* VPAIDState.swift */,
+				E2E5760E221C2F5D0068C394 /* MP4AdBufferingTime.swift */,
 			);
 			name = components;
 			sourceTree = "<group>";
@@ -835,6 +840,7 @@
 				06CD53BD213D916F00C5B783 /* AdFinishTrackerComponentTestCase.swift */,
 				06CD53B5213D916E00C5B783 /* AdKillTest.swift */,
 				063C8341221C32A90052C1DC /* AdProgressComponentTestCase.swift */,
+				E2E57610221C4D740068C394 /* MP4AdBufferingTimeComponentTest.swift */,
 				06CD53C1213D917000C5B783 /* AdVRMManagerComponentTestCase.swift */,
 				06CD53CA213D917400C5B783 /* AirPlayComponentTestCase.swift */,
 				06CD53B0213D916D00C5B783 /* AverageBitrateComponentTestCase.swift */,
@@ -1072,6 +1078,7 @@
 				06CD538F213D909C00C5B783 /* AdVRMManager_Hashable.swift in Sources */,
 				063C8344221C32EE0052C1DC /* AdVASTProgress.swift in Sources */,
 				06CD5337213D908500C5B783 /* AdStartTimeoutActionCreator.swift in Sources */,
+				E2E5760F221C2F5D0068C394 /* MP4AdBufferingTime.swift in Sources */,
 				064FA41F2153C5DA005D990A /* OpenMeasurement.swift in Sources */,
 				E22B6B0E21F5E6A800D480A0 /* VRMFetchingError.swift in Sources */,
 				06CD5349213D908500C5B783 /* AdClickthroughActionCreator.swift in Sources */,
@@ -1196,6 +1203,7 @@
 				06CD53DC213D917800C5B783 /* VPAIDErrorsReducerTestCase.swift in Sources */,
 				06CD53EB213D917800C5B783 /* PauseActionCreatorTestCase.swift in Sources */,
 				E22B6ABC21D52A3E00D480A0 /* VRMParsingResultComponentTest.swift in Sources */,
+				E2E57611221C4D740068C394 /* MP4AdBufferingTimeComponentTest.swift in Sources */,
 				06CD53EA213D917800C5B783 /* PrevActionCreatorTestCase.swift in Sources */,
 				06CD5406213D917800C5B783 /* EndplaybackActionCreatorTestCase.swift in Sources */,
 				06CD53DF213D917800C5B783 /* ViewportComponentTestCase.swift in Sources */,
