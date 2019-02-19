@@ -14,7 +14,7 @@ class DurationComponentTestCase: XCTestCase {
         XCTAssertEqual(sut.ad, nil)
         XCTAssertEqual(sut.content, nil)
         
-        sut = reduce(state: sut, action: UpdateAdDuration(newDuration: CMTime.zero))
+        sut = reduce(state: sut, action: UpdateAdDuration(newDuration: CMTime.zero, vastAdProgress: []))
         XCTAssertEqual(sut.ad, CMTime.zero)
         XCTAssertEqual(sut.content, nil)
         
