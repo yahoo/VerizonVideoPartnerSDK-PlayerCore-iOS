@@ -1,11 +1,15 @@
 # Change Log
 
-## [Unreleased](https://github.com/VerizonAdPlatforms/VerizonVideoPartnerSDK-PlayerCore-iOS/tree/HEAD)
-
-[Full Changelog](https://github.com/VerizonAdPlatforms/VerizonVideoPartnerSDK-PlayerCore-iOS/compare/1.0.4...HEAD)
+## [1.1.0](https://github.com/VerizonAdPlatforms/VerizonVideoPartnerSDK-PlayerCore-iOS/tree/1.1.0) (2019-02-20)
+[Full Changelog](https://github.com/VerizonAdPlatforms/VerizonVideoPartnerSDK-PlayerCore-iOS/compare/1.0.4...1.1.0)
 
 **Merged pull requests:**
 
+- Reset AdFinishTracker on New VRM Core Request [\#49](https://github.com/VerizonAdPlatforms/VerizonVideoPartnerSDK-PlayerCore-iOS/pull/49) ([VladyslavAnokhin](https://github.com/VladyslavAnokhin))
+- Add components for mp4 ad buffering time [\#48](https://github.com/VerizonAdPlatforms/VerizonVideoPartnerSDK-PlayerCore-iOS/pull/48) ([VladyslavAnokhin](https://github.com/VladyslavAnokhin))
+- Moved ad progress from pixels and added component for it [\#47](https://github.com/VerizonAdPlatforms/VerizonVideoPartnerSDK-PlayerCore-iOS/pull/47) ([RomanTysiachnik](https://github.com/RomanTysiachnik))
+- Added component for vrm processing time [\#46](https://github.com/VerizonAdPlatforms/VerizonVideoPartnerSDK-PlayerCore-iOS/pull/46) ([VladyslavAnokhin](https://github.com/VladyslavAnokhin))
+- Add change log [\#45](https://github.com/VerizonAdPlatforms/VerizonVideoPartnerSDK-PlayerCore-iOS/pull/45) ([VladyslavAnokhin](https://github.com/VladyslavAnokhin))
 - Bump pod spec version to 1.0.4 [\#44](https://github.com/VerizonAdPlatforms/VerizonVideoPartnerSDK-PlayerCore-iOS/pull/44) ([VladyslavAnokhin](https://github.com/VladyslavAnokhin))
 
 ## [1.0.4](https://github.com/VerizonAdPlatforms/VerizonVideoPartnerSDK-PlayerCore-iOS/tree/1.0.4) (2019-02-14)
