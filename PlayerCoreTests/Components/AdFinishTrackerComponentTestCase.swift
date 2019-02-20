@@ -5,6 +5,22 @@ import XCTest
 @testable import PlayerCore
 
 class AdFinishTrackerComponentTestCase: XCTestCase {
+    
+    func testOnAdRequest() {
+        let url = URL(string: "http://test.com")!
+        let initial = AdFinishTracker.successfullyCompleted
+        
+        var sut = reduce(state: initial,
+                         action: AdRequest(url: url, id: UUID(), type: .preroll))
+        
+        XCTAssertEqual(sut, .unknown)
+        
+        sut = reduce(state: initial,
+                     action: VRMCore.AdRequest(url: url, id: UUID(), type: .preroll))
+        
+        XCTAssertEqual(sut, .unknown)
+    }
+    
     func testReduceOnShowAd() {
         let initial = AdFinishTracker.unknown
         let sut = reduce(state: initial,
