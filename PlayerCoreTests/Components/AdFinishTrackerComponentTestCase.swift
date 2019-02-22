@@ -11,7 +11,7 @@ class AdFinishTrackerComponentTestCase: XCTestCase {
         let initial = AdFinishTracker.successfullyCompleted
         
         var sut = reduce(state: initial,
-                         action: AdRequest(url: url, id: UUID(), type: .preroll))
+                         action: VRMCore.AdRequest(url: url, id: UUID(), type: .preroll))
         
         XCTAssertEqual(sut, .unknown)
         
@@ -23,9 +23,12 @@ class AdFinishTrackerComponentTestCase: XCTestCase {
     
     func testReduceOnShowAd() {
         let initial = AdFinishTracker.unknown
-        let sut = reduce(state: initial,
-                         action: ShowAd(creative: .mp4([AdCreative.mp4(with: testUrl)]),
-                                        id: UUID(), adVerifications: []))
+        var sut = reduce(state: initial,
+                         action: ShowMP4Ad(creative: AdCreative.mp4(with: testUrl), id: UUID()))
+        XCTAssertEqual(sut, .unknown)
+        
+        sut = reduce(state: initial,
+                     action: ShowVPAIDAd(creative: AdCreative.vpaid(with: testUrl), id: UUID()))
         XCTAssertEqual(sut, .unknown)
     }
     

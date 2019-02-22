@@ -8,14 +8,7 @@ class VRMProcessingTimeComponentTest: XCTestCase {
     
     let url = URL(string: "http://test.com")!
     
-    func testStartProcessingOldCore() {
-        let initial = VRMProcessingTime.initial
-        
-        let sut = reduce(state: initial, action: adRequest(url: url, id: UUID(), type: .preroll))
-        guard case .inProgress = sut else { XCTFail("on adRequest sut should be .inProgress, actual \(sut)"); return }
-    }
-    
-    func testStartProcessingNewCore() {
+    func testStartProcessing() {
         let initial = VRMProcessingTime.initial
         
         let sut = reduce(state: initial, action: VRMCore.adRequest(url: url, id: UUID(), type: .preroll))

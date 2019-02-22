@@ -28,37 +28,7 @@ class AdComponentTestCase: XCTestCase {
         XCTAssertEqual(sut.playedAds.count, 1)
     }
     
-    func testReduceOnShowAdForMp4() {
-        let mp4AdCreative = AdCreative.mp4(with: testUrl)
-        let initial = Ad(playedAds: [],
-                         midrolls: [],
-                         mp4AdCreative: nil,
-                         vpaidAdCreative: nil,
-                         currentAd: .empty,
-                         currentType: .preroll)
-        let sut = reduce(state: initial, action: ShowAd(creative: .mp4([mp4AdCreative]), id: UUID(), adVerifications: []))
-        XCTAssertNil(sut.vpaidAdCreative)
-        XCTAssertEqual(mp4AdCreative, sut.mp4AdCreative)
-        XCTAssertEqual(sut.currentAd, .play)
-        XCTAssertEqual(sut.playedAds.count, 1)
-    }
-    
-    func testReduceOnShowAdForVPAID() {
-        let vpaidAdCreative = AdCreative.vpaid(with: testUrl)
-        let initial = Ad(playedAds: [UUID()],
-                         midrolls: [],
-                         mp4AdCreative: nil,
-                         vpaidAdCreative: nil,
-                         currentAd: .empty,
-                         currentType: .midroll)
-        let sut = reduce(state: initial, action: ShowAd(creative: .vpaid([vpaidAdCreative]), id: UUID(), adVerifications: []))
-        XCTAssertNil(sut.mp4AdCreative)
-        XCTAssertEqual(vpaidAdCreative, sut.vpaidAdCreative)
-        XCTAssertEqual(sut.currentAd, .play)
-        XCTAssertEqual(sut.playedAds.count, 2)
-    }
-    
-    func testReduceOnANewShowMP4Action() {
+    func testReduceOnShowMP4Action() {
         let mp4AdCreative = AdCreative.mp4(with: testUrl)
         let initial = Ad(playedAds: [],
                          midrolls: [],
@@ -73,7 +43,7 @@ class AdComponentTestCase: XCTestCase {
         XCTAssertEqual(sut.playedAds.count, 1)
     }
     
-    func testReduceOnANewShowVPAIDAction() {
+    func testReduceOnShowVPAIDAction() {
         let vpaidAdCreative = AdCreative.vpaid(with: testUrl)
         let initial = Ad(playedAds: [],
                          midrolls: [],

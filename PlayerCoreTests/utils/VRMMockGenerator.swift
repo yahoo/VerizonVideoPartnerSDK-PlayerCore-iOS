@@ -26,10 +26,12 @@ enum VRMMockGenerator {
                             metaInfo: createMetaInfo())
     }
     
-    static func createVASTAdModel() -> Ad.VASTModel {
-        return Ad.VASTModel(adVerifications: [],
-                            mp4MediaFiles: [],
-                            vpaidMediaFiles: [],
+    static func createVASTAdModel(adVerifications: [Ad.VASTModel.AdVerification] = [],
+                                  mp4MediaFiles: [Ad.VASTModel.MP4MediaFile] = [],
+                                  vpaidMediaFiles: [Ad.VASTModel.VPAIDMediaFile] = []) -> Ad.VASTModel {
+        return Ad.VASTModel(adVerifications: adVerifications,
+                            mp4MediaFiles: mp4MediaFiles,
+                            vpaidMediaFiles: vpaidMediaFiles,
                             skipOffset: .none,
                             clickthrough: nil,
                             adParameters: nil,

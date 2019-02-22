@@ -23,7 +23,7 @@ class AdProgressComponentTestCase: XCTestCase {
         sut = reduce(state: sut, action: UpdateAdDuration(newDuration: toCMTime(60), vastAdProgress: [percentageProgress]))
         XCTAssertEqual(sut.pixels.first?.offsetInSeconds, 30)
         
-        sut = reduce(state: sut, action: AdRequest(url: testUrl, id: UUID(), type: .midroll))
+        sut = reduce(state: sut, action: VRMCore.AdRequest(url: testUrl, id: UUID(), type: .midroll))
         XCTAssertTrue(sut.pixels.isEmpty)
     }
 }

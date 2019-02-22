@@ -1,42 +1,8 @@
 //  Copyright 2018, Oath Inc.
 //  Licensed under the terms of the MIT License. See LICENSE.md file in project root for terms.
 
-import XCTest
-@testable import PlayerCore
-
-class PlayAdActionCreatorTestCase: XCTestCase {
-    func testWithMp4MediaFile() {
-        let mediaFiles = [Ad.VASTModel.MP4MediaFile.video(with: testUrl)]
-        let model = Ad.VASTModel.model(withMp4: mediaFiles, andVpaid: [])
-        guard let action = PlayerCore.playAd(model: model,
-                                             id: UUID()) as? ShowAd else { return XCTFail() }
-        guard case .mp4(_) = action.creative else { return XCTFail() }
-    }
-    
-    func testWithVPAIDMediaFile() {
-        let mediaFiles = [Ad.VASTModel.VPAIDMediaFile.video(with: testUrl)]
-        let model = Ad.VASTModel.model(withMp4: [], andVpaid: mediaFiles)
-        guard let action = PlayerCore.playAd(model: model,
-                                             id: UUID()) as? ShowAd else { return XCTFail() }
-        guard case .vpaid(_) = action.creative else { return XCTFail() }
-    }
-    
-    func testWithMp4AndVPAIDMediafile() {
-        let mp4MediaFiles = [Ad.VASTModel.MP4MediaFile.video(with: testUrl)]
-        let vpaidMediaFiles = [Ad.VASTModel.VPAIDMediaFile.video(with: testUrl)]
-        let model = Ad.VASTModel.model(withMp4: mp4MediaFiles, andVpaid: vpaidMediaFiles)
-        do {
-            guard let action = PlayerCore.playAd(model: model,
-                                                 id: UUID()) as? ShowAd else { return XCTFail() }
-            guard case .mp4(_) = action.creative else { return XCTFail() }
-        }
-        do {
-            guard let action = PlayerCore.playAd(model: model,
-                                                 id: UUID()) as? ShowAd else { return XCTFail() }
-            guard case .mp4(_) = action.creative else { return XCTFail() }
-        }
-    }
-}
+import Foundation
+import PlayerCore
 
 extension Ad.VASTModel.MP4MediaFile {
     static func video(with url: URL) -> Ad.VASTModel.MP4MediaFile {

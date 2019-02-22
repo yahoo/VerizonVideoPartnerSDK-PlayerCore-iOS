@@ -12,13 +12,9 @@ func reduce(state: VPAIDState, action: Action) -> VPAIDState {
     var events = state.events
     var clickUrl = state.adClickthrough
     switch action {
-    case let ad as ShowAd:
-        guard case .vpaid(let creative) = ad.creative else { return state }
-        return VPAIDState(events: [], adClickthrough: creative.first?.clickthrough)
     case let ad as ShowVPAIDAd:
         return VPAIDState(events: [], adClickthrough: ad.creative.clickthrough)
     case is AdStopped,
-         is AdRequest,
          is VRMCore.AdRequest,
          is ShowContent,
          is SkipAd,

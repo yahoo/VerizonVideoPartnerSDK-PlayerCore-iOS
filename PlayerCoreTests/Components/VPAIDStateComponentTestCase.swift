@@ -8,10 +8,11 @@ class VPAIDStateComponentTestCase: XCTestCase {
     let initial = VPAIDState(events: [], adClickthrough: nil)
     
     func testOnShowAdAction() {
-        var sut = reduce(state: initial, action: ShowAd(creative: .vpaid([AdCreative.vpaid(with: testUrl)]), id: UUID(), adVerifications: []))
+        var sut = reduce(state: initial, action: ShowVPAIDAd(creative: AdCreative.vpaid(with: testUrl), id: UUID()))
         XCTAssertEqual(sut.adClickthrough, testUrl)
         
-        sut = reduce(state: VPAIDState(events: [.AdSkipped], adClickthrough: nil), action: ShowAd(creative: .vpaid([AdCreative.vpaid(with: testUrl)]), id: UUID(), adVerifications: []))
+        sut = reduce(state: VPAIDState(events: [.AdSkipped], adClickthrough: nil),
+                     action: ShowVPAIDAd(creative: AdCreative.vpaid(with: testUrl), id: UUID()))
         XCTAssertEqual(sut.adClickthrough, testUrl)
         XCTAssert(sut.events.isEmpty)
     }

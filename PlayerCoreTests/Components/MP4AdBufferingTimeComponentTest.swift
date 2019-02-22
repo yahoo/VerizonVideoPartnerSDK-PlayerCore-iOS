@@ -33,7 +33,6 @@ class MP4AdBufferingTimeComponentTest: XCTestCase {
         
         let actions: [PlayerCore.Action] = [AdPlaybackFailed(error: NSError(domain: "", code: 1, userInfo: nil)),
                                             VRMCore.AdRequest(url: url, id: UUID(), type: .preroll),
-                                            AdRequest(url: url, id: UUID(), type: .preroll),
                                             AdStartTimeout()]
         actions.forEach { action in
             let sut = reduce(state: initial, action: action)

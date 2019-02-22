@@ -20,7 +20,6 @@ func reduce(state: MP4AdBufferingTime, action: Action) -> MP4AdBufferingTime {
         return .finished(startAt: startAt, finishAt: Date())
         case is AdPlaybackFailed,
              is VRMCore.AdRequest,
-             is AdRequest,
              is AdStartTimeout:
         return .empty
     default:
