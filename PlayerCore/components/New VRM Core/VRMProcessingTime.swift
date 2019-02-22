@@ -13,10 +13,10 @@ public enum VRMProcessingTime {
 
 func reduce(state: VRMProcessingTime, action: Action) -> VRMProcessingTime {
     switch action {
-    case is VRMCore.AdRequest, is AdRequest:
+    case is VRMCore.AdRequest:
         return .inProgress(startAt: Date())
         
-    case is ShowMP4Ad, is ShowVPAIDAd, is ShowAd:
+    case is ShowMP4Ad, is ShowVPAIDAd:
         guard case let .inProgress(stateAt) = state else { return state }
         return .finished(startAt: stateAt, finishAt: Date())
         

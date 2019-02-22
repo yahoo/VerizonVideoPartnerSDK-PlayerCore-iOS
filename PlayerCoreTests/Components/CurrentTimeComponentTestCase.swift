@@ -50,7 +50,11 @@ class CurrentTimeComponentTestCase: XCTestCase {
     }
     
     func testReduceOnShowAd() {
-        let sut = reduce(state: initial, action: ShowAd(creative: .mp4([AdCreative.mp4(with: testUrl)]), id: UUID(), adVerifications: []))
+        var sut = reduce(state: initial, action: ShowMP4Ad(creative: AdCreative.mp4(with: testUrl), id: UUID()))
+        XCTAssertEqual(sut.content?.time, 5 |> toCMTime)
+        XCTAssertEqual(sut.ad, CMTime.zero)
+        
+        sut = reduce(state: initial, action: ShowVPAIDAd(creative: AdCreative.vpaid(with: testUrl), id: UUID()))
         XCTAssertEqual(sut.content?.time, 5 |> toCMTime)
         XCTAssertEqual(sut.ad, CMTime.zero)
     }

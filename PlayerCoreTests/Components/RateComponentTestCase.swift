@@ -68,7 +68,7 @@ class RateComponentTestCase: XCTestCase {
         XCTAssertEqual(sut.isAttachedToViewPort, false)
         XCTAssertEqual(sut.currentKind, .content)
         
-        sut = reduce(state: sut, action: ShowAd(creative: .mp4([AdCreative.mp4(with: testUrl)]), id: UUID(), adVerifications: []))
+        sut = reduce(state: sut, action: ShowMP4Ad(creative: AdCreative.mp4(with: testUrl), id: UUID()))
         
         XCTAssertEqual(sut.contentRate.player, false)
         XCTAssertEqual(sut.contentRate.stream, false)
@@ -77,7 +77,7 @@ class RateComponentTestCase: XCTestCase {
         XCTAssertEqual(sut.isAttachedToViewPort, false)
         XCTAssertEqual(sut.currentKind, .ad)
         
-        sut = reduce(state: sut, action: ShowAd(creative: .mp4([AdCreative.mp4(with: testUrl)]), id: UUID(), adVerifications: []))
+        sut = reduce(state: sut, action: ShowMP4Ad(creative: AdCreative.mp4(with: testUrl), id: UUID()))
         
         XCTAssertEqual(sut.contentRate.player, false)
         XCTAssertEqual(sut.contentRate.stream, false)
@@ -186,7 +186,7 @@ class RateComponentTestCase: XCTestCase {
         XCTAssertEqual(sut.isAttachedToViewPort, true)
         XCTAssertEqual(sut.currentKind, .content)
         
-        sut = reduce(state: sut, action: ShowAd(creative: .mp4([AdCreative.mp4(with: testUrl)]), id: UUID(), adVerifications: []))
+        sut = reduce(state: sut, action: ShowMP4Ad(creative: AdCreative.mp4(with: testUrl), id: UUID()))
         sut = reduce(state: sut, action: AdDidPause())
         
         XCTAssertEqual(sut.contentRate.player, false)
@@ -196,7 +196,7 @@ class RateComponentTestCase: XCTestCase {
         XCTAssertEqual(sut.isAttachedToViewPort, true)
         XCTAssertEqual(sut.currentKind, .ad)
         
-        sut = reduce(state: sut, action: ShowAd(creative: .vpaid([AdCreative.vpaid(with: testUrl)]), id: UUID(), adVerifications: []))
+        sut = reduce(state: sut, action: ShowMP4Ad(creative: AdCreative.mp4(with: testUrl), id: UUID()))
         sut = reduce(state: sut, action: AdPaused())
         XCTAssertEqual(sut.contentRate.player, false)
         XCTAssertEqual(sut.contentRate.stream, false)
