@@ -180,6 +180,9 @@
 		06CD5420213D988400C5B783 /* Pause.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06CD530E213D908100C5B783 /* Pause.swift */; };
 		06EC86B32213334B00CB4A8E /* SkipAdAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06EC86B22213334B00CB4A8E /* SkipAdAction.swift */; };
 		06EC86B52213339800CB4A8E /* SkipAd.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06EC86B42213339800CB4A8E /* SkipAd.swift */; };
+		E207FBEB2226AF7600419F48 /* ContentBufferingTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = E207FBEA2226AF7600419F48 /* ContentBufferingTime.swift */; };
+		E207FBED2226B73B00419F48 /* ContentBufferingTimeComponentTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E207FBEC2226B73B00419F48 /* ContentBufferingTimeComponentTest.swift */; };
+		E207FBEF2226C40B00419F48 /* BufferingStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = E207FBEE2226C40B00419F48 /* BufferingStatus.swift */; };
 		E22B6A8121D141EC00D480A0 /* VRMParseItemQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22B6A8021D141EC00D480A0 /* VRMParseItemQueue.swift */; };
 		E22B6A8321D1490B00D480A0 /* VRMParseItemQueueComponentTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22B6A8221D1490B00D480A0 /* VRMParseItemQueueComponentTest.swift */; };
 		E22B6A8D21D15E4900D480A0 /* VRMCoreVASTModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E22B6A8C21D15E4900D480A0 /* VRMCoreVASTModel.swift */; };
@@ -423,6 +426,9 @@
 		06D8859C213ED8740063FA48 /* Tests.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = Tests.xcconfig; path = supported/Tests.xcconfig; sourceTree = "<group>"; };
 		06EC86B22213334B00CB4A8E /* SkipAdAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkipAdAction.swift; sourceTree = "<group>"; };
 		06EC86B42213339800CB4A8E /* SkipAd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkipAd.swift; sourceTree = "<group>"; };
+		E207FBEA2226AF7600419F48 /* ContentBufferingTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ContentBufferingTime.swift; path = components/ContentBufferingTime.swift; sourceTree = "<group>"; };
+		E207FBEC2226B73B00419F48 /* ContentBufferingTimeComponentTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentBufferingTimeComponentTest.swift; sourceTree = "<group>"; };
+		E207FBEE2226C40B00419F48 /* BufferingStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BufferingStatus.swift; path = "phantom types/BufferingStatus.swift"; sourceTree = "<group>"; };
 		E22B6A8021D141EC00D480A0 /* VRMParseItemQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = VRMParseItemQueue.swift; path = "components/New VRM Core/VRMParseItemQueue.swift"; sourceTree = "<group>"; };
 		E22B6A8221D1490B00D480A0 /* VRMParseItemQueueComponentTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VRMParseItemQueueComponentTest.swift; sourceTree = "<group>"; };
 		E22B6A8C21D15E4900D480A0 /* VRMCoreVASTModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = VRMCoreVASTModel.swift; path = "player model/VRM/VRMCoreVASTModel.swift"; sourceTree = "<group>"; };
@@ -688,6 +694,7 @@
 				06CD5350213D909800C5B783 /* VPAIDErrors.swift */,
 				06CD5368213D909900C5B783 /* VPAIDState.swift */,
 				E2E5760E221C2F5D0068C394 /* MP4AdBufferingTime.swift */,
+				E207FBEA2226AF7600419F48 /* ContentBufferingTime.swift */,
 			);
 			name = components;
 			sourceTree = "<group>";
@@ -696,6 +703,7 @@
 			isa = PBXGroup;
 			children = (
 				06CD5391213D90A600C5B783 /* Progress.swift */,
+				E207FBEE2226C40B00419F48 /* BufferingStatus.swift */,
 			);
 			name = "phantom types";
 			sourceTree = "<group>";
@@ -818,6 +826,7 @@
 				06CD53B5213D916E00C5B783 /* AdKillTest.swift */,
 				063C8341221C32A90052C1DC /* AdProgressComponentTestCase.swift */,
 				E2E57610221C4D740068C394 /* MP4AdBufferingTimeComponentTest.swift */,
+				E207FBEC2226B73B00419F48 /* ContentBufferingTimeComponentTest.swift */,
 				06CD53CA213D917400C5B783 /* AirPlayComponentTestCase.swift */,
 				06CD53B0213D916D00C5B783 /* AverageBitrateComponentTestCase.swift */,
 				06CD53BC213D916F00C5B783 /* CurrentTimeComponentTestCase.swift */,
@@ -996,12 +1005,14 @@
 				06CD5308213D906B00C5B783 /* UpdateLoadedTimeRangesAction.swift in Sources */,
 				06CD5384213D909C00C5B783 /* MediaOptions.swift in Sources */,
 				06CD533C213D908500C5B783 /* PictureInPictureStatusUpdate.swift in Sources */,
+				E207FBEF2226C40B00419F48 /* BufferingStatus.swift in Sources */,
 				E257A9B921C416EA0016D35A /* VRMCurrentGroup.swift in Sources */,
 				06CD52F6213D906B00C5B783 /* PictureInPictureUpdateAction.swift in Sources */,
 				06CD534B213D908500C5B783 /* UpdateMediaOptions.swift in Sources */,
 				06CD5340213D908500C5B783 /* UpdateLoadedTimeRanges.swift in Sources */,
 				E24103D721C03EC300036290 /* VRMCoreNamespace.swift in Sources */,
 				06CD52FB213D906B00C5B783 /* SelectVideoAtIndexAction.swift in Sources */,
+				E207FBEB2226AF7600419F48 /* ContentBufferingTime.swift in Sources */,
 				06CD5301213D906B00C5B783 /* UpdateVPAIDAction.swift in Sources */,
 				064FA4212153C84F005D990A /* OpenMeasurementAction.swift in Sources */,
 				06CD5399213D90C200C5B783 /* Thumbnail+VideoProviderResponse.swift in Sources */,
@@ -1194,6 +1205,7 @@
 				06CD53FC213D917800C5B783 /* UpdateCameraAnglesActionCreatorTestCase.swift in Sources */,
 				06CD53FD213D917800C5B783 /* PlaybackDurationComponentTestCase.swift in Sources */,
 				06CD5403213D917800C5B783 /* TimerActionCreatorTest.swift in Sources */,
+				E207FBED2226B73B00419F48 /* ContentBufferingTimeComponentTest.swift in Sources */,
 				06CD53EF213D917800C5B783 /* Utils.swift in Sources */,
 				06CD5409213D917800C5B783 /* ThumbnailsTests.swift in Sources */,
 				E257A9C921C7D7010016D35A /* VRMMockGenerator.swift in Sources */,
