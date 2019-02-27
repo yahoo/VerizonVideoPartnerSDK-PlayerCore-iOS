@@ -12,7 +12,7 @@ class VRMProcessingTimeComponentTest: XCTestCase {
         let initial = VRMProcessingTime.initial
         
         let sut = reduce(state: initial, action: VRMCore.adRequest(url: url, id: UUID(), type: .preroll))
-        guard case .inProgress = sut else { XCTFail("on VRMCore.adRequest sut should be .inProgress, actual \(sut)"); return }
+        guard case .inProgress = sut.status else { XCTFail("on VRMCore.adRequest sut should be .inProgress, actual \(sut)"); return }
     }
     
     func testFinishMP4Processing() {
@@ -26,10 +26,10 @@ class VRMProcessingTimeComponentTest: XCTestCase {
                                  height: 30,
                                  scalable: false,
                                  maintainAspectRatio: true)
-        let initial = VRMProcessingTime.inProgress(startAt: initialDate)
+        let initial = VRMProcessingTime(status: .inProgress(startAt: initialDate))
         
         let sut = reduce(state: initial, action: showMP4Ad(creative: mp4, id: UUID()))
-        guard case let .finished(startAt, _) = sut else { XCTFail("on showMP4Ad sut should be .finished, actual \(sut)"); return }
+        guard case let .finished(startAt, _) = sut.status else { XCTFail("on showMP4Ad sut should be .finished, actual \(sut)"); return }
         XCTAssertEqual(initialDate, startAt)
     }
     
@@ -41,31 +41,31 @@ class VRMProcessingTimeComponentTest: XCTestCase {
                                    clickthrough: nil,
                                    pixels: .init(),
                                    id: nil)
-        let initial = VRMProcessingTime.inProgress(startAt: initialDate)
+        let initial = VRMProcessingTime(status: .inProgress(startAt: initialDate))
         
         let sut = reduce(state: initial, action: showVPAIDAd(creative: vpaid, id: UUID()))
-        guard case let .finished(startAt, _) = sut else { XCTFail("on showVPAIDAd sut should be .finished, actual \(sut)"); return }
+        guard case let .finished(startAt, _) = sut.status else { XCTFail("on showVPAIDAd sut should be .finished, actual \(sut)"); return }
         XCTAssertEqual(initialDate, startAt)
     }
     
     func testMaxAdSearchTime() {
-        let initial = VRMProcessingTime.inProgress(startAt: Date())
+        let initial = VRMProcessingTime(status: .inProgress(startAt: Date()))
         
         let sut = reduce(state: initial, action: VRMCore.maxSearchTimeoutReached(requestID: UUID()))
-        guard case .empty = sut else { XCTFail("on maxSearchTimeoutReached sut should be .empty, actual \(sut)"); return }
+        guard case .empty = sut.status else { XCTFail("on maxSearchTimeoutReached sut should be .empty, actual \(sut)"); return }
     }
     
     func testFailedProcessing() {
-        let initial = VRMProcessingTime.inProgress(startAt: Date())
+        let initial = VRMProcessingTime(status: .inProgress(startAt: Date()))
         
         let sut = reduce(state: initial, action: VRMCore.noGroupsToProcess(id: UUID()))
-        guard case .empty = sut else { XCTFail("on noGroupsToProcess sut should be .empty, actual \(sut)"); return }
+        guard case .empty = sut.status else { XCTFail("on noGroupsToProcess sut should be .empty, actual \(sut)"); return }
     }
     
     func testFailedToGetVRMResponse() {
-        let initial = VRMProcessingTime.inProgress(startAt: Date())
+        let initial = VRMProcessingTime(status: .inProgress(startAt: Date()))
         
         let sut = reduce(state: initial, action: VRMCore.adResponseFetchFailed(requestID: UUID()))
-        guard case .empty = sut else { XCTFail("on adResponseFetchFailed sut should be .empty, actual \(sut)"); return }
+        guard case .empty = sut.status else { XCTFail("on adResponseFetchFailed sut should be .empty, actual \(sut)"); return }
     }
 }

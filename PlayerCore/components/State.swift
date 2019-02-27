@@ -53,6 +53,7 @@ public struct State {
     public let vrmItemResponseTime: VRMItemResponseTime
     public let vrmProcessingTime: VRMProcessingTime
     public let mp4AdBufferingTime: MP4AdBufferingTime
+    public let contentBufferingTime: ContentBufferingTime
 }
 
 
@@ -141,7 +142,8 @@ extension State {
             vrmFinalResult: .initial,
             vrmItemResponseTime: .initial,
             vrmProcessingTime: .initial,
-            mp4AdBufferingTime: .initial
+            mp4AdBufferingTime: .initial,
+            contentBufferingTime: .initial
         )
     }
 }
@@ -199,6 +201,7 @@ public func reduce(state: State, action: Action) -> State {
         vrmFinalResult: reduce(state: state.vrmFinalResult, action: action),
         vrmItemResponseTime: reduce(state: state.vrmItemResponseTime, action: action),
         vrmProcessingTime: reduce(state: state.vrmProcessingTime, action: action),
-        mp4AdBufferingTime: reduce(state: state.mp4AdBufferingTime, action: action)
+        mp4AdBufferingTime: reduce(state: state.mp4AdBufferingTime, action: action),
+        contentBufferingTime: reduce(state: state.contentBufferingTime, action: action)
     )
 }
