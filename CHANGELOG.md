@@ -1,5 +1,17 @@
 # Change Log
 
+## [1.1.1](https://github.com/VerizonAdPlatforms/VerizonVideoPartnerSDK-PlayerCore-iOS/tree/1.1.1) (2019-03-07)
+[Full Changelog](https://github.com/VerizonAdPlatforms/VerizonVideoPartnerSDK-PlayerCore-iOS/compare/1.1.0...1.1.1)
+
+**Merged pull requests:**
+
+- Replaced isNewVRMCoreEnabled with isFailoverEnabled [\#56](https://github.com/VerizonAdPlatforms/VerizonVideoPartnerSDK-PlayerCore-iOS/pull/56) ([RomanTysiachnik](https://github.com/RomanTysiachnik))
+- VPAID actions refactoring [\#55](https://github.com/VerizonAdPlatforms/VerizonVideoPartnerSDK-PlayerCore-iOS/pull/55) ([RomanTysiachnik](https://github.com/RomanTysiachnik))
+- Added component for content buffering time [\#53](https://github.com/VerizonAdPlatforms/VerizonVideoPartnerSDK-PlayerCore-iOS/pull/53) ([VladyslavAnokhin](https://github.com/VladyslavAnokhin))
+- Drop old vrm core components [\#52](https://github.com/VerizonAdPlatforms/VerizonVideoPartnerSDK-PlayerCore-iOS/pull/52) ([VladyslavAnokhin](https://github.com/VladyslavAnokhin))
+- Added ad progress in wrapper vast model [\#51](https://github.com/VerizonAdPlatforms/VerizonVideoPartnerSDK-PlayerCore-iOS/pull/51) ([RomanTysiachnik](https://github.com/RomanTysiachnik))
+- Player Core 1.1.0 release [\#50](https://github.com/VerizonAdPlatforms/VerizonVideoPartnerSDK-PlayerCore-iOS/pull/50) ([RomanTysiachnik](https://github.com/RomanTysiachnik))
+
 ## [1.1.0](https://github.com/VerizonAdPlatforms/VerizonVideoPartnerSDK-PlayerCore-iOS/tree/1.1.0) (2019-02-20)
 [Full Changelog](https://github.com/VerizonAdPlatforms/VerizonVideoPartnerSDK-PlayerCore-iOS/compare/1.0.4...1.1.0)
 
