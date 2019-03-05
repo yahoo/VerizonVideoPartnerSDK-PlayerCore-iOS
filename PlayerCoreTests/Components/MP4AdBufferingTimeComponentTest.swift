@@ -33,7 +33,7 @@ class MP4AdBufferingTimeComponentTest: XCTestCase {
         
         let actions: [PlayerCore.Action] = [AdPlaybackFailed(error: NSError(domain: "", code: 1, userInfo: nil)),
                                             VRMCore.AdRequest(url: url, id: UUID(), type: .preroll),
-                                            AdStartTimeout()]
+                                            MP4AdStartTimeout()]
         actions.forEach { action in
             let sut = reduce(state: initial, action: action)
             guard case .empty = sut.status else { XCTFail("on \(action) sut should be .empty, actual \(sut)"); return }

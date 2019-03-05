@@ -36,10 +36,12 @@ class VRMFinalResultComponentTest: XCTestCase {
         XCTAssertNotNil(emptySut.failedResult)
         XCTAssertEqual(emptySut, .failed(result: result))
         
-        emptySut = reduce(state: sut, action: AdStartTimeout())
+        emptySut = reduce(state: sut, action: MP4AdStartTimeout())
         XCTAssertNil(emptySut.successResult)
         XCTAssertNotNil(emptySut.failedResult)
         XCTAssertEqual(emptySut, .failed(result: result))
+        
+        
         
         emptySut = reduce(state: sut, action: VPAIDActions.AdNotSupported())
         XCTAssertNil(emptySut.successResult)

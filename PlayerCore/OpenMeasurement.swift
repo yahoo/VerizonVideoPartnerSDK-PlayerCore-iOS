@@ -45,7 +45,7 @@ func reduce(state: OpenMeasurement, action: Action) -> OpenMeasurement {
          is SkipAd,
          is AdPlaybackFailed,
          is SelectVideoAtIdx,
-         is AdStartTimeout,
+         is MP4AdStartTimeout,
          is AdMaxShowTimeout:
         guard case .active(let adEvents, let videoEvents) = state else { return state }
         return .finished(adEvents, videoEvents)
