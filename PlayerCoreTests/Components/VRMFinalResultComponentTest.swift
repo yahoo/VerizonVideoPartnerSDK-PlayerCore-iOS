@@ -26,7 +26,7 @@ class VRMFinalResultComponentTest: XCTestCase {
                                                            inlineVAST: vastModel))
         XCTAssertEqual(sut.successResult?.inlineVAST, vastModel)
         
-        var emptySut = reduce(state: sut, action: AdError(error: CustomError()))
+        var emptySut = reduce(state: sut, action: VPAIDActions.AdError(error: CustomError()))
         XCTAssertNil(emptySut.successResult)
         XCTAssertNotNil(emptySut.failedResult)
         XCTAssertEqual(emptySut, .failed(result: result))
@@ -41,7 +41,7 @@ class VRMFinalResultComponentTest: XCTestCase {
         XCTAssertNotNil(emptySut.failedResult)
         XCTAssertEqual(emptySut, .failed(result: result))
         
-        emptySut = reduce(state: sut, action: AdNotSupported())
+        emptySut = reduce(state: sut, action: VPAIDActions.AdNotSupported())
         XCTAssertNil(emptySut.successResult)
         XCTAssertNotNil(emptySut.failedResult)
         XCTAssertEqual(emptySut, .failed(result: result))

@@ -98,7 +98,7 @@ class CurrentTimeComponentTestCase: XCTestCase {
     }
     
     func testReduceOnRemainingTimeChanged() {
-        let sut = reduce(state: initial, action: AdCurrentTimeChanged(newTime: 15 |> toCMTime))
+        let sut = reduce(state: initial, action: VPAIDActions.AdCurrentTimeChanged(newTime: 15 |> toCMTime))
         XCTAssertEqual(sut.content?.time, 5 |> toCMTime)
         XCTAssertEqual(sut.ad, 15 |> toCMTime)
     }
