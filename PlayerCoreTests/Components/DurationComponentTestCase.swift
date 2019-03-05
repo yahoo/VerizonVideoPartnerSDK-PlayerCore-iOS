@@ -30,7 +30,7 @@ class DurationComponentTestCase: XCTestCase {
         XCTAssertEqual(sut.ad, nil)
         XCTAssertEqual(sut.content, CMTime.zero)
         
-        sut = reduce(state: sut, action: AdDurationChange(duration: 30 |> toCMTime))
+        sut = reduce(state: sut, action: VPAIDActions.AdDurationChange(duration: 30 |> toCMTime))
         XCTAssertEqual(sut.ad, 30 |> toCMTime)
         XCTAssertEqual(sut.content, CMTime.zero)
         

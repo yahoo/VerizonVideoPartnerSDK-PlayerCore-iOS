@@ -19,7 +19,7 @@ class VPAIDStateComponentTestCase: XCTestCase {
     
     func testOnAdStoppedAction() {
         let state = VPAIDState(events: [.AdLoaded, .AdStarted], adClickthrough: nil)
-        var sut = reduce(state: state, action: AdStopped())
+        var sut = reduce(state: state, action: VPAIDActions.AdStopped())
         XCTAssertEqual(sut.adClickthrough, nil)
         XCTAssertEqual(sut.events, [])
         
@@ -33,87 +33,87 @@ class VPAIDStateComponentTestCase: XCTestCase {
         var state: VPAIDState {
           return VPAIDState(events: events, adClickthrough: nil)
         }
-        var sut = reduce(state: state, action: AdLoaded())
+        var sut = reduce(state: state, action: VPAIDActions.AdLoaded())
         events.append(.AdLoaded)
         XCTAssertEqual(sut.adClickthrough, nil)
         XCTAssertEqual(sut.events, events)
         
-        sut = reduce(state: state, action: AdStarted())
+        sut = reduce(state: state, action: VPAIDActions.AdStarted())
         events.append(.AdStarted)
         XCTAssertEqual(sut.adClickthrough, nil)
         XCTAssertEqual(sut.events, events)
         
-        sut = reduce(state: state, action: AdSkipped())
+        sut = reduce(state: state, action: VPAIDActions.AdSkipped())
         events.append(.AdSkipped)
         XCTAssertEqual(sut.adClickthrough, nil)
         XCTAssertEqual(sut.events, events)
         
-        sut = reduce(state: state, action: AdPaused())
+        sut = reduce(state: state, action: VPAIDActions.AdPaused())
         events.append(.AdPaused)
         XCTAssertEqual(sut.adClickthrough, nil)
         XCTAssertEqual(sut.events, events)
         
-        sut = reduce(state: state, action: AdResumed())
+        sut = reduce(state: state, action: VPAIDActions.AdResumed())
         events.append(.AdResumed)
         XCTAssertEqual(sut.adClickthrough, nil)
         XCTAssertEqual(sut.events, events)
         
-        sut = reduce(state: state, action: AdImpression())
+        sut = reduce(state: state, action: VPAIDActions.AdImpression())
         events.append(.AdImpression)
         XCTAssertEqual(sut.adClickthrough, nil)
         XCTAssertEqual(sut.events, events)
         
-        sut = reduce(state: state, action: AdVideoStart())
+        sut = reduce(state: state, action: VPAIDActions.AdVideoStart())
         events.append(.AdVideoStart)
         XCTAssertEqual(sut.adClickthrough, nil)
         XCTAssertEqual(sut.events, events)
         
-        sut = reduce(state: state, action: AdVideoFirstQuartile())
+        sut = reduce(state: state, action: VPAIDActions.AdVideoFirstQuartile())
         events.append(.AdVideoFirstQuartile)
         XCTAssertEqual(sut.adClickthrough, nil)
         XCTAssertEqual(sut.events, events)
         
-        sut = reduce(state: state, action: AdVideoMidpoint())
+        sut = reduce(state: state, action: VPAIDActions.AdVideoMidpoint())
         events.append(.AdVideoMidpoint)
         XCTAssertEqual(sut.adClickthrough, nil)
         XCTAssertEqual(sut.events, events)
         
-        sut = reduce(state: state, action: AdVideoThirdQuartile())
+        sut = reduce(state: state, action: VPAIDActions.AdVideoThirdQuartile())
         events.append(.AdVideoThirdQuartile)
         XCTAssertEqual(sut.adClickthrough, nil)
         XCTAssertEqual(sut.events, events)
         
-        sut = reduce(state: state, action: AdVideoComplete())
+        sut = reduce(state: state, action: VPAIDActions.AdVideoComplete())
         events.append(.AdVideoComplete)
         XCTAssertEqual(sut.adClickthrough, nil)
         XCTAssertEqual(sut.events, events)
         
-        sut = reduce(state: state, action: AdUserAcceptInvitation())
+        sut = reduce(state: state, action: VPAIDActions.AdUserAcceptInvitation())
         events.append(.AdUserAcceptInvitation)
         XCTAssertEqual(sut.adClickthrough, nil)
         XCTAssertEqual(sut.events, events)
         
-        sut = reduce(state: state, action: AdUserClose())
+        sut = reduce(state: state, action: VPAIDActions.AdUserClose())
         events.append(.AdUserClose)
         XCTAssertEqual(sut.adClickthrough, nil)
         XCTAssertEqual(sut.events, events)
         
-        sut = reduce(state: state, action: AdUserMinimize())
+        sut = reduce(state: state, action: VPAIDActions.AdUserMinimize())
         events.append(.AdUserMinimize)
         XCTAssertEqual(sut.adClickthrough, nil)
         XCTAssertEqual(sut.events, events)
         
-        sut = reduce(state: state, action: AdClickThru(url: testUrl.absoluteString))
+        sut = reduce(state: state, action: VPAIDActions.AdClickThru(url: testUrl.absoluteString))
         events.append(.AdClickThru(testUrl.absoluteString))
         XCTAssertEqual(sut.adClickthrough, testUrl)
         XCTAssertEqual(sut.events, events)
         
-        sut = reduce(state: state, action: AdError(error: NSError(domain: "", code: 901)))
+        sut = reduce(state: state, action: VPAIDActions.AdError(error: NSError(domain: "", code: 901)))
         events.append(.AdError(NSError(domain: "", code: 901)))
         XCTAssertEqual(sut.adClickthrough, nil)
         XCTAssertEqual(sut.events, events)
         
-        sut = reduce(state: state, action: AdStopped())
+        sut = reduce(state: state, action: VPAIDActions.AdStopped())
         events.append(.AdStopped)
         XCTAssertEqual(sut.adClickthrough, nil)
         XCTAssertEqual(sut.events, [])

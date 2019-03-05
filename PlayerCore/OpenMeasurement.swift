@@ -41,7 +41,6 @@ func reduce(state: OpenMeasurement, action: Action) -> OpenMeasurement {
         return .inactive
         
     case is DropAd,
-         is AdError,
          is ShowContent,
          is SkipAd,
          is AdPlaybackFailed,

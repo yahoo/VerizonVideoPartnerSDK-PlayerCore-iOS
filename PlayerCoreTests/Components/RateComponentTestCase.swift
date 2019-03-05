@@ -197,7 +197,7 @@ class RateComponentTestCase: XCTestCase {
         XCTAssertEqual(sut.currentKind, .ad)
         
         sut = reduce(state: sut, action: ShowMP4Ad(creative: AdCreative.mp4(with: testUrl), id: UUID()))
-        sut = reduce(state: sut, action: AdPaused())
+        sut = reduce(state: sut, action: VPAIDActions.AdPaused())
         XCTAssertEqual(sut.contentRate.player, false)
         XCTAssertEqual(sut.contentRate.stream, false)
         XCTAssertEqual(sut.adRate.player, false)
@@ -205,7 +205,7 @@ class RateComponentTestCase: XCTestCase {
         XCTAssertEqual(sut.isAttachedToViewPort, true)
         XCTAssertEqual(sut.currentKind, .ad)
         
-        sut = reduce(state: sut, action: AdResumed())
+        sut = reduce(state: sut, action: VPAIDActions.AdResumed())
         XCTAssertEqual(sut.contentRate.player, false)
         XCTAssertEqual(sut.contentRate.stream, false)
         XCTAssertEqual(sut.adRate.player, true)
@@ -223,7 +223,7 @@ class RateComponentTestCase: XCTestCase {
         XCTAssertEqual(sut.isAttachedToViewPort, true)
         XCTAssertEqual(sut.currentKind, .ad)
         
-        sut = reduce(state: sut, action: AdPaused())
+        sut = reduce(state: sut, action: VPAIDActions.AdPaused())
         sut = reduce(state: sut, action: UpdateAdStreamRate(time: Date(), rate: false))
         sut = reduce(state: sut, action: DidHideAdClickthrough(isAdVPAID: true))
         XCTAssertEqual(sut.contentRate.player, false)

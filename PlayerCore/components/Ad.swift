@@ -89,12 +89,12 @@ func reduce(state: Ad, action: Action) -> Ad {
     case is ShowContent,
          is SkipAd,
          is AdPlaybackFailed,
-         is AdError,
+         is VPAIDActions.AdError,
          is AdStartTimeout,
          is AdMaxShowTimeout,
-         is AdStopped,
-         is AdSkipped,
-         is AdNotSupported:
+         is VPAIDActions.AdStopped,
+         is VPAIDActions.AdSkipped,
+         is VPAIDActions.AdNotSupported:
         return Ad(playedAds: state.playedAds,
                   midrolls: state.midrolls,
                   mp4AdCreative: state.mp4AdCreative,

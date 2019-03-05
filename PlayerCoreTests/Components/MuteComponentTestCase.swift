@@ -22,14 +22,14 @@ class SoundComponentTestCase: XCTestCase {
     
     func testReduceOnAdVolumeChangeMute() {
         let initial = Mute(player: false, vpaid: false)
-        let sut = reduce(state: initial, action: AdVolumeChange(volume: 0.0))
+        let sut = reduce(state: initial, action: VPAIDActions.AdVolumeChange(volume: 0.0))
         XCTAssertEqual(sut.player, false)
         XCTAssertEqual(sut.vpaid, true)
     }
     
     func testReduceOnAdVolumeChangeUnmute() {
         let initial = Mute(player: true, vpaid: true)
-        let sut = reduce(state: initial, action: AdVolumeChange(volume: 1.0))
+        let sut = reduce(state: initial, action: VPAIDActions.AdVolumeChange(volume: 1.0))
         XCTAssertEqual(sut.player, true)
         XCTAssertEqual(sut.vpaid, false)
     }

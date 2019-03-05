@@ -29,7 +29,7 @@ func reduce(state: CurrentTime, action: Action) -> CurrentTime {
     case (let action as UpdateAdCurrentTime, _):
         return CurrentTime(content: state.content, ad: action.newTime)
         
-    case (let action as AdCurrentTimeChanged, _):
+    case (let action as VPAIDActions.AdCurrentTimeChanged, _):
         return CurrentTime(content: state.content, ad: action.newTime)
         
     case (is DidStartSeeking, let content?):

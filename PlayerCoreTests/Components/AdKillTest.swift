@@ -21,10 +21,10 @@ class AdKillTest: XCTestCase {
         
         let actionsToReset: [Action] = [ShowContent(),
                                         AdPlaybackFailed(error: NSErrorMock() as NSError),
-                                        AdError(error: NSErrorMock()),
-                                        AdStopped(),
-                                        AdSkipped(),
-                                        AdNotSupported()]
+                                        VPAIDActions.AdError(error: NSErrorMock()),
+                                        VPAIDActions.AdStopped(),
+                                        VPAIDActions.AdSkipped(),
+                                        VPAIDActions.AdNotSupported()]
         
         actionsToReset.forEach { action in
             let sut = reduce(state: AdKill.adStartTimeout, action: action)

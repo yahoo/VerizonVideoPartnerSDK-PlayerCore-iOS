@@ -19,7 +19,7 @@ class VPAIDErrorsReducerTest: XCTestCase {
         let testError1 = TestError(name: "error1")
         let testError2 = TestError(name: "error2")
 
-        var state = reduce(state: initialState, action: AdJavaScriptEvaluationError(error: testError1))
+        var state = reduce(state: initialState, action: VPAIDActions.AdJavaScriptEvaluationError(error: testError1))
         guard let error1 = state.javaScriptEvaluationErrors.last as? TestError else {
             XCTFail()
             return
@@ -28,7 +28,7 @@ class VPAIDErrorsReducerTest: XCTestCase {
         XCTAssertEqual(testError1.name, error1.name)
         XCTAssertTrue(state.abusedEvents.isEmpty)
         
-        state = reduce(state: state, action: AdJavaScriptEvaluationError(error: testError2))
+        state = reduce(state: state, action: VPAIDActions.AdJavaScriptEvaluationError(error: testError2))
         guard let error2 = state.javaScriptEvaluationErrors.last as? TestError else {
             XCTFail()
             return
@@ -42,7 +42,7 @@ class VPAIDErrorsReducerTest: XCTestCase {
         let abuse1 = VPAIDErrors.UniqueEventError(eventName: "eventName1", eventValue: nil)
         let abuse2 = VPAIDErrors.UniqueEventError(eventName: "eventName2", eventValue: nil)
         
-        var state = reduce(state: initialState, action: AdUniqueEventAbuse(name: abuse1.eventName, value: abuse1.eventValue))
+        var state = reduce(state: initialState, action: VPAIDActions.AdUniqueEventAbuse(name: abuse1.eventName, value: abuse1.eventValue))
         guard let error1 = state.abusedEvents.last else {
             XCTFail()
             return
@@ -51,7 +51,7 @@ class VPAIDErrorsReducerTest: XCTestCase {
         XCTAssertEqual(abuse1.eventName, error1.eventName)
         XCTAssertTrue(state.javaScriptEvaluationErrors.isEmpty)
         
-        state = reduce(state: state, action: AdUniqueEventAbuse(name: abuse2.eventName, value: abuse2.eventValue))
+        state = reduce(state: state, action: VPAIDActions.AdUniqueEventAbuse(name: abuse2.eventName, value: abuse2.eventValue))
         guard let error2 = state.abusedEvents.last else {
             XCTFail()
             return
@@ -62,7 +62,7 @@ class VPAIDErrorsReducerTest: XCTestCase {
     }
     
     func testUnsupportedVPAIDError() {
-        let state = reduce(state: initialState, action: AdNotSupported())
+        let state = reduce(state: initialState, action: VPAIDActions.AdNotSupported())
         XCTAssertTrue(state.isAdNotSupported)
     }
     
@@ -73,14 +73,14 @@ class VPAIDErrorsReducerTest: XCTestCase {
         
         let actionsWhichClearState: [Action] = [
             DropAd(id: UUID()),
-            AdStopped(),
+            VPAIDActions.AdStopped(),
             ShowContent(),
             SelectVideoAtIdx(idx: 1, id: UUID(), hasPrerollAds: true, midrolls: [])
         ]
         
         actionsWhichClearState.forEach { clearStateAction in
-            state = reduce(state: state, action: AdJavaScriptEvaluationError(error: testError))
-            state = reduce(state: state, action: AdUniqueEventAbuse(name: abuse.eventName, value: abuse.eventValue))
+            state = reduce(state: state, action: VPAIDActions.AdJavaScriptEvaluationError(error: testError))
+            state = reduce(state: state, action: VPAIDActions.AdUniqueEventAbuse(name: abuse.eventName, value: abuse.eventValue))
             
             XCTAssertFalse(state.abusedEvents.isEmpty)
             XCTAssertFalse(state.javaScriptEvaluationErrors.isEmpty)
