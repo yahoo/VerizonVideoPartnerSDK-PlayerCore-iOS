@@ -7,7 +7,7 @@ import XCTest
 class AdKillTest: XCTestCase {
     
     func testStartTimeout() {
-        let sut = reduce(state: AdKill.none, action: AdStartTimeout())
+        let sut = reduce(state: AdKill.none, action: MP4AdStartTimeout())
         XCTAssertEqual(sut, .adStartTimeout)
     }
     

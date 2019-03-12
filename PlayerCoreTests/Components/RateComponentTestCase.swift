@@ -240,5 +240,14 @@ class RateComponentTestCase: XCTestCase {
         XCTAssertEqual(sut.adRate.stream, false)
         XCTAssertEqual(sut.isAttachedToViewPort, true)
         XCTAssertEqual(sut.currentKind, .content)
+        
+        sut = reduce(state: sut, action: ShowMP4Ad(creative: AdCreative.mp4(with: testUrl), id: UUID()))
+        sut = reduce(state: sut, action: VRMCore.NoGroupsToProcess(id: UUID()))
+        XCTAssertEqual(sut.contentRate.player, true)
+        XCTAssertEqual(sut.contentRate.stream, false)
+        XCTAssertEqual(sut.adRate.player, false)
+        XCTAssertEqual(sut.adRate.stream, false)
+        XCTAssertEqual(sut.isAttachedToViewPort, true)
+        XCTAssertEqual(sut.currentKind, .content)
     }
 }

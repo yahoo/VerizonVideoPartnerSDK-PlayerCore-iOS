@@ -15,10 +15,7 @@ class AdComponentTestCase: XCTestCase {
                          currentAd: .empty,
                          currentType: .preroll)
         
-        var sut = reduce(state: initial, action: dropAd(id: id))
-        XCTAssertEqual(sut.playedAds.count, 1)
-        
-        sut = reduce(state: initial, action: VRMCore.adResponseFetchFailed(requestID: id))
+        var sut = reduce(state: initial, action: VRMCore.adResponseFetchFailed(requestID: id))
         XCTAssertEqual(sut.playedAds.count, 1)
         
         sut = reduce(state: initial, action: VRMCore.noGroupsToProcess(id: id))
@@ -80,6 +77,20 @@ class AdComponentTestCase: XCTestCase {
         let sut = reduce(state: initial, action: SelectVideoAtIdx(idx: 0, id: .init(), hasPrerollAds: true, midrolls: []))
         XCTAssertEqual(sut.currentAd, .empty)
         XCTAssertNil(sut.mp4AdCreative)
+    }
+    
+    func testVpaidAdStartTimeout() {
+        let vpaidAdCreative = AdCreative.vpaid(with: testUrl)
+        let initial = Ad(playedAds: [],
+                         midrolls: [],
+                         mp4AdCreative: AdCreative.mp4(with: testUrl),
+                         vpaidAdCreative: nil,
+                         currentAd: .play,
+                         currentType: .midroll)
+        var sut = reduce(state: initial, action: ShowVPAIDAd(creative: vpaidAdCreative, id: UUID()))
+        sut = reduce(state: sut, action: VPAIDAdStartTimeout())
+        XCTAssertEqual(sut.currentAd, .play)
+        XCTAssertNil(sut.vpaidAdCreative)
     }
     
     func testReduceDefaultCase() {
