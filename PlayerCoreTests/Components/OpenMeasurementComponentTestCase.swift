@@ -34,7 +34,7 @@ class OpenMeasurementComponentTestCase: XCTestCase {
     func testDefaultBehavior() {
         sut = reduce(state: sut, action: VRMCore.SelectFinalResult(item: VRMMockGenerator.createUrlItem(),
                                                                    inlineVAST: mp4InlineVast))
-        XCTAssertEqual(sut, .loading(adVerifications))
+        XCTAssertEqual(sut, .readyForLoad(adVerifications))
         
         sut = reduce(state: sut, action: OpenMeasurementActivated(adEvents: .empty, videoEvents: .empty))
         XCTAssertTrue(sut.isActive)
@@ -67,8 +67,7 @@ class OpenMeasurementComponentTestCase: XCTestCase {
         sut = reduce(state: sut, action: OpenMeasurementConfigurationFailed(error: Failed()))
         XCTAssertTrue(sut.isActive)
         
-        sut = reduce(state: sut, action: VRMCore.SelectFinalResult(item: VRMMockGenerator.createUrlItem(),
-                                                                   inlineVAST: mp4InlineVast))
+        sut = reduce(state: sut, action: ShowMP4Ad(creative: AdCreative.mp4(with: testUrl), id: UUID()))
         sut = reduce(state: sut, action: OpenMeasurementConfigurationFailed(error: Failed()))
         XCTAssertTrue(sut.isFailed)
     }
