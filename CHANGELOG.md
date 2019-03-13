@@ -1,5 +1,14 @@
 # Change Log
 
+## [1.1.2](https://github.com/VerizonAdPlatforms/VerizonVideoPartnerSDK-PlayerCore-iOS/tree/1.1.2) (2019-03-13)
+[Full Changelog](https://github.com/VerizonAdPlatforms/VerizonVideoPartnerSDK-PlayerCore-iOS/compare/1.1.1...1.1.2)
+
+**Merged pull requests:**
+
+- Add one more case for OM Component [\#58](https://github.com/VerizonAdPlatforms/VerizonVideoPartnerSDK-PlayerCore-iOS/pull/58) ([VladyslavAnokhin](https://github.com/VladyslavAnokhin))
+- VPAID actions refactoring and updates for failover [\#57](https://github.com/VerizonAdPlatforms/VerizonVideoPartnerSDK-PlayerCore-iOS/pull/57) ([RomanTysiachnik](https://github.com/RomanTysiachnik))
+- Bump podspec version to 1.1.1 [\#54](https://github.com/VerizonAdPlatforms/VerizonVideoPartnerSDK-PlayerCore-iOS/pull/54) ([VladyslavAnokhin](https://github.com/VladyslavAnokhin))
+
 ## [1.1.1](https://github.com/VerizonAdPlatforms/VerizonVideoPartnerSDK-PlayerCore-iOS/tree/1.1.1) (2019-03-07)
 [Full Changelog](https://github.com/VerizonAdPlatforms/VerizonVideoPartnerSDK-PlayerCore-iOS/compare/1.1.0...1.1.1)
 
