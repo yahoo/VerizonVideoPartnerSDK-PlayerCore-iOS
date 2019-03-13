@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'PlayerCore'
-  s.version          = '1.1.1'
+  s.version          = '1.1.2'
   s.summary          = 'PlayerCore contains important player logic which is used by Verizon Video Partner SDK.'
   s.license          = { type: 'MIT', file: 'LICENSE' }
   s.swift_version    = '4.2'
