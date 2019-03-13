@@ -106,7 +106,6 @@ func reduce(state: Ad, action: Action) -> Ad {
          is AdPlaybackFailed,
          is MP4AdStartTimeout,
          is AdMaxShowTimeout,
-         is VRMCore.NoGroupsToProcess,
          is VRMCore.MaxSearchTimeout,
          is VPAIDActions.AdStopped,
          is VPAIDActions.AdSkipped:
