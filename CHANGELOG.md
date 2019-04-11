@@ -1,5 +1,15 @@
 # Change Log
 
+## [1.1.3](https://github.com/VerizonAdPlatforms/VerizonVideoPartnerSDK-PlayerCore-iOS/tree/1.1.3) (2019-04-08)
+[Full Changelog](https://github.com/VerizonAdPlatforms/VerizonVideoPartnerSDK-PlayerCore-iOS/compare/1.1.2...1.1.3)
+
+**Merged pull requests:**
+
+- Added updates for Xcode 10.2 to remove warnings [\#62](https://github.com/VerizonAdPlatforms/VerizonVideoPartnerSDK-PlayerCore-iOS/pull/62) ([RomanTysiachnik](https://github.com/RomanTysiachnik))
+- Switched to manual code signing [\#61](https://github.com/VerizonAdPlatforms/VerizonVideoPartnerSDK-PlayerCore-iOS/pull/61) ([AndriiMoskvin](https://github.com/AndriiMoskvin))
+- Bump pod spec to 1.1.2 [\#60](https://github.com/VerizonAdPlatforms/VerizonVideoPartnerSDK-PlayerCore-iOS/pull/60) ([VladyslavAnokhin](https://github.com/VladyslavAnokhin))
+- Removed extra action from ad component [\#59](https://github.com/VerizonAdPlatforms/VerizonVideoPartnerSDK-PlayerCore-iOS/pull/59) ([RomanTysiachnik](https://github.com/RomanTysiachnik))
+
 ## [1.1.2](https://github.com/VerizonAdPlatforms/VerizonVideoPartnerSDK-PlayerCore-iOS/tree/1.1.2) (2019-03-13)
 [Full Changelog](https://github.com/VerizonAdPlatforms/VerizonVideoPartnerSDK-PlayerCore-iOS/compare/1.1.1...1.1.2)
 
