@@ -16,8 +16,3 @@ if build_type.eql? "pull_request"
 	branch_name = ENV['TRAVIS_PULL_REQUEST_BRANCH']
 	fail 'Please, attach JIRA ticket link to the branch name' unless branch_name[/OMSDK-[0-9]{3,}\/.{3,}/]
 end
-
-xcov.report(
-   scheme: 'PlayerCore',
-   project: 'PlayerCore.xcodeproj'
-)
