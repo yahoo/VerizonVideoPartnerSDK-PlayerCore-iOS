@@ -18,7 +18,9 @@ matrix:
         - bundle exec fastlane test
         - bundle exec danger || true
         - bundle exec fastlane lint_current_podspec
-
+      after_success:
+        - bash <(curl -s https://codecov.io/bash)
+    
 notifications:
   email: false
   slack:  
