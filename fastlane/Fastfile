@@ -1,5 +1,9 @@
 actions_path '../VerizonVideoPartnerSDK-build-scripts-ios/cocoapods'
 
+before_all do |lane, options|
+  xcversion(version: '~> 11.6')
+end
+
 default_platform(:ios)
 
 platform :ios do
