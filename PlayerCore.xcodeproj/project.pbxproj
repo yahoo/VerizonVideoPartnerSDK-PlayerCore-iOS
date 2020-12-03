@@ -1486,6 +1486,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
+					"$(FRAMEWORK_SEARCH_PATHS)",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.Oath.VideoPartnerSDK.PlayerCore;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
@@ -1514,6 +1515,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
+					"$(FRAMEWORK_SEARCH_PATHS)",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.Oath.VideoPartnerSDK.PlayerCore;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
@@ -1535,6 +1537,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
+					"$(FRAMEWORK_SEARCH_PATHS)",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.Oath.VideoPartnerSDK.PlayerCoreTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1557,6 +1560,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
+					"$(FRAMEWORK_SEARCH_PATHS)",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.Oath.VideoPartnerSDK.PlayerCoreTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
